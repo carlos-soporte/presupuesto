@@ -37,12 +37,13 @@
             // btnCrearProyecto
             // 
             this.btnCrearProyecto.Location = new System.Drawing.Point(199, 69);
-            this.btnCrearProyecto.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCrearProyecto.Margin = new System.Windows.Forms.Padding(5);
             this.btnCrearProyecto.Name = "btnCrearProyecto";
             this.btnCrearProyecto.Size = new System.Drawing.Size(343, 57);
             this.btnCrearProyecto.TabIndex = 0;
             this.btnCrearProyecto.Text = "CREAR PROYECTO";
             this.btnCrearProyecto.UseVisualStyleBackColor = true;
+            this.btnCrearProyecto.Click += new System.EventHandler(this.btnCrearProyecto_Click);
             // 
             // label1
             // 
@@ -56,12 +57,13 @@
             // btnListarProyectos
             // 
             this.btnListarProyectos.Location = new System.Drawing.Point(199, 167);
-            this.btnListarProyectos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnListarProyectos.Margin = new System.Windows.Forms.Padding(5);
             this.btnListarProyectos.Name = "btnListarProyectos";
             this.btnListarProyectos.Size = new System.Drawing.Size(343, 57);
             this.btnListarProyectos.TabIndex = 2;
             this.btnListarProyectos.Text = "LISTAR PROYECTOS";
             this.btnListarProyectos.UseVisualStyleBackColor = true;
+            this.btnListarProyectos.Click += new System.EventHandler(this.btnListarProyectos_Click);
             // 
             // FrmMenu
             // 
@@ -73,7 +75,7 @@
             this.Controls.Add(this.btnCrearProyecto);
             this.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.Name = "FrmMenu";
             this.Text = "FrmMenu";

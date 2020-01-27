@@ -16,5 +16,17 @@ namespace Presupuesto_G
         {
             InitializeComponent();
         }
+
+        private void btnCrearProyecto_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new FrmCrearProyecto().Show();
+        }
+
+        private void btnListarProyectos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new FrmListarProyectocs().Show();
+        }
     }
 }
