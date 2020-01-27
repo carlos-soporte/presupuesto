@@ -78,6 +78,9 @@
     <EmbeddedResource Include="FrmCrearProyecto.resx">
       <DependentUpon>FrmCrearProyecto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListarProyectocs.resx">
+      <DependentUpon>FrmListarProyectocs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
