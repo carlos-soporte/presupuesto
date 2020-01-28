@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Presupuesto_G
 {
-    public partial class FrmListarProyectocs : Form
+    public partial class FrmAlimentacion : Form
     {
-        public FrmListarProyectocs()
+        public FrmAlimentacion()
         {
             InitializeComponent();
         }

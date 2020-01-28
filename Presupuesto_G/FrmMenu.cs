@@ -26,7 +26,7 @@ namespace Presupuesto_G
         private void btnListarProyectos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FrmListarProyectocs().Show();
+            new FrmListarProyectos().Show();
         }
     }
 }

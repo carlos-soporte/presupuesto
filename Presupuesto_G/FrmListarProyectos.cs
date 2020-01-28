@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Presupuesto_G
 {
-    public partial class FrmCrearProyecto : Form
+    public partial class FrmListarProyectos : Form
     {
-        public FrmCrearProyecto()
+        public FrmListarProyectos()
         {
             InitializeComponent();
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
