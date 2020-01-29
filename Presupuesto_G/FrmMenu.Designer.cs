@@ -36,7 +36,7 @@
             // 
             // btnCrearProyecto
             // 
-            this.btnCrearProyecto.Location = new System.Drawing.Point(199, 69);
+            this.btnCrearProyecto.Location = new System.Drawing.Point(199, 132);
             this.btnCrearProyecto.Margin = new System.Windows.Forms.Padding(5);
             this.btnCrearProyecto.Name = "btnCrearProyecto";
             this.btnCrearProyecto.Size = new System.Drawing.Size(343, 57);
@@ -51,12 +51,12 @@
             this.label1.Location = new System.Drawing.Point(257, 167);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 29);
+            this.label1.Size = new System.Drawing.Size(0, 22);
             this.label1.TabIndex = 1;
             // 
             // btnListarProyectos
             // 
-            this.btnListarProyectos.Location = new System.Drawing.Point(199, 167);
+            this.btnListarProyectos.Location = new System.Drawing.Point(199, 207);
             this.btnListarProyectos.Margin = new System.Windows.Forms.Padding(5);
             this.btnListarProyectos.Name = "btnListarProyectos";
             this.btnListarProyectos.Size = new System.Drawing.Size(343, 57);
@@ -67,7 +67,7 @@
             // 
             // FrmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 346);
             this.Controls.Add(this.btnListarProyectos);

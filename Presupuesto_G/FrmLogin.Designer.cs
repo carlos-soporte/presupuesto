@@ -58,7 +58,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(222, 81);
+            this.pictureBox1.Location = new System.Drawing.Point(222, 94);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 81);
             this.pictureBox1.TabIndex = 2;
@@ -96,7 +96,7 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,7 +108,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnUsuario);
             this.Controls.Add(this.btnEntrar);
-            this.Name = "Form1";
+            this.Name = "FrmLogin";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
