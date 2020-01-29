@@ -40,12 +40,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(101, 162);
+            this.txtNombre.Location = new System.Drawing.Point(100, 208);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(276, 29);
             this.txtNombre.TabIndex = 0;
@@ -53,7 +56,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 165);
+            this.label1.Location = new System.Drawing.Point(45, 211);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 22);
             this.label1.TabIndex = 1;
@@ -62,7 +65,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(383, 165);
+            this.label2.Location = new System.Drawing.Point(382, 211);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 22);
             this.label2.TabIndex = 2;
@@ -70,7 +73,7 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(482, 162);
+            this.txtCantidad.Location = new System.Drawing.Point(481, 208);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(80, 29);
             this.txtCantidad.TabIndex = 3;
@@ -78,7 +81,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(590, 165);
+            this.label3.Location = new System.Drawing.Point(589, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 22);
             this.label3.TabIndex = 4;
@@ -86,16 +89,16 @@
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(654, 162);
+            this.txtValor.Location = new System.Drawing.Point(653, 208);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(164, 29);
             this.txtValor.TabIndex = 5;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(833, 153);
+            this.btnGuardar.Location = new System.Drawing.Point(832, 208);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(126, 44);
+            this.btnGuardar.Size = new System.Drawing.Size(126, 29);
             this.btnGuardar.TabIndex = 11;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -103,7 +106,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 239);
+            this.dataGridView1.Location = new System.Drawing.Point(27, 285);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(790, 333);
             this.dataGridView1.TabIndex = 12;
@@ -121,7 +124,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(833, 240);
+            this.button1.Location = new System.Drawing.Point(832, 286);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 44);
             this.button1.TabIndex = 14;
@@ -130,18 +133,46 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(833, 290);
+            this.button2.Location = new System.Drawing.Point(832, 336);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(126, 44);
             this.button2.TabIndex = 15;
             this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(45, 131);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(228, 22);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Presupuesto Destinado";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(286, 128);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(172, 29);
+            this.textBox1.TabIndex = 17;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(481, 128);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(126, 29);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "Cambiar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // FrmAlimentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 596);
+            this.ClientSize = new System.Drawing.Size(978, 642);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
@@ -179,5 +210,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
     }
 }
