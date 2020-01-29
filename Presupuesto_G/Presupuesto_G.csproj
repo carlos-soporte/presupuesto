@@ -70,6 +70,12 @@
     <Compile Include="FrmListarProyectos.Designer.cs">
       <DependentUpon>FrmListarProyectos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMateriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMateriales.Designer.cs">
+      <DependentUpon>FrmMateriales.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListarProyectos.resx">
       <DependentUpon>FrmListarProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMateriales.resx">
+      <DependentUpon>FrmMateriales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
