@@ -40,9 +40,10 @@
             // 
             // btnEntrar
             // 
-            this.btnEntrar.Location = new System.Drawing.Point(132, 280);
+            this.btnEntrar.Location = new System.Drawing.Point(164, 289);
+            this.btnEntrar.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(75, 23);
+            this.btnEntrar.Size = new System.Drawing.Size(150, 39);
             this.btnEntrar.TabIndex = 0;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
@@ -50,57 +51,65 @@
             // btnUsuario
             // 
             this.btnUsuario.AutoSize = true;
-            this.btnUsuario.Location = new System.Drawing.Point(173, 204);
+            this.btnUsuario.Location = new System.Drawing.Point(64, 204);
+            this.btnUsuario.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(43, 13);
+            this.btnUsuario.Size = new System.Drawing.Size(82, 22);
             this.btnUsuario.TabIndex = 1;
             this.btnUsuario.Text = "Usuario";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(222, 94);
+            this.pictureBox1.Image = global::Presupuesto_G.Properties.Resources.Logo_png_04;
+            this.pictureBox1.Location = new System.Drawing.Point(114, 36);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 81);
+            this.pictureBox1.Size = new System.Drawing.Size(200, 137);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(222, 197);
+            this.textBox1.Location = new System.Drawing.Point(158, 201);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(178, 29);
             this.textBox1.TabIndex = 3;
             // 
             // btnContraseña
             // 
             this.btnContraseña.AutoSize = true;
-            this.btnContraseña.Location = new System.Drawing.Point(155, 233);
+            this.btnContraseña.Location = new System.Drawing.Point(38, 253);
+            this.btnContraseña.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.btnContraseña.Name = "btnContraseña";
-            this.btnContraseña.Size = new System.Drawing.Size(61, 13);
+            this.btnContraseña.Size = new System.Drawing.Size(118, 22);
             this.btnContraseña.TabIndex = 4;
             this.btnContraseña.Text = "Contraseña";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(222, 230);
+            this.textBox2.Location = new System.Drawing.Point(158, 250);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(178, 29);
             this.textBox2.TabIndex = 5;
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(277, 280);
+            this.btnLimpiar.Location = new System.Drawing.Point(164, 338);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.Size = new System.Drawing.Size(150, 39);
             this.btnLimpiar.TabIndex = 6;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 336);
+            this.ClientSize = new System.Drawing.Size(445, 431);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.btnContraseña);
@@ -108,7 +117,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnUsuario);
             this.Controls.Add(this.btnEntrar);
+            this.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -32,11 +32,13 @@
             this.btnCrearProyecto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnListarProyectos = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCrearProyecto
             // 
-            this.btnCrearProyecto.Location = new System.Drawing.Point(199, 132);
+            this.btnCrearProyecto.Location = new System.Drawing.Point(102, 175);
             this.btnCrearProyecto.Margin = new System.Windows.Forms.Padding(5);
             this.btnCrearProyecto.Name = "btnCrearProyecto";
             this.btnCrearProyecto.Size = new System.Drawing.Size(343, 57);
@@ -56,7 +58,7 @@
             // 
             // btnListarProyectos
             // 
-            this.btnListarProyectos.Location = new System.Drawing.Point(199, 207);
+            this.btnListarProyectos.Location = new System.Drawing.Point(102, 242);
             this.btnListarProyectos.Margin = new System.Windows.Forms.Padding(5);
             this.btnListarProyectos.Name = "btnListarProyectos";
             this.btnListarProyectos.Size = new System.Drawing.Size(343, 57);
@@ -65,11 +67,22 @@
             this.btnListarProyectos.UseVisualStyleBackColor = true;
             this.btnListarProyectos.Click += new System.EventHandler(this.btnListarProyectos_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Presupuesto_G.Properties.Resources.Logo_png_04;
+            this.pictureBox1.Location = new System.Drawing.Point(178, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(190, 129);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 346);
+            this.ClientSize = new System.Drawing.Size(545, 346);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnListarProyectos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCrearProyecto);
@@ -79,6 +92,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmMenu";
             this.Text = "FrmMenu";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,5 +103,6 @@
         private System.Windows.Forms.Button btnCrearProyecto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnListarProyectos;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
