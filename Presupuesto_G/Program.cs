@@ -16,7 +16,7 @@ namespace Presupuesto_G
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmListarProyectos());
+            Application.Run(new FrmRecursoHumano());
         }
     }
 }
