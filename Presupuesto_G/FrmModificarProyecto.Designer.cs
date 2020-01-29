@@ -1,6 +1,6 @@
 ﻿namespace Presupuesto_G
 {
-    partial class FrmModificarProyectocs
+    partial class FrmModificarProyecto
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmModificarProyectocs));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmModificarProyecto));
             this.tb2 = new System.Windows.Forms.TabControl();
             this.tbPresupuestoAsignado = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnOtros = new System.Windows.Forms.Button();
+            this.btnMateriales = new System.Windows.Forms.Button();
+            this.btnRecursoHumano = new System.Windows.Forms.Button();
+            this.btnAlimentacion = new System.Windows.Forms.Button();
             this.tbPresupuestoCotizado = new System.Windows.Forms.TabPage();
-            this.Informe = new System.Windows.Forms.TabPage();
-            this.Otros = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -51,6 +48,9 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.Informe = new System.Windows.Forms.TabPage();
+            this.Otros = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
             this.tb2.SuspendLayout();
             this.tbPresupuestoAsignado.SuspendLayout();
             this.tbPresupuestoCotizado.SuspendLayout();
@@ -75,10 +75,10 @@
             this.tbPresupuestoAsignado.Controls.Add(this.label3);
             this.tbPresupuestoAsignado.Controls.Add(this.label2);
             this.tbPresupuestoAsignado.Controls.Add(this.label1);
-            this.tbPresupuestoAsignado.Controls.Add(this.button4);
-            this.tbPresupuestoAsignado.Controls.Add(this.button3);
-            this.tbPresupuestoAsignado.Controls.Add(this.button2);
-            this.tbPresupuestoAsignado.Controls.Add(this.button1);
+            this.tbPresupuestoAsignado.Controls.Add(this.btnOtros);
+            this.tbPresupuestoAsignado.Controls.Add(this.btnMateriales);
+            this.tbPresupuestoAsignado.Controls.Add(this.btnRecursoHumano);
+            this.tbPresupuestoAsignado.Controls.Add(this.btnAlimentacion);
             this.tbPresupuestoAsignado.Location = new System.Drawing.Point(4, 30);
             this.tbPresupuestoAsignado.Margin = new System.Windows.Forms.Padding(5);
             this.tbPresupuestoAsignado.Name = "tbPresupuestoAsignado";
@@ -132,41 +132,45 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Alimentacion";
             // 
-            // button4
+            // btnOtros
             // 
-            this.button4.Location = new System.Drawing.Point(672, 91);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(171, 214);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "imagen de otros";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnOtros.Location = new System.Drawing.Point(672, 91);
+            this.btnOtros.Name = "btnOtros";
+            this.btnOtros.Size = new System.Drawing.Size(171, 214);
+            this.btnOtros.TabIndex = 6;
+            this.btnOtros.Text = "imagen de otros";
+            this.btnOtros.UseVisualStyleBackColor = true;
+            this.btnOtros.Click += new System.EventHandler(this.btnOtros_Click);
             // 
-            // button3
+            // btnMateriales
             // 
-            this.button3.Location = new System.Drawing.Point(463, 91);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(171, 214);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "imagen de materiales";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnMateriales.Location = new System.Drawing.Point(463, 91);
+            this.btnMateriales.Name = "btnMateriales";
+            this.btnMateriales.Size = new System.Drawing.Size(171, 214);
+            this.btnMateriales.TabIndex = 5;
+            this.btnMateriales.Text = "imagen de materiales";
+            this.btnMateriales.UseVisualStyleBackColor = true;
+            this.btnMateriales.Click += new System.EventHandler(this.btnMateriales_Click);
             // 
-            // button2
+            // btnRecursoHumano
             // 
-            this.button2.Location = new System.Drawing.Point(254, 91);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(171, 214);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "imagen de gente buena";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRecursoHumano.Location = new System.Drawing.Point(254, 91);
+            this.btnRecursoHumano.Name = "btnRecursoHumano";
+            this.btnRecursoHumano.Size = new System.Drawing.Size(171, 214);
+            this.btnRecursoHumano.TabIndex = 4;
+            this.btnRecursoHumano.Text = "imagen de gente buena";
+            this.btnRecursoHumano.UseVisualStyleBackColor = true;
+            this.btnRecursoHumano.Click += new System.EventHandler(this.btnRecursoHumano_Click);
             // 
-            // button1
+            // btnAlimentacion
             // 
-            this.button1.Location = new System.Drawing.Point(48, 91);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 214);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "imagen de alimentos";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAlimentacion.Location = new System.Drawing.Point(48, 91);
+            this.btnAlimentacion.Name = "btnAlimentacion";
+            this.btnAlimentacion.Size = new System.Drawing.Size(171, 214);
+            this.btnAlimentacion.TabIndex = 3;
+            this.btnAlimentacion.Text = "imagen de alimentos";
+            this.btnAlimentacion.UseVisualStyleBackColor = true;
+            this.btnAlimentacion.Click += new System.EventHandler(this.btnAlimentacion_Click);
             // 
             // tbPresupuestoCotizado
             // 
@@ -186,37 +190,6 @@
             this.tbPresupuestoCotizado.TabIndex = 0;
             this.tbPresupuestoCotizado.Text = "Presupuesto Cotizado";
             this.tbPresupuestoCotizado.UseVisualStyleBackColor = true;
-            // 
-            // Informe
-            // 
-            this.Informe.Location = new System.Drawing.Point(4, 30);
-            this.Informe.Margin = new System.Windows.Forms.Padding(5);
-            this.Informe.Name = "Informe";
-            this.Informe.Size = new System.Drawing.Size(904, 362);
-            this.Informe.TabIndex = 2;
-            this.Informe.Text = "Informe";
-            this.Informe.UseVisualStyleBackColor = true;
-            // 
-            // Otros
-            // 
-            this.Otros.Location = new System.Drawing.Point(4, 30);
-            this.Otros.Margin = new System.Windows.Forms.Padding(5);
-            this.Otros.Name = "Otros";
-            this.Otros.Size = new System.Drawing.Size(904, 362);
-            this.Otros.TabIndex = 3;
-            this.Otros.Text = "Otros";
-            this.Otros.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(317, 44);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(298, 22);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "MODIFICACIÒN DE PROYECTO";
             // 
             // label6
             // 
@@ -298,7 +271,38 @@
             this.button8.Text = "imagen de alimentos";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // FrmModificarProyectocs
+            // Informe
+            // 
+            this.Informe.Location = new System.Drawing.Point(4, 30);
+            this.Informe.Margin = new System.Windows.Forms.Padding(5);
+            this.Informe.Name = "Informe";
+            this.Informe.Size = new System.Drawing.Size(901, 362);
+            this.Informe.TabIndex = 2;
+            this.Informe.Text = "Informe";
+            this.Informe.UseVisualStyleBackColor = true;
+            // 
+            // Otros
+            // 
+            this.Otros.Location = new System.Drawing.Point(4, 30);
+            this.Otros.Margin = new System.Windows.Forms.Padding(5);
+            this.Otros.Name = "Otros";
+            this.Otros.Size = new System.Drawing.Size(901, 362);
+            this.Otros.TabIndex = 3;
+            this.Otros.Text = "Otros";
+            this.Otros.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(317, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(298, 22);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "MODIFICACIÒN DE PROYECTO";
+            // 
+            // FrmModificarProyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -309,7 +313,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
-            this.Name = "FrmModificarProyectocs";
+            this.Name = "FrmModificarProyecto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmModificarProyectocs";
             this.Load += new System.EventHandler(this.FrmModificarProyectocs_Load);
             this.tb2.ResumeLayout(false);
@@ -333,10 +338,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnOtros;
+        private System.Windows.Forms.Button btnMateriales;
+        private System.Windows.Forms.Button btnRecursoHumano;
+        private System.Windows.Forms.Button btnAlimentacion;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
