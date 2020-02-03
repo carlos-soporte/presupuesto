@@ -21,8 +21,9 @@ GO
 CREATE TABLE proyectos
 (numero_proceso VARCHAR(15) NOT NULL,
 nombre VARCHAR(30) NOT NULL,
-presupuesto INT NOT NULL,
-descripcion VARCHAR(50))
+presupuesto FLOAT NOT NULL,
+descripcion VARCHAR(50),
+fecha_creacion datetime NOT NULL)
 GO
 
 --ASIGNAMOS LA CLAVE PRIMARIA PARA EVITAR DUPLICIDAD DE PROYECTOS Y PARA CREAR LAS RELACIONES CORRESPONDIENTES.
@@ -83,3 +84,59 @@ GO
 --CREAMOS LA RELACION ENTRE PROYECTOS Y OTROS
 ALTER TABLE otros
 ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso)
+GO
+
+
+
+--CREAMOS LOS STORED PROCEDURE PARA GUARDAR LA INFORMACIÒN EN LA BASE DE DATOS--
+
+--procedimiento para validar usuario
+CREATE PROCEDURE validar_usuario
+@usuario VARCHAR(25),
+@contraseña VARCHAR(15)
+AS
+SELECT usuario,contraseña FROM usuarios WHERE usuario=@usuario AND contraseña=@contraseña
+GO
+
+--procedimiento almacenado para crear proyecto 
+CREATE PROCEDURE crear_proyecto
+@numero_proceso VARCHAR(15),
+@nombre VARCHAR(30),
+@presupuesto FLOAT,
+@descripcion VARCHAR(50)
+AS
+INSERT INTO proyectos(numero_proceso,nombre,presupuesto,descripcion,fecha_creacion) VALUES (@numero_proceso,@nombre,@presupuesto,@descripcion,SYSDATETIME())
+GO
+
+--procedimiento almacenado para agregar items de alimentaciòn.
+CREATE PROCEDURE agregar_alimento
+@item VARCHAR(25),
+@cantidad INT,
+@valor FLOAT,
+@numero_proceso VARCHAR(15)
+AS
+INSERT INTO alimentacion(item,cantidad,valor,numero_proceso) VALUES (@item,@cantidad,@valor,@numero_proceso)
+
+--Procedimiento almacenado para listar proyectos por nombre.
+CREATE PROCEDURE listar_nombre
+@filtrar_nombre VARCHAR(30)
+AS
+SELECT numero_proceso,nombre,presupuesto,descripcion,fecha_creacion FROM proyectos WHERE nombre like '%'+@filtrar_nombre+'%'
+
+--procedimiento almacenado para mostrar proyectos
+CREATE PROCEDURE listar_proceso
+@filtrar_proceso VARCHAR(15)
+AS
+SELECT numero_proceso,nombre,presupuesto,descripcion,fecha_creacion FROM proyectos WHERE numero_proceso like '%'+@filtrar_proceso+'%'
+
+--procedimiento almacenado para listar presupuesto.
+CREATE PROCEDURE listar_presupuesto
+AS
+SELECT numero_proceso,nombre,presupuesto,descripcion,fecha_creacion FROM proyectos
+--procedimiento almacenado para agregar items de recursos humanos
+
+select * from proyectos
+insert into recursos_humanos(item,cantidad,valor,cant_meses,numero_proceso) VALUES ('Geronimo',12,12500,5,'jk45')
+
+
+select * from proyectos
