@@ -22,5 +22,11 @@ namespace Presupuesto_G
             this.Hide();
             new FrmModificarProyecto().Show();
         }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new FrmMenu().Show();
+        }
     }
 }
