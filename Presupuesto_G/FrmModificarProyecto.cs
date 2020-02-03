@@ -41,5 +41,11 @@ namespace Presupuesto_G
         {
             new FrmOtros().Show();
         }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new FrmMenu().Show();
+        }
     }
 }

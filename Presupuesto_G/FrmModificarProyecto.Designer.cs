@@ -51,6 +51,7 @@
             this.Informe = new System.Windows.Forms.TabPage();
             this.Otros = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.tb2.SuspendLayout();
             this.tbPresupuestoAsignado.SuspendLayout();
             this.tbPresupuestoCotizado.SuspendLayout();
@@ -79,11 +80,11 @@
             this.tbPresupuestoAsignado.Controls.Add(this.btnMateriales);
             this.tbPresupuestoAsignado.Controls.Add(this.btnRecursoHumano);
             this.tbPresupuestoAsignado.Controls.Add(this.btnAlimentacion);
-            this.tbPresupuestoAsignado.Location = new System.Drawing.Point(4, 30);
+            this.tbPresupuestoAsignado.Location = new System.Drawing.Point(4, 36);
             this.tbPresupuestoAsignado.Margin = new System.Windows.Forms.Padding(5);
             this.tbPresupuestoAsignado.Name = "tbPresupuestoAsignado";
             this.tbPresupuestoAsignado.Padding = new System.Windows.Forms.Padding(5);
-            this.tbPresupuestoAsignado.Size = new System.Drawing.Size(901, 362);
+            this.tbPresupuestoAsignado.Size = new System.Drawing.Size(901, 356);
             this.tbPresupuestoAsignado.TabIndex = 1;
             this.tbPresupuestoAsignado.Text = "Presupuesto Asignado";
             this.tbPresupuestoAsignado.UseVisualStyleBackColor = true;
@@ -95,7 +96,7 @@
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(725, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 22);
+            this.label4.Size = new System.Drawing.Size(76, 29);
             this.label4.TabIndex = 10;
             this.label4.Text = "Otros";
             // 
@@ -106,7 +107,7 @@
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(498, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 22);
+            this.label3.Size = new System.Drawing.Size(130, 29);
             this.label3.TabIndex = 9;
             this.label3.Text = "Materiales";
             // 
@@ -117,7 +118,7 @@
             this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(255, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 22);
+            this.label2.Size = new System.Drawing.Size(211, 29);
             this.label2.TabIndex = 8;
             this.label2.Text = "Recurso Humano";
             // 
@@ -128,7 +129,7 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(68, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 22);
+            this.label1.Size = new System.Drawing.Size(164, 29);
             this.label1.TabIndex = 7;
             this.label1.Text = "Alimentacion";
             // 
@@ -182,11 +183,11 @@
             this.tbPresupuestoCotizado.Controls.Add(this.button6);
             this.tbPresupuestoCotizado.Controls.Add(this.button7);
             this.tbPresupuestoCotizado.Controls.Add(this.button8);
-            this.tbPresupuestoCotizado.Location = new System.Drawing.Point(4, 30);
+            this.tbPresupuestoCotizado.Location = new System.Drawing.Point(4, 36);
             this.tbPresupuestoCotizado.Margin = new System.Windows.Forms.Padding(5);
             this.tbPresupuestoCotizado.Name = "tbPresupuestoCotizado";
             this.tbPresupuestoCotizado.Padding = new System.Windows.Forms.Padding(5);
-            this.tbPresupuestoCotizado.Size = new System.Drawing.Size(901, 362);
+            this.tbPresupuestoCotizado.Size = new System.Drawing.Size(901, 356);
             this.tbPresupuestoCotizado.TabIndex = 0;
             this.tbPresupuestoCotizado.Text = "Presupuesto Cotizado";
             this.tbPresupuestoCotizado.UseVisualStyleBackColor = true;
@@ -198,7 +199,7 @@
             this.label6.ForeColor = System.Drawing.Color.Red;
             this.label6.Location = new System.Drawing.Point(724, 56);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 22);
+            this.label6.Size = new System.Drawing.Size(76, 29);
             this.label6.TabIndex = 18;
             this.label6.Text = "Otros";
             // 
@@ -209,7 +210,7 @@
             this.label7.ForeColor = System.Drawing.Color.Red;
             this.label7.Location = new System.Drawing.Point(497, 56);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 22);
+            this.label7.Size = new System.Drawing.Size(130, 29);
             this.label7.TabIndex = 17;
             this.label7.Text = "Materiales";
             // 
@@ -220,7 +221,7 @@
             this.label8.ForeColor = System.Drawing.Color.Red;
             this.label8.Location = new System.Drawing.Point(254, 56);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(170, 22);
+            this.label8.Size = new System.Drawing.Size(211, 29);
             this.label8.TabIndex = 16;
             this.label8.Text = "Recurso Humano";
             // 
@@ -231,7 +232,7 @@
             this.label9.ForeColor = System.Drawing.Color.Red;
             this.label9.Location = new System.Drawing.Point(67, 56);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 22);
+            this.label9.Size = new System.Drawing.Size(164, 29);
             this.label9.TabIndex = 15;
             this.label9.Text = "Alimentacion";
             // 
@@ -273,20 +274,20 @@
             // 
             // Informe
             // 
-            this.Informe.Location = new System.Drawing.Point(4, 30);
+            this.Informe.Location = new System.Drawing.Point(4, 36);
             this.Informe.Margin = new System.Windows.Forms.Padding(5);
             this.Informe.Name = "Informe";
-            this.Informe.Size = new System.Drawing.Size(901, 362);
+            this.Informe.Size = new System.Drawing.Size(901, 356);
             this.Informe.TabIndex = 2;
             this.Informe.Text = "Informe";
             this.Informe.UseVisualStyleBackColor = true;
             // 
             // Otros
             // 
-            this.Otros.Location = new System.Drawing.Point(4, 30);
+            this.Otros.Location = new System.Drawing.Point(4, 36);
             this.Otros.Margin = new System.Windows.Forms.Padding(5);
             this.Otros.Name = "Otros";
-            this.Otros.Size = new System.Drawing.Size(901, 362);
+            this.Otros.Size = new System.Drawing.Size(901, 356);
             this.Otros.TabIndex = 3;
             this.Otros.Text = "Otros";
             this.Otros.UseVisualStyleBackColor = true;
@@ -295,18 +296,29 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label5.Location = new System.Drawing.Point(317, 44);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(298, 22);
+            this.label5.Size = new System.Drawing.Size(370, 29);
             this.label5.TabIndex = 11;
             this.label5.Text = "MODIFICACIÒN DE PROYECTO";
             // 
+            // btnMenu
+            // 
+            this.btnMenu.Location = new System.Drawing.Point(12, 12);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(88, 35);
+            this.btnMenu.TabIndex = 12;
+            this.btnMenu.Text = "Menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
             // FrmModificarProyecto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 555);
+            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tb2);
             this.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -351,5 +363,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnMenu;
     }
 }

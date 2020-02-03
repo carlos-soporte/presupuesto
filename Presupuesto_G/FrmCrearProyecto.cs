@@ -19,6 +19,39 @@ namespace Presupuesto_G
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (txtNombreProyecto.Text.Trim() == "" )
+            {
+                MessageBox.Show("Faltan campos por llenar");
+                return;
+            }
+            else if(txtPresupuestoProyecto.Text.Trim() == "")
+            {
+                MessageBox.Show("Faltan campos por llenar");
+                return;
+            }else if(txtDescripcion.Text.Trim() == "")
+            {
+                MessageBox.Show("Faltan campos por llenar");
+                return;
+            }else if(txtNumeroProceso.Text.Trim() == "")
+            {
+                MessageBox.Show("Faltan campos por llenar");
+                return;
+            }
+
+            try
+            {
+                string query = "exec crear_proyecto '" + txtNumeroProceso.Text.Trim() + "','" + txtNombreProyecto.Text.Trim() + "'," + txtPresupuestoProyecto.Text.Trim() + ",'" + txtDescripcion.Text.Trim() + "'";
+                bd.consultar(query);
+                MessageBox.Show("proyecto creado correctamente");
+               
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("no hay conexion con el servidor");
+                
+               
+            }
+
             this.Hide();
             new FrmModificarProyecto().Show();
         }
@@ -27,6 +60,14 @@ namespace Presupuesto_G
         {
             this.Hide();
             new FrmMenu().Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtDescripcion.Text = "";
+            txtNombreProyecto.Text = "";
+            txtNumeroProceso.Text = "";
+            txtPresupuestoProyecto.Text = "";
         }
     }
 }

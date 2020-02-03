@@ -33,13 +33,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombreProyecto = new System.Windows.Forms.TextBox();
-            this.NumeroProceso = new System.Windows.Forms.TextBox();
+            this.txtNumeroProceso = new System.Windows.Forms.TextBox();
             this.txtPresupuestoProyecto = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnMenu = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -73,26 +74,26 @@
             // 
             this.txtNombreProyecto.Location = new System.Drawing.Point(306, 103);
             this.txtNombreProyecto.Name = "txtNombreProyecto";
-            this.txtNombreProyecto.Size = new System.Drawing.Size(402, 34);
+            this.txtNombreProyecto.Size = new System.Drawing.Size(259, 34);
             this.txtNombreProyecto.TabIndex = 3;
             // 
-            // NumeroProceso
+            // txtNumeroProceso
             // 
-            this.NumeroProceso.Location = new System.Drawing.Point(306, 192);
-            this.NumeroProceso.Name = "NumeroProceso";
-            this.NumeroProceso.Size = new System.Drawing.Size(402, 34);
-            this.NumeroProceso.TabIndex = 4;
+            this.txtNumeroProceso.Location = new System.Drawing.Point(306, 192);
+            this.txtNumeroProceso.Name = "txtNumeroProceso";
+            this.txtNumeroProceso.Size = new System.Drawing.Size(259, 34);
+            this.txtNumeroProceso.TabIndex = 4;
             // 
             // txtPresupuestoProyecto
             // 
             this.txtPresupuestoProyecto.Location = new System.Drawing.Point(306, 146);
             this.txtPresupuestoProyecto.Name = "txtPresupuestoProyecto";
-            this.txtPresupuestoProyecto.Size = new System.Drawing.Size(402, 34);
+            this.txtPresupuestoProyecto.Size = new System.Drawing.Size(259, 34);
             this.txtPresupuestoProyecto.TabIndex = 5;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(306, 304);
+            this.btnGuardar.Location = new System.Drawing.Point(89, 512);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(135, 36);
             this.btnGuardar.TabIndex = 6;
@@ -104,12 +105,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label4.Location = new System.Drawing.Point(262, 29);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(323, 29);
+            this.label4.Size = new System.Drawing.Size(318, 29);
             this.label4.TabIndex = 14;
-            this.label4.Text = "INICIACIÒN DE PROYECTO";
+            this.label4.Text = "CREACION DE PROYECTO";
             // 
             // label5
             // 
@@ -120,16 +121,17 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Descripciòn";
             // 
-            // textBox1
+            // txtDescripcion
             // 
-            this.textBox1.Location = new System.Drawing.Point(306, 241);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(402, 34);
-            this.textBox1.TabIndex = 16;
+            this.txtDescripcion.Location = new System.Drawing.Point(306, 241);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(259, 186);
+            this.txtDescripcion.TabIndex = 16;
             // 
             // btnMenu
             // 
-            this.btnMenu.Location = new System.Drawing.Point(447, 304);
+            this.btnMenu.Location = new System.Drawing.Point(230, 512);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(135, 36);
             this.btnMenu.TabIndex = 17;
@@ -137,18 +139,30 @@
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(371, 512);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 36);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Limpiar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmCrearProyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 383);
+            this.BackColor = System.Drawing.Color.Azure;
+            this.ClientSize = new System.Drawing.Size(764, 560);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnMenu);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtPresupuestoProyecto);
-            this.Controls.Add(this.NumeroProceso);
+            this.Controls.Add(this.txtNumeroProceso);
             this.Controls.Add(this.txtNombreProyecto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -159,7 +173,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmCrearProyecto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Guardar";
+            this.Text = "Creacion de Proyectos";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,12 +185,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombreProyecto;
-        private System.Windows.Forms.TextBox NumeroProceso;
+        private System.Windows.Forms.TextBox txtNumeroProceso;
         private System.Windows.Forms.TextBox txtPresupuestoProyecto;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button button1;
     }
 }
