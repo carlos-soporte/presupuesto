@@ -90,6 +90,7 @@
             this.txtPresupuestoProyecto.Name = "txtPresupuestoProyecto";
             this.txtPresupuestoProyecto.Size = new System.Drawing.Size(259, 34);
             this.txtPresupuestoProyecto.TabIndex = 5;
+            this.txtPresupuestoProyecto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPresupuestoProyecto_KeyPress);
             // 
             // btnGuardar
             // 

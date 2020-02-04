@@ -24,6 +24,7 @@ namespace Presupuesto_G
 
         private void btnAlimentacion_Click(object sender, EventArgs e)
         {
+            this.Hide();
             new FrmAlimentacion().Show();
         }
 

@@ -37,6 +37,10 @@
             this.txtFiltrar = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnMenu = new System.Windows.Forms.Button();
+            this.btnRefrescar = new System.Windows.Forms.Button();
+            this.btnVer = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +57,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(449, 175);
+            this.btnBuscar.Location = new System.Drawing.Point(308, 175);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(112, 35);
             this.btnBuscar.TabIndex = 16;
@@ -65,7 +69,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(148, 127);
+            this.label1.Location = new System.Drawing.Point(60, 127);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 29);
             this.label1.TabIndex = 18;
@@ -74,7 +78,7 @@
             // rdbNombreProyecto
             // 
             this.rdbNombreProyecto.AutoSize = true;
-            this.rdbNombreProyecto.Location = new System.Drawing.Point(304, 127);
+            this.rdbNombreProyecto.Location = new System.Drawing.Point(218, 123);
             this.rdbNombreProyecto.Name = "rdbNombreProyecto";
             this.rdbNombreProyecto.Size = new System.Drawing.Size(268, 33);
             this.rdbNombreProyecto.TabIndex = 19;
@@ -85,7 +89,7 @@
             // rdbNumeroProceso
             // 
             this.rdbNumeroProceso.AutoSize = true;
-            this.rdbNumeroProceso.Location = new System.Drawing.Point(578, 127);
+            this.rdbNumeroProceso.Location = new System.Drawing.Point(502, 123);
             this.rdbNumeroProceso.Name = "rdbNumeroProceso";
             this.rdbNumeroProceso.Size = new System.Drawing.Size(260, 33);
             this.rdbNumeroProceso.TabIndex = 20;
@@ -95,7 +99,7 @@
             // 
             // txtFiltrar
             // 
-            this.txtFiltrar.Location = new System.Drawing.Point(191, 175);
+            this.txtFiltrar.Location = new System.Drawing.Point(65, 175);
             this.txtFiltrar.Name = "txtFiltrar";
             this.txtFiltrar.Size = new System.Drawing.Size(237, 35);
             this.txtFiltrar.TabIndex = 21;
@@ -116,6 +120,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1116, 426);
             this.dataGridView1.TabIndex = 22;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // btnMenu
             // 
@@ -127,12 +132,56 @@
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.Location = new System.Drawing.Point(426, 175);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(154, 35);
+            this.btnRefrescar.TabIndex = 24;
+            this.btnRefrescar.Text = "Refrescar";
+            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
+            // btnVer
+            // 
+            this.btnVer.Location = new System.Drawing.Point(678, 175);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(72, 35);
+            this.btnVer.TabIndex = 25;
+            this.btnVer.Text = "Ver";
+            this.btnVer.UseVisualStyleBackColor = true;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(756, 175);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(146, 35);
+            this.btnModificar.TabIndex = 26;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(908, 175);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(118, 35);
+            this.btnEliminar.TabIndex = 27;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // FrmListarProyectos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1140, 686);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnVer);
+            this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtFiltrar);
@@ -165,5 +214,9 @@
         private System.Windows.Forms.TextBox txtFiltrar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnRefrescar;
+        private System.Windows.Forms.Button btnVer;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
