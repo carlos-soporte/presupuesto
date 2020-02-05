@@ -56,7 +56,7 @@
             this.btnUsuario.Location = new System.Drawing.Point(64, 204);
             this.btnUsuario.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(102, 29);
+            this.btnUsuario.Size = new System.Drawing.Size(82, 22);
             this.btnUsuario.TabIndex = 1;
             this.btnUsuario.Text = "Usuario";
             // 
@@ -75,8 +75,9 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(158, 201);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtUsuario.MaxLength = 25;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(178, 35);
+            this.txtUsuario.Size = new System.Drawing.Size(178, 29);
             this.txtUsuario.TabIndex = 3;
             // 
             // btnContraseña
@@ -85,7 +86,7 @@
             this.btnContraseña.Location = new System.Drawing.Point(38, 253);
             this.btnContraseña.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.btnContraseña.Name = "btnContraseña";
-            this.btnContraseña.Size = new System.Drawing.Size(144, 29);
+            this.btnContraseña.Size = new System.Drawing.Size(118, 22);
             this.btnContraseña.TabIndex = 4;
             this.btnContraseña.Text = "Contraseña";
             // 
@@ -93,8 +94,9 @@
             // 
             this.txtContraseña.Location = new System.Drawing.Point(158, 250);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtContraseña.MaxLength = 15;
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(178, 35);
+            this.txtContraseña.Size = new System.Drawing.Size(178, 29);
             this.txtContraseña.TabIndex = 5;
             // 
             // btnLimpiar
@@ -110,7 +112,7 @@
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(445, 431);
             this.Controls.Add(this.btnLimpiar);
