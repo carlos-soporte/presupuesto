@@ -1,3 +1,5 @@
+DROP DATABASE Presupuesto
+
 --CREAMOS LA BASE DE DATOS
 CREATE DATABASE Presupuesto;
 GO
@@ -19,10 +21,10 @@ GO
 
 --CREAMOS UNA TABLA QUE CONTENDRÀ LA INFORMACIÒN BÀSICA DE CADA PROYECTO.
 CREATE TABLE proyectos
-(numero_proceso VARCHAR(15) NOT NULL,
+(numero_proceso VARCHAR(25) NOT NULL,
 nombre VARCHAR(30) NOT NULL,
 presupuesto FLOAT NOT NULL,
-descripcion VARCHAR(50),
+descripcion VARCHAR(150),
 fecha_creacion datetime NOT NULL)
 GO
 
@@ -36,7 +38,7 @@ CREATE TABLE alimentacion
 (item VARCHAR(25) NOT NULL,
 cantidad INT NOT NULL,
 valor FLOAT NOT NULL,
-numero_proceso VARCHAR(15) NOT NULL)
+numero_proceso VARCHAR(25) NOT NULL)
 GO
 
 --CREAMOS UNA TABLA QUE CONTENDRÀ TODO LO RELACIONADO CON RECURSOS HUMANOS.
@@ -45,7 +47,7 @@ CREATE TABLE recursos_humanos
 cantidad INT NOT NULL,
 valor FLOAT NOT NULL,
 cant_meses INT NOT NULL,
-numero_proceso VARCHAR(15) NOT NULL)
+numero_proceso VARCHAR(25) NOT NULL)
 GO
 
 --CREAMOS UNA TABLA PARA LOS MATERIALES
@@ -53,7 +55,7 @@ CREATE TABLE materiales
 (item VARCHAR(35) NOT NULL,
 cantidad INT NOT NULL,
 valor FLOAT NOT NULL,
-numero_proceso VARCHAR(15) NOT NULL)
+numero_proceso VARCHAR(25) NOT NULL)
 GO
 
 --CREAMOS UNA TABLA QUE CONTENDRÀ LA CATEGORÌA DE OTROS.
@@ -61,7 +63,7 @@ CREATE TABLE otros
 (item VARCHAR(35) NOT NULL,
 cantidad INT NOT NULL,
 valor FLOAT NOT NULL,
-numero_proceso VARCHAR(15) NOT NULL)
+numero_proceso VARCHAR(25) NOT NULL)
 GO
 
 -------------CREAMOS LAS RELACIONES ENTRE TABLAS CORRESPONDIENTES----------------------------------------------
@@ -100,10 +102,10 @@ GO
 
 --procedimiento almacenado para crear proyecto 
 CREATE PROCEDURE crear_proyecto
-@numero_proceso VARCHAR(15),
+@numero_proceso VARCHAR(25),
 @nombre VARCHAR(30),
 @presupuesto FLOAT,
-@descripcion VARCHAR(50)
+@descripcion VARCHAR(150)
 AS
 INSERT INTO proyectos(numero_proceso,nombre,presupuesto,descripcion,fecha_creacion) VALUES (@numero_proceso,@nombre,@presupuesto,@descripcion,SYSDATETIME())
 GO
@@ -113,26 +115,30 @@ CREATE PROCEDURE agregar_alimento
 @item VARCHAR(25),
 @cantidad INT,
 @valor FLOAT,
-@numero_proceso VARCHAR(15)
+@numero_proceso VARCHAR(25)
 AS
 INSERT INTO alimentacion(item,cantidad,valor,numero_proceso) VALUES (@item,@cantidad,@valor,@numero_proceso)
+GO
 
 --Procedimiento almacenado para listar proyectos por nombre.
 CREATE PROCEDURE listar_nombre
 @filtrar_nombre VARCHAR(30)
 AS
 SELECT numero_proceso,nombre,presupuesto,descripcion,fecha_creacion FROM proyectos WHERE nombre like '%'+@filtrar_nombre+'%'
+GO
 
 --procedimiento almacenado para mostrar proyectos
 CREATE PROCEDURE listar_proceso
-@filtrar_proceso VARCHAR(15)
+@filtrar_proceso VARCHAR(25)
 AS
 SELECT numero_proceso,nombre,presupuesto,descripcion,fecha_creacion FROM proyectos WHERE numero_proceso like '%'+@filtrar_proceso+'%'
+GO
 
 --procedimiento almacenado para listar presupuesto.
 CREATE PROCEDURE listar_presupuesto
 AS
 SELECT numero_proceso,nombre,presupuesto,descripcion,fecha_creacion FROM proyectos
+GO
 --procedimiento almacenado para agregar items de recursos humanos
 
 select * from proyectos

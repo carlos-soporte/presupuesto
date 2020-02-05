@@ -89,6 +89,7 @@
             // txtPresupuestoProyecto
             // 
             this.txtPresupuestoProyecto.Location = new System.Drawing.Point(306, 146);
+            this.txtPresupuestoProyecto.MaxLength = 12;
             this.txtPresupuestoProyecto.Name = "txtPresupuestoProyecto";
             this.txtPresupuestoProyecto.Size = new System.Drawing.Size(259, 29);
             this.txtPresupuestoProyecto.TabIndex = 5;
@@ -127,7 +128,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(306, 241);
-            this.txtDescripcion.MaxLength = 60;
+            this.txtDescripcion.MaxLength = 150;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(259, 186);
