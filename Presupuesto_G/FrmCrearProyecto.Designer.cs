@@ -48,7 +48,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(100, 106);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(247, 29);
+            this.label1.Size = new System.Drawing.Size(200, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre de Proyecto";
             // 
@@ -57,7 +57,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(49, 149);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(309, 29);
+            this.label2.Size = new System.Drawing.Size(251, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "Presupuesto del Proyecto";
             // 
@@ -66,35 +66,37 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(106, 195);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(239, 29);
+            this.label3.Size = new System.Drawing.Size(194, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "Numero de Proceso";
             // 
             // txtNombreProyecto
             // 
             this.txtNombreProyecto.Location = new System.Drawing.Point(306, 103);
+            this.txtNombreProyecto.MaxLength = 30;
             this.txtNombreProyecto.Name = "txtNombreProyecto";
-            this.txtNombreProyecto.Size = new System.Drawing.Size(259, 34);
+            this.txtNombreProyecto.Size = new System.Drawing.Size(259, 29);
             this.txtNombreProyecto.TabIndex = 3;
             // 
             // txtNumeroProceso
             // 
             this.txtNumeroProceso.Location = new System.Drawing.Point(306, 192);
+            this.txtNumeroProceso.MaxLength = 25;
             this.txtNumeroProceso.Name = "txtNumeroProceso";
-            this.txtNumeroProceso.Size = new System.Drawing.Size(259, 34);
+            this.txtNumeroProceso.Size = new System.Drawing.Size(259, 29);
             this.txtNumeroProceso.TabIndex = 4;
             // 
             // txtPresupuestoProyecto
             // 
             this.txtPresupuestoProyecto.Location = new System.Drawing.Point(306, 146);
             this.txtPresupuestoProyecto.Name = "txtPresupuestoProyecto";
-            this.txtPresupuestoProyecto.Size = new System.Drawing.Size(259, 34);
+            this.txtPresupuestoProyecto.Size = new System.Drawing.Size(259, 29);
             this.txtPresupuestoProyecto.TabIndex = 5;
             this.txtPresupuestoProyecto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPresupuestoProyecto_KeyPress);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(89, 512);
+            this.btnGuardar.Location = new System.Drawing.Point(243, 457);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(135, 36);
             this.btnGuardar.TabIndex = 6;
@@ -109,7 +111,7 @@
             this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label4.Location = new System.Drawing.Point(262, 29);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(318, 29);
+            this.label4.Size = new System.Drawing.Size(256, 22);
             this.label4.TabIndex = 14;
             this.label4.Text = "CREACION DE PROYECTO";
             // 
@@ -118,13 +120,14 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(178, 244);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 29);
+            this.label5.Size = new System.Drawing.Size(122, 22);
             this.label5.TabIndex = 15;
             this.label5.Text = "Descripciòn";
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(306, 241);
+            this.txtDescripcion.MaxLength = 60;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(259, 186);
@@ -132,7 +135,7 @@
             // 
             // btnMenu
             // 
-            this.btnMenu.Location = new System.Drawing.Point(230, 512);
+            this.btnMenu.Location = new System.Drawing.Point(0, 1);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(135, 36);
             this.btnMenu.TabIndex = 17;
@@ -142,7 +145,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(371, 512);
+            this.button1.Location = new System.Drawing.Point(469, 457);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 36);
             this.button1.TabIndex = 18;
@@ -152,7 +155,7 @@
             // 
             // FrmCrearProyecto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(764, 560);
