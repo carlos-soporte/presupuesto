@@ -115,7 +115,7 @@ namespace Presupuesto_G
             catch (Exception)
             {
 
-                throw;
+                
             }
         }
 

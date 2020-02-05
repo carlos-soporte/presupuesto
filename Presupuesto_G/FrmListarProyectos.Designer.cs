@@ -51,7 +51,7 @@
             this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label4.Location = new System.Drawing.Point(369, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(226, 29);
+            this.label4.Size = new System.Drawing.Size(183, 22);
             this.label4.TabIndex = 15;
             this.label4.Text = "Lista de Proyectos";
             // 
@@ -71,7 +71,7 @@
             this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label1.Location = new System.Drawing.Point(60, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 29);
+            this.label1.Size = new System.Drawing.Size(109, 22);
             this.label1.TabIndex = 18;
             this.label1.Text = "Filtrar por:";
             // 
@@ -80,7 +80,7 @@
             this.rdbNombreProyecto.AutoSize = true;
             this.rdbNombreProyecto.Location = new System.Drawing.Point(218, 123);
             this.rdbNombreProyecto.Name = "rdbNombreProyecto";
-            this.rdbNombreProyecto.Size = new System.Drawing.Size(268, 33);
+            this.rdbNombreProyecto.Size = new System.Drawing.Size(218, 26);
             this.rdbNombreProyecto.TabIndex = 19;
             this.rdbNombreProyecto.TabStop = true;
             this.rdbNombreProyecto.Text = "Nombre de Proyecto";
@@ -91,7 +91,7 @@
             this.rdbNumeroProceso.AutoSize = true;
             this.rdbNumeroProceso.Location = new System.Drawing.Point(502, 123);
             this.rdbNumeroProceso.Name = "rdbNumeroProceso";
-            this.rdbNumeroProceso.Size = new System.Drawing.Size(260, 33);
+            this.rdbNumeroProceso.Size = new System.Drawing.Size(212, 26);
             this.rdbNumeroProceso.TabIndex = 20;
             this.rdbNumeroProceso.TabStop = true;
             this.rdbNumeroProceso.Text = "Nùmero de Proceso";
@@ -101,7 +101,7 @@
             // 
             this.txtFiltrar.Location = new System.Drawing.Point(65, 175);
             this.txtFiltrar.Name = "txtFiltrar";
-            this.txtFiltrar.Size = new System.Drawing.Size(237, 35);
+            this.txtFiltrar.Size = new System.Drawing.Size(237, 29);
             this.txtFiltrar.TabIndex = 21;
             // 
             // dataGridView1
@@ -116,6 +116,7 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1116, 426);
@@ -174,7 +175,7 @@
             // 
             // FrmListarProyectos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1140, 686);

@@ -70,22 +70,22 @@ GO
 
 --RELACION ENTRE PROYECTOS Y ALIMENTOS
 ALTER TABLE alimentacion
-ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso)
+ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso) ON DELETE CASCADE
 GO
 
 --CREAMOS RELACION ENTRE PROYECTOS Y RECURSO HUMANO
 ALTER TABLE recursos_humanos
-ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso)
+ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso) ON DELETE CASCADE
 GO
 
 --CREAMOS RELACION ENTRE PROYECTOS Y MATERIALES
 ALTER TABLE materiales
-ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso)
+ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso) ON DELETE CASCADE
 GO
 
 --CREAMOS LA RELACION ENTRE PROYECTOS Y OTROS
 ALTER TABLE otros
-ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso)
+ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso) ON DELETE CASCADE
 GO
 
 
@@ -139,10 +139,5 @@ CREATE PROCEDURE listar_presupuesto
 AS
 SELECT numero_proceso,nombre,presupuesto,descripcion,fecha_creacion FROM proyectos
 GO
---procedimiento almacenado para agregar items de recursos humanos
-
-select * from proyectos
-insert into recursos_humanos(item,cantidad,valor,cant_meses,numero_proceso) VALUES ('Geronimo',12,12500,5,'jk45')
 
 
-select * from proyectos
