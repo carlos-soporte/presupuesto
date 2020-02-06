@@ -12,41 +12,37 @@ namespace Presupuesto_G
 {
     public partial class FrmModificarProyecto : Form
     {
-        public FrmModificarProyecto()
+        string numero_proceso2;
+        string nombre_proyecto2;
+        int presupuesto_proyecto2;
+        string descripcion2;
+        public FrmModificarProyecto(string numero_proceso,string nombre_proyecto,int presupuesto_proyecto,string descripcion)
         {
             InitializeComponent();
         }
 
-        private void FrmModificarProyectocs_Load(object sender, EventArgs e)
+        
+
+        private void txtPresupuestoProyecto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+            Application.Exit();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             
-        }
-
-        private void btnAlimentacion_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FrmAlimentacion().Show();
-        }
-
-        private void btnRecursoHumano_Click(object sender, EventArgs e)
-        {
-            new FrmRecursoHumano().Show();
-        }
-
-        private void btnMateriales_Click(object sender, EventArgs e)
-        {
-            new FrmMateriales().Show();
-        }
-
-        private void btnOtros_Click(object sender, EventArgs e)
-        {
-            new FrmOtros().Show();
-        }
-
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FrmMenu().Show();
         }
     }
 }

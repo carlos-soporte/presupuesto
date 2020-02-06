@@ -83,17 +83,17 @@
     <Compile Include="FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmModificarGv.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmModificarGv.Designer.cs">
-      <DependentUpon>FrmModificarGv.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmModificarProyecto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmModificarProyecto.Designer.cs">
       <DependentUpon>FrmModificarProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificarItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificarItems.Designer.cs">
+      <DependentUpon>FrmModificarItems.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmOtros.cs">
       <SubType>Form</SubType>
@@ -127,11 +127,11 @@
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmModificarGv.resx">
-      <DependentUpon>FrmModificarGv.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmModificarProyecto.resx">
       <DependentUpon>FrmModificarProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarItems.resx">
+      <DependentUpon>FrmModificarItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOtros.resx">
       <DependentUpon>FrmOtros.cs</DependentUpon>

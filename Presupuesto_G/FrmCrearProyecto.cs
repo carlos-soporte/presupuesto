@@ -38,9 +38,10 @@ namespace Presupuesto_G
                 return;
             }
 
+            string query = "exec crear_proyecto '" + txtNumeroProceso.Text.Trim() + "','" + txtNombreProyecto.Text.Trim() + "'," + txtPresupuestoProyecto.Text.Trim() + ",'" + txtDescripcion.Text.Trim() + "'";
             try
             {
-                string query = "exec crear_proyecto '" + txtNumeroProceso.Text.Trim() + "','" + txtNombreProyecto.Text.Trim() + "'," + txtPresupuestoProyecto.Text.Trim() + ",'" + txtDescripcion.Text.Trim() + "'";
+               
                 bd.consultar(query);
                 MessageBox.Show("proyecto creado correctamente");
                
@@ -53,7 +54,7 @@ namespace Presupuesto_G
             }
 
             this.Hide();
-            new FrmModificarProyecto().Show();
+            new FrmModificarItems().Show();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
