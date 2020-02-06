@@ -37,7 +37,10 @@ GO
 CREATE TABLE alimentacion
 (item VARCHAR(25) NOT NULL,
 cantidad INT NOT NULL,
-valor FLOAT NOT NULL,
+valor_oficial FLOAT,
+valor_ofertado FLOAT,
+C_Entregada INT,
+C_Restante INT,
 numero_proceso VARCHAR(25) NOT NULL)
 GO
 
@@ -110,15 +113,7 @@ AS
 INSERT INTO proyectos(numero_proceso,nombre,presupuesto,descripcion,fecha_creacion) VALUES (@numero_proceso,@nombre,@presupuesto,@descripcion,SYSDATETIME())
 GO
 
---procedimiento almacenado para agregar items de alimentaciòn.
-CREATE PROCEDURE agregar_alimento
-@item VARCHAR(25),
-@cantidad INT,
-@valor FLOAT,
-@numero_proceso VARCHAR(25)
-AS
-INSERT INTO alimentacion(item,cantidad,valor,numero_proceso) VALUES (@item,@cantidad,@valor,@numero_proceso)
-GO
+
 
 --Procedimiento almacenado para listar proyectos por nombre.
 CREATE PROCEDURE listar_nombre
@@ -140,4 +135,50 @@ AS
 SELECT numero_proceso,nombre,presupuesto,descripcion,fecha_creacion FROM proyectos
 GO
 
+--procedimiento almacenado para eliminar proyectos
+CREATE PROCEDURE eliminar_proyectos
+@numero_proceso VARCHAR(25)
+AS
+DELETE FROM proyectos WHERE numero_proceso=@numero_proceso
+GO
 
+--procedimiento almacenado para modificar proyecto
+CREATE PROCEDURE modificar_proyectos
+@numero_proceso VARCHAR(25),
+@nombre VARCHAR(30),
+@presupuesto FLOAT,
+@descripcion VARCHAR(150)
+AS
+UPDATE proyectos SET nombre=@nombre,presupuesto=@presupuesto,descripcion=@descripcion WHERE numero_proceso=@numero_proceso
+GO
+
+--procedimiento almacenado para agregar items de alimentaciòn.
+CREATE PROCEDURE agregar_alimento
+@item VARCHAR(25),
+@cantidad INT,
+@valor_oficial FLOAT,
+@valor_ofertado FLOAT,
+@C_Entregada INT,
+@C_Restante INT,
+@numero_proceso VARCHAR(25)
+AS
+INSERT INTO alimentacion(item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,numero_proceso) VALUES (@item,@cantidad,@valor_oficial,@valor_ofertado,@C_Entregada,@C_Restante,@numero_proceso)
+GO
+
+exec agregar_alimento 'manzana',12,1222,1222,12,12,'123456789'
+--Procedimiento almacenado para mostrar alimentos
+CREATE PROCEDURE listar_alimentos
+@numero_proceso VARCHAR(25)
+AS
+SELECT item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,numero_proceso FROM alimentacion WHERE numero_proceso=@numero_proceso
+--procedimiento almacenado 
+insert into usuarios VALUES('carlos','1234')
+
+
+
+select * from proyectos
+
+exec listar_alimentos '123456789'
+
+
+exec modificar_proyectos '123456789','cambio',12000,'hola estoy bien.'

@@ -63,14 +63,14 @@ namespace Presupuesto_G
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string query = " exec agregar_alimento '" + txtItem.Text + "'," + txtCantidad.Text + ",'" + txtV_oficial.Text + "'," +
-                           txtV_ofertado.Text + "','" + txtC_entrega.Text + "','" + txtC_restante.Text + "','" + numero_proceso2 + "'";
-
+            string query = " exec agregar_alimento '" + txtItem.Text + "'," + txtCantidad.Text + "," + txtV_oficial.Text + "," +
+                           txtV_ofertado.Text + "," + txtC_entrega.Text + "," + txtC_restante.Text + ",'" + numero_proceso2 + "'";
+            bd.consultar(query);
+            MessageBox.Show("items guardados con exito");
+            dataGridView1.DataSource = llenarGv();
             try
             {
-                bd.consultar(query);
-                MessageBox.Show("items guardados con exito");
-                dataGridView1.DataSource = llenarGv();
+                
             }
             catch (Exception)
             {
