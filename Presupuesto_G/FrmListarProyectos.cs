@@ -13,9 +13,9 @@ namespace Presupuesto_G
     public partial class FrmListarProyectos : Form
     {
         public string numero_proceso;
-        string descripcion;
-        string nombre_proyecto;
-        int presupuesto_proyecto;
+        public string descripcion;
+        public string nombre_proyecto;
+        public int presupuesto_proyecto;
         public FrmListarProyectos()
         {
             InitializeComponent();
@@ -127,14 +127,19 @@ namespace Presupuesto_G
         {
             try
             {
-                numero_proceso =(string)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-               
+                numero_proceso = (string)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+                nombre_proyecto = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                presupuesto_proyecto = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
+                descripcion = (string)dataGridView1.Rows[e.RowIndex].Cells[3].Value;
+
             }
             catch (Exception)
             {
                 MessageBox.Show("error alcapturar dato");
                
             }
+            
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

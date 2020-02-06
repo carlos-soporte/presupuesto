@@ -12,12 +12,16 @@ namespace Presupuesto_G
 {
     public partial class FrmModificarProyecto : Form
     {
-        string numero_proceso2;
-        string nombre_proyecto2;
-        int presupuesto_proyecto2;
+        public string numero_proceso2;
+        public string nombre_proyecto2;
+        public int presupuesto_proyecto2;
         string descripcion2;
         public FrmModificarProyecto(string numero_proceso,string nombre_proyecto,int presupuesto_proyecto,string descripcion)
         {
+            numero_proceso2 = numero_proceso;
+            nombre_proyecto2 = nombre_proyecto;
+            presupuesto_proyecto2 = presupuesto_proyecto;
+            descripcion2 = descripcion;
             InitializeComponent();
         }
 
@@ -42,7 +46,22 @@ namespace Presupuesto_G
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
+            string query="exec modificar_proyectos '"+numero_proceso2+"','"+txtNombreProyecto+"','"+txtPresupuestoProyecto+",'"+txtDescripcion+"';
+
+        }
+
+        private void FrmModificarProyecto_Load(object sender, EventArgs e)
+        {
+            txtNombreProyecto.Text = nombre_proyecto2;
+            txtPresupuestoProyecto.Text =presupuesto_proyecto2.ToString();
+            txtDescripcion.Text = descripcion2;
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtDescripcion.Text = "";
+            txtPresupuestoProyecto.Text = "";
+            txtNombreProyecto.Text = "";
         }
     }
 }
