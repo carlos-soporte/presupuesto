@@ -12,8 +12,10 @@ namespace Presupuesto_G
 {
     public partial class FrmModificarItems : Form
     {
-        public FrmModificarItems()
+        string numero_proceso2;
+        public FrmModificarItems(string numero_proceso)
         {
+            numero_proceso2 = numero_proceso;
             InitializeComponent();
         }
 
@@ -25,7 +27,7 @@ namespace Presupuesto_G
         private void btnAlimentacion_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FrmAlimentacion().Show();
+            new FrmAlimentacion(numero_proceso2).Show();
         }
 
         private void btnRecursoHumano_Click(object sender, EventArgs e)

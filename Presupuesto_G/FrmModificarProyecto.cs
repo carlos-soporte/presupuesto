@@ -46,7 +46,7 @@ namespace Presupuesto_G
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string query="exec modificar_proyectos '"+numero_proceso2+"','"+txtNombreProyecto+"','"+txtPresupuestoProyecto+",'"+txtDescripcion+"';
+            string query="exec modificar_proyectos '"+numero_proceso2+"','"+txtNombreProyecto+"','"+txtPresupuestoProyecto+",'"+txtDescripcion+"'";
 
         }
 

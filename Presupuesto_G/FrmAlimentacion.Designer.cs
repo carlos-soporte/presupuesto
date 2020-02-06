@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAlimentacion));
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtItem = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
+            this.txtV_oficial = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtPtoOficial = new System.Windows.Forms.TextBox();
+            this.btnAsignar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtV_ofertado = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,20 +55,20 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtC_entrega = new System.Windows.Forms.TextBox();
+            this.txtC_restante = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtNombre
+            // txtItem
             // 
-            this.txtNombre.Location = new System.Drawing.Point(27, 160);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(276, 29);
-            this.txtNombre.TabIndex = 0;
+            this.txtItem.Location = new System.Drawing.Point(27, 160);
+            this.txtItem.Name = "txtItem";
+            this.txtItem.Size = new System.Drawing.Size(276, 29);
+            this.txtItem.TabIndex = 0;
             // 
             // label1
             // 
@@ -104,12 +104,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "valor oficial";
             // 
-            // txtValor
+            // txtV_oficial
             // 
-            this.txtValor.Location = new System.Drawing.Point(469, 160);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(164, 29);
-            this.txtValor.TabIndex = 5;
+            this.txtV_oficial.Location = new System.Drawing.Point(469, 160);
+            this.txtV_oficial.Name = "txtV_oficial";
+            this.txtV_oficial.Size = new System.Drawing.Size(164, 29);
+            this.txtV_oficial.TabIndex = 5;
             // 
             // dataGridView1
             // 
@@ -158,21 +158,22 @@
             this.label5.Size = new System.Drawing.Size(0, 22);
             this.label5.TabIndex = 16;
             // 
-            // textBox1
+            // txtPtoOficial
             // 
-            this.textBox1.Location = new System.Drawing.Point(221, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 29);
-            this.textBox1.TabIndex = 17;
+            this.txtPtoOficial.Location = new System.Drawing.Point(221, 66);
+            this.txtPtoOficial.Name = "txtPtoOficial";
+            this.txtPtoOficial.Size = new System.Drawing.Size(172, 29);
+            this.txtPtoOficial.TabIndex = 17;
             // 
-            // button3
+            // btnAsignar
             // 
-            this.button3.Location = new System.Drawing.Point(410, 66);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 29);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "asignar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAsignar.Location = new System.Drawing.Point(410, 66);
+            this.btnAsignar.Name = "btnAsignar";
+            this.btnAsignar.Size = new System.Drawing.Size(126, 29);
+            this.btnAsignar.TabIndex = 18;
+            this.btnAsignar.Text = "Asignar";
+            this.btnAsignar.UseVisualStyleBackColor = true;
+            this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
             // label6
             // 
@@ -183,12 +184,12 @@
             this.label6.TabIndex = 19;
             this.label6.Text = "x";
             // 
-            // textBox2
+            // txtV_ofertado
             // 
-            this.textBox2.Location = new System.Drawing.Point(653, 160);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(164, 29);
-            this.textBox2.TabIndex = 20;
+            this.txtV_ofertado.Location = new System.Drawing.Point(653, 160);
+            this.txtV_ofertado.Name = "txtV_ofertado";
+            this.txtV_ofertado.Size = new System.Drawing.Size(164, 29);
+            this.txtV_ofertado.TabIndex = 20;
             // 
             // label7
             // 
@@ -288,19 +289,19 @@
             this.textBox6.Size = new System.Drawing.Size(172, 29);
             this.textBox6.TabIndex = 31;
             // 
-            // textBox7
+            // txtC_entrega
             // 
-            this.textBox7.Location = new System.Drawing.Point(835, 160);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(80, 29);
-            this.textBox7.TabIndex = 32;
+            this.txtC_entrega.Location = new System.Drawing.Point(835, 160);
+            this.txtC_entrega.Name = "txtC_entrega";
+            this.txtC_entrega.Size = new System.Drawing.Size(80, 29);
+            this.txtC_entrega.TabIndex = 32;
             // 
-            // textBox8
+            // txtC_restante
             // 
-            this.textBox8.Location = new System.Drawing.Point(960, 160);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(80, 29);
-            this.textBox8.TabIndex = 33;
+            this.txtC_restante.Location = new System.Drawing.Point(960, 160);
+            this.txtC_restante.Name = "txtC_restante";
+            this.txtC_restante.Size = new System.Drawing.Size(80, 29);
+            this.txtC_restante.TabIndex = 33;
             // 
             // label14
             // 
@@ -320,14 +321,15 @@
             this.label15.TabIndex = 35;
             this.label15.Text = "C.Entregada";
             // 
-            // button4
+            // btnGuardar
             // 
-            this.button4.Location = new System.Drawing.Point(1055, 151);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(126, 44);
-            this.button4.TabIndex = 36;
-            this.button4.Text = "Guardar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnGuardar.Location = new System.Drawing.Point(1055, 151);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(126, 44);
+            this.btnGuardar.TabIndex = 36;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // FrmAlimentacion
             // 
@@ -335,11 +337,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1205, 642);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtC_restante);
+            this.Controls.Add(this.txtC_entrega);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox5);
@@ -351,21 +353,21 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtV_ofertado);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnAsignar);
+            this.Controls.Add(this.txtPtoOficial);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.txtValor);
+            this.Controls.Add(this.txtV_oficial);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtItem);
             this.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -381,21 +383,21 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.TextBox txtV_oficial;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtPtoOficial;
+        private System.Windows.Forms.Button btnAsignar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtV_ofertado;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -407,10 +409,10 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtC_entrega;
+        private System.Windows.Forms.TextBox txtC_restante;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

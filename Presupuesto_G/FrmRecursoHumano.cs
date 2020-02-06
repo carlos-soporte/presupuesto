@@ -34,6 +34,7 @@ namespace Presupuesto_G
                 btnGuardar.Enabled = true;
                 btnModificar.Enabled = true;
                 btnEliminar.Enabled = true;
+
             if (btnAsignar.Text == "Asignar")
             {
                 btnAsignar.Text = "Cambiar";
