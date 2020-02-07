@@ -46,10 +46,12 @@ GO
 
 --CREAMOS UNA TABLA QUE CONTENDRÀ TODO LO RELACIONADO CON RECURSOS HUMANOS.
 CREATE TABLE recursos_humanos
-(item VARCHAR(35) NOT NULL,
-cantidad INT NOT NULL,
-valor FLOAT NOT NULL,
-cant_meses INT NOT NULL,
+(Cargo VARCHAR(30) NOT NULL,
+N_Profesional VARCHAR(40) NOT NULL,
+Tiempo_meses INT NOT NULL,
+V_Oficial FLOAT NOT NULL,
+V_Ofertado FLOAT NOT NULL,
+Observaciones VARCHAR(100) NOT NULL,
 numero_proceso VARCHAR(25) NOT NULL)
 GO
 
@@ -165,20 +167,10 @@ AS
 INSERT INTO alimentacion(item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,numero_proceso) VALUES (@item,@cantidad,@valor_oficial,@valor_ofertado,@C_Entregada,@C_Restante,@numero_proceso)
 GO
 
-exec agregar_alimento 'manzana',12,1222,1222,12,12,'123456789'
 --Procedimiento almacenado para mostrar alimentos
 CREATE PROCEDURE listar_alimentos
 @numero_proceso VARCHAR(25)
 AS
 SELECT item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,numero_proceso FROM alimentacion WHERE numero_proceso=@numero_proceso
---procedimiento almacenado 
-insert into usuarios VALUES('carlos','1234')
+GO
 
-
-
-select * from proyectos
-
-exec listar_alimentos '123456789'
-
-
-exec modificar_proyectos '123456789','cambio',12000,'hola estoy bien.'
