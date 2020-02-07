@@ -144,7 +144,7 @@ namespace Presupuesto_G
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
             new FrmModificarProyecto(numero_proceso,nombre_proyecto,presupuesto_proyecto,descripcion).Show();
 
         }

@@ -41,6 +41,7 @@
             this.btnVer = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnAdiccionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,7 +120,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1116, 426);
+            this.dataGridView1.Size = new System.Drawing.Size(1458, 426);
             this.dataGridView1.TabIndex = 22;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -146,7 +147,7 @@
             // 
             // btnVer
             // 
-            this.btnVer.Location = new System.Drawing.Point(678, 175);
+            this.btnVer.Location = new System.Drawing.Point(643, 174);
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(72, 35);
             this.btnVer.TabIndex = 25;
@@ -156,7 +157,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(756, 175);
+            this.btnModificar.Location = new System.Drawing.Point(721, 174);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(146, 35);
             this.btnModificar.TabIndex = 26;
@@ -166,7 +167,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(908, 175);
+            this.btnEliminar.Location = new System.Drawing.Point(873, 174);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(118, 35);
             this.btnEliminar.TabIndex = 27;
@@ -174,12 +175,22 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btnAdiccionar
+            // 
+            this.btnAdiccionar.Location = new System.Drawing.Point(997, 174);
+            this.btnAdiccionar.Name = "btnAdiccionar";
+            this.btnAdiccionar.Size = new System.Drawing.Size(138, 35);
+            this.btnAdiccionar.TabIndex = 28;
+            this.btnAdiccionar.Text = "Adiciones";
+            this.btnAdiccionar.UseVisualStyleBackColor = true;
+            // 
             // FrmListarProyectos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1140, 686);
+            this.ClientSize = new System.Drawing.Size(1482, 686);
+            this.Controls.Add(this.btnAdiccionar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnVer);
@@ -220,5 +231,6 @@
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnAdiccionar;
     }
 }

@@ -41,13 +41,32 @@ namespace Presupuesto_G
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
-            Application.Exit();
+            this.Hide();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string query="exec modificar_proyectos '"+numero_proceso2+"','"+txtNombreProyecto+"','"+txtPresupuestoProyecto+",'"+txtDescripcion+"'";
+            if (txtNombreProyecto.Text == "" || txtDescripcion.Text==""||txtPresupuestoProyecto.Text=="")
+            {
+                MessageBox.Show("campos vacios favor llenarlos todos para continuar");
+                return;
+            }
 
+            try
+            {
+                string query = "exec modificar_proyectos '" + numero_proceso2 + "','" + txtNombreProyecto.Text.Trim() + "'," + txtPresupuestoProyecto.Text.Trim() + ",'" + txtDescripcion.Text.Trim() + "'";
+                bd.consultar(query);
+                MessageBox.Show("datos actualizados  correctamente");
+                this.Hide();
+                new FrmListarProyectos().Show();
+                
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("no hay conexion con el servidor");
+            }
+           
         }
 
         private void FrmModificarProyecto_Load(object sender, EventArgs e)

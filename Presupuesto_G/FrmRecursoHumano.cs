@@ -12,9 +12,11 @@ namespace Presupuesto_G
 {
     public partial class FrmRecursoHumano : Form
     {
-        public FrmRecursoHumano()
+        string numero_proceso3;
+        public FrmRecursoHumano(string numero_proceso2)
         {
             InitializeComponent();
+            numero_proceso3 = numero_proceso2;
         }
 
         private void btnAsignar_Click(object sender, EventArgs e)
@@ -27,7 +29,7 @@ namespace Presupuesto_G
 
            
                 txtCargo.Enabled = true;
-                txtNombre.Enabled = true;
+                txtNombreProfesional.Enabled = true;
                 txtTiempoM.Enabled = true;
                 txtVofertado.Enabled = true;
                 txtVoficial.Enabled = true;
@@ -63,10 +65,21 @@ namespace Presupuesto_G
             
         }
 
+        public DataSet llenarGv()
+        {
+            DataSet ds;
+            string query="exec listar_recurso '"+txtCargo.Text.Trim()+"','"+txtNombreProfesional.Text+"',"+txtTiempoM.Text+","+txtVoficial.Text+","+txtVofertado.Text+",'"+txtObservaciones.Text+"','"+numero_proceso3+"'";
+            ds = bd.consultar(query);
+            return ds;
+
+        }
+
         private void FrmRecursoHumano_Load(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = llenarGv().Tables[0];
+            
             txtCargo.Enabled = false;
-            txtNombre.Enabled = false;
+            txtNombreProfesional.Enabled = false;
             txtTiempoM.Enabled = false;
             txtVofertado.Enabled = false;
             txtVoficial.Enabled = false;
@@ -85,6 +98,16 @@ namespace Presupuesto_G
             }
 
             
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (txtCargo.Text == "" || txtNombreProfesional.Text == "" || txtPtoOficial.Text == "" || txtVofertado.Text == "" || txtTiempoM.Text == "" || txtVoficial.Text == ""|| txtObservaciones.Text=="")
+            {
+                MessageBox.Show("campos vacios,favor ingresarlos");
+            }
+
+
         }
     }
 }

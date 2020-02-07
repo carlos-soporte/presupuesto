@@ -33,7 +33,7 @@ namespace Presupuesto_G
         private void btnRecursoHumano_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FrmRecursoHumano().Show();
+            new FrmRecursoHumano(numero_proceso2).Show();
         }
 
         private void btnMateriales_Click(object sender, EventArgs e)

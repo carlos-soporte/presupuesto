@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bd.cs" />
+    <Compile Include="FrmAdiccionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdiccionar.Designer.cs">
+      <DependentUpon>FrmAdiccionar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>

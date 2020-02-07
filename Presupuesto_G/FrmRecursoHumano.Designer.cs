@@ -37,7 +37,7 @@
             this.txtVofertado = new System.Windows.Forms.TextBox();
             this.txtTiempoM = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtNombreProfesional = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.btnAsignar = new System.Windows.Forms.Button();
@@ -48,6 +48,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.observaciones = new System.Windows.Forms.Label();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +85,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 367);
             this.dataGridView1.Name = "dataGridView1";
@@ -92,12 +95,13 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(970, 104);
+            this.btnGuardar.Location = new System.Drawing.Point(640, 109);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(137, 38);
             this.btnGuardar.TabIndex = 22;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtVofertado
             // 
@@ -122,12 +126,12 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Valor Oficial :";
             // 
-            // txtNombre
+            // txtNombreProfesional
             // 
-            this.txtNombre.Location = new System.Drawing.Point(179, 53);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(264, 35);
-            this.txtNombre.TabIndex = 16;
+            this.txtNombreProfesional.Location = new System.Drawing.Point(179, 53);
+            this.txtNombreProfesional.Name = "txtNombreProfesional";
+            this.txtNombreProfesional.Size = new System.Drawing.Size(264, 35);
+            this.txtNombreProfesional.TabIndex = 16;
             // 
             // label5
             // 
@@ -209,6 +213,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.Controls.Add(this.txtObservaciones);
+            this.panel1.Controls.Add(this.observaciones);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtVoficial);
@@ -219,18 +225,35 @@
             this.panel1.Controls.Add(this.txtVofertado);
             this.panel1.Controls.Add(this.txtTiempoM);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtNombre);
-            this.panel1.Location = new System.Drawing.Point(12, 202);
+            this.panel1.Controls.Add(this.txtNombreProfesional);
+            this.panel1.Location = new System.Drawing.Point(12, 186);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1110, 150);
+            this.panel1.Size = new System.Drawing.Size(1110, 166);
             this.panel1.TabIndex = 37;
+            // 
+            // observaciones
+            // 
+            this.observaciones.AutoSize = true;
+            this.observaciones.Location = new System.Drawing.Point(872, 3);
+            this.observaciones.Name = "observaciones";
+            this.observaciones.Size = new System.Drawing.Size(180, 29);
+            this.observaciones.TabIndex = 37;
+            this.observaciones.Text = "observaciones";
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Location = new System.Drawing.Point(799, 47);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(308, 100);
+            this.txtObservaciones.TabIndex = 38;
             // 
             // FrmRecursoHumano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1280, 712);
+            this.ClientSize = new System.Drawing.Size(1280, 754);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -266,7 +289,7 @@
         private System.Windows.Forms.TextBox txtVofertado;
         private System.Windows.Forms.TextBox txtTiempoM;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtNombreProfesional;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.Button btnAsignar;
@@ -277,5 +300,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtObservaciones;
+        private System.Windows.Forms.Label observaciones;
     }
 }
