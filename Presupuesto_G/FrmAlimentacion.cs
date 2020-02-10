@@ -65,18 +65,23 @@ namespace Presupuesto_G
         {
             string query = " exec agregar_alimento '" + txtItem.Text + "'," + txtCantidad.Text + "," + txtV_oficial.Text + "," +
                            txtV_ofertado.Text + "," + txtC_entrega.Text + "," + txtC_restante.Text + ",'" + numero_proceso2 + "'";
-            bd.consultar(query);
-            MessageBox.Show("items guardados con exito");
-            dataGridView1.DataSource = llenarGv();
+            
             try
             {
-                
+                bd.consultar(query);
+                MessageBox.Show("items guardados con exito");
+                dataGridView1.DataSource = llenarGv().Tables[0];
             }
             catch (Exception)
             {
 
                 MessageBox.Show("error al guardar los items");
             }
+        }
+
+        private void FrmAlimentacion_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = llenarGv().Tables[0];
         }
     }
 }
