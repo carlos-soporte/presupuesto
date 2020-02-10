@@ -185,13 +185,23 @@ CREATE PROCEDURE agregar_recurso
 @numero_proceso VARCHAR(25)
 AS
 INSERT INTO recursos_humanos(Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,Observaciones,numero_proceso) VALUES (@cargo,@profesional,@meses,@valor_oficial,@valor_ofertado,@observaciones,@numero_proceso)
-
+GO
 --procedimiento almacenado para listar items de recursos humanos.
 CREATE PROCEDURE listar_recurso
 @numero_proceso VARCHAR(25)
 AS
 SELECT Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,Observaciones,numero_proceso from recursos_humanos WHERE numero_proceso=@numero_proceso
-
-
-select * from proyectos
-
+GO
+--procedimiento almacenado para actualizar datos de recurso humano.
+CREATE PROCEDURE modificar_recurso
+@cargo VARCHAR(30),
+@profesional VARCHAR(30),
+@meses INT,
+@valor_oficial FLOAT,
+@valor_ofertado FLOAT,
+@observacion Varchar(100),
+@numero_proceso VARCHAR(25)
+AS
+UPDATE recursos_humanos SET Cargo=@cargo,N_Profesional=@profesional,Tiempo_meses=@meses,V_Oficial=@valor_oficial,V_Ofertado=@valor_ofertado,Observaciones=@observacion WHERE numero_proceso=@numero_proceso					
+GO
+select * from recursos_humanos
