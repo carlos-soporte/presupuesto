@@ -174,3 +174,24 @@ AS
 SELECT item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,numero_proceso FROM alimentacion WHERE numero_proceso=@numero_proceso
 GO
 
+--procedimiento almacenado para agregar items de recurso_humano
+CREATE PROCEDURE agregar_recurso
+@cargo varchar(30),
+@profesional VARCHAR(30),
+@meses INT,
+@valor_oficial FLOAT,
+@valor_ofertado FLOAT,
+@observaciones	VARCHAR(100),
+@numero_proceso VARCHAR(25)
+AS
+INSERT INTO recursos_humanos(Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,Observaciones,numero_proceso) VALUES (@cargo,@profesional,@meses,@valor_oficial,@valor_ofertado,@observaciones,@numero_proceso)
+
+--procedimiento almacenado para listar items de recursos humanos.
+CREATE PROCEDURE listar_recurso
+@numero_proceso VARCHAR(25)
+AS
+SELECT Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,Observaciones,numero_proceso from recursos_humanos WHERE numero_proceso=@numero_proceso
+
+
+select * from proyectos
+
