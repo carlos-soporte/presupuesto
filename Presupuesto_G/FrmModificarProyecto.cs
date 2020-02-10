@@ -42,6 +42,7 @@ namespace Presupuesto_G
         {
 
             this.Hide();
+            new FrmListarProyectos().Show();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

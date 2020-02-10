@@ -48,8 +48,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.observaciones = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.observaciones = new System.Windows.Forms.Label();
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.btnMenuItems = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +73,7 @@
             this.btnModificar.TabIndex = 25;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // label4
             // 
@@ -231,6 +234,14 @@
             this.panel1.Size = new System.Drawing.Size(1110, 166);
             this.panel1.TabIndex = 37;
             // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Location = new System.Drawing.Point(799, 47);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(308, 100);
+            this.txtObservaciones.TabIndex = 38;
+            // 
             // observaciones
             // 
             this.observaciones.AutoSize = true;
@@ -240,13 +251,25 @@
             this.observaciones.TabIndex = 37;
             this.observaciones.Text = "observaciones";
             // 
-            // txtObservaciones
+            // btnMenu
             // 
-            this.txtObservaciones.Location = new System.Drawing.Point(799, 47);
-            this.txtObservaciones.Multiline = true;
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(308, 100);
-            this.txtObservaciones.TabIndex = 38;
+            this.btnMenu.Location = new System.Drawing.Point(1142, 458);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(126, 44);
+            this.btnMenu.TabIndex = 38;
+            this.btnMenu.Text = "Menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // btnMenuItems
+            // 
+            this.btnMenuItems.Location = new System.Drawing.Point(1142, 508);
+            this.btnMenuItems.Name = "btnMenuItems";
+            this.btnMenuItems.Size = new System.Drawing.Size(126, 44);
+            this.btnMenuItems.TabIndex = 39;
+            this.btnMenuItems.Text = "Items";
+            this.btnMenuItems.UseVisualStyleBackColor = true;
+            this.btnMenuItems.Click += new System.EventHandler(this.btnMenuItems_Click);
             // 
             // FrmRecursoHumano
             // 
@@ -254,6 +277,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1280, 754);
+            this.Controls.Add(this.btnMenuItems);
+            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -302,5 +327,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Label observaciones;
+        private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnMenuItems;
     }
 }
