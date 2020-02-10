@@ -140,7 +140,7 @@ namespace Presupuesto_G
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            string query2="exec "
+            //string query2="exec "
         }
     }
 }

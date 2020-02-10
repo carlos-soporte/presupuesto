@@ -81,6 +81,10 @@ namespace Presupuesto_G
 
         private void btnVer_Click(object sender, EventArgs e)
         {
+            if (true)
+            {
+
+            }
             this.Hide();
             new FrmModificarItems(numero_proceso).Show();
 

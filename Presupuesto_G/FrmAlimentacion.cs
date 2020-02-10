@@ -13,6 +13,7 @@ namespace Presupuesto_G
     public partial class FrmAlimentacion : Form
     {
         string numero_proceso2;
+        int id_alimento;
         public FrmAlimentacion(string numero_proceso)
         {
             numero_proceso2 = numero_proceso;
@@ -82,6 +83,23 @@ namespace Presupuesto_G
         private void FrmAlimentacion_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = llenarGv().Tables[0];
+        }
+
+        private void btnItem_Click(object sender, EventArgs e)
+        {
+            new FrmModificarItems(numero_proceso2).Show();
+            this.Hide();
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new FrmListarProyectos().Show();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            id_alimento = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
         }
     }
 }

@@ -35,7 +35,8 @@ GO
 
 --CREAMOS UNA TABLA QUE CONTENDRÀ TODOS LOS ITEMS RELACIONADOS CON LA ALIMENTACIÒN.
 CREATE TABLE alimentacion
-(item VARCHAR(25) NOT NULL,
+(id_alimento INT IDENTITY,
+item VARCHAR(25) NOT NULL,
 cantidad INT NOT NULL,
 valor_oficial FLOAT,
 valor_ofertado FLOAT,
@@ -46,7 +47,8 @@ GO
 
 --CREAMOS UNA TABLA QUE CONTENDRÀ TODO LO RELACIONADO CON RECURSOS HUMANOS.
 CREATE TABLE recursos_humanos
-(Cargo VARCHAR(30) NOT NULL,
+(id_recurso INT IDENTITY,
+Cargo VARCHAR(30) NOT NULL,
 N_Profesional VARCHAR(40) NOT NULL,
 Tiempo_meses INT NOT NULL,
 V_Oficial FLOAT NOT NULL,
@@ -57,7 +59,8 @@ GO
 
 --CREAMOS UNA TABLA PARA LOS MATERIALES
 CREATE TABLE materiales
-(item VARCHAR(35) NOT NULL,
+(id_material INT IDENTITY,
+item VARCHAR(35) NOT NULL,
 cantidad INT NOT NULL,
 valor FLOAT NOT NULL,
 numero_proceso VARCHAR(25) NOT NULL)
@@ -65,13 +68,15 @@ GO
 
 --CREAMOS UNA TABLA QUE CONTENDRÀ LA CATEGORÌA DE OTROS.
 CREATE TABLE otros
-(item VARCHAR(35) NOT NULL,
+(id_otro  INT IDENTITY,
+item VARCHAR(35) NOT NULL,
 cantidad INT NOT NULL,
 valor FLOAT NOT NULL,
 numero_proceso VARCHAR(25) NOT NULL)
 GO
 
 -------------CREAMOS LAS RELACIONES ENTRE TABLAS CORRESPONDIENTES----------------------------------------------
+
 
 --RELACION ENTRE PROYECTOS Y ALIMENTOS
 ALTER TABLE alimentacion
@@ -200,8 +205,9 @@ CREATE PROCEDURE modificar_recurso
 @valor_oficial FLOAT,
 @valor_ofertado FLOAT,
 @observacion Varchar(100),
-@numero_proceso VARCHAR(25)
+@numero_proceso VARCHAR(25),
+@id_recurso INT
 AS
-UPDATE recursos_humanos SET Cargo=@cargo,N_Profesional=@profesional,Tiempo_meses=@meses,V_Oficial=@valor_oficial,V_Ofertado=@valor_ofertado,Observaciones=@observacion WHERE numero_proceso=@numero_proceso					
+UPDATE recursos_humanos SET Cargo=@cargo,N_Profesional=@profesional,Tiempo_meses=@meses,V_Oficial=@valor_oficial,V_Ofertado=@valor_ofertado,Observaciones=@observacion WHERE numero_proceso=@numero_proceso	AND id_recurso=@id_recurso				
 GO
 select * from recursos_humanos

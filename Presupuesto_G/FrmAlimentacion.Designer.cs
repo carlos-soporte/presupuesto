@@ -60,6 +60,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.btnItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,6 +126,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1013, 286);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label4
             // 
@@ -336,12 +339,36 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // btnMenu
+            // 
+            this.btnMenu.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.Location = new System.Drawing.Point(-2, -1);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(126, 35);
+            this.btnMenu.TabIndex = 38;
+            this.btnMenu.Text = "Menù";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // btnItem
+            // 
+            this.btnItem.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnItem.Location = new System.Drawing.Point(130, -1);
+            this.btnItem.Name = "btnItem";
+            this.btnItem.Size = new System.Drawing.Size(126, 35);
+            this.btnItem.TabIndex = 39;
+            this.btnItem.Text = "Items";
+            this.btnItem.UseVisualStyleBackColor = true;
+            this.btnItem.Click += new System.EventHandler(this.btnItem_Click);
+            // 
             // FrmAlimentacion
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1205, 642);
+            this.Controls.Add(this.btnItem);
+            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -420,5 +447,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnItem;
     }
 }
