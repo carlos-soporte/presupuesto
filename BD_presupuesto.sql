@@ -1,3 +1,4 @@
+USE MASTER
 DROP DATABASE Presupuesto
 
 --CREAMOS LA BASE DE DATOS
@@ -211,3 +212,7 @@ AS
 UPDATE recursos_humanos SET Cargo=@cargo,N_Profesional=@profesional,Tiempo_meses=@meses,V_Oficial=@valor_oficial,V_Ofertado=@valor_ofertado,Observaciones=@observacion WHERE numero_proceso=@numero_proceso	AND id_recurso=@id_recurso				
 GO
 select * from recursos_humanos
+
+
+
+EXEC crear_proyecto '40001','caracterizacion','100','perragata'
