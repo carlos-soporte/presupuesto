@@ -52,6 +52,7 @@
             this.Otros = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
+            this.lbProyecto = new System.Windows.Forms.Label();
             this.tb2.SuspendLayout();
             this.tbPresupuestoAsignado.SuspendLayout();
             this.tbPresupuestoCotizado.SuspendLayout();
@@ -313,11 +314,22 @@
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // FrmModificarProyecto
+            // lbProyecto
+            // 
+            this.lbProyecto.AutoSize = true;
+            this.lbProyecto.Location = new System.Drawing.Point(343, 12);
+            this.lbProyecto.Name = "lbProyecto";
+            this.lbProyecto.Size = new System.Drawing.Size(212, 29);
+            this.lbProyecto.TabIndex = 13;
+            this.lbProyecto.Text = "Nombre Proyecto";
+            this.lbProyecto.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // FrmModificarItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 555);
+            this.Controls.Add(this.lbProyecto);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tb2);
@@ -325,7 +337,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
-            this.Name = "FrmModificarProyecto";
+            this.Name = "FrmModificarItems";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Expertos profesionales en servicios sociales integrales";
             this.Load += new System.EventHandler(this.FrmModificarProyectocs_Load);
@@ -364,5 +376,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Label lbProyecto;
     }
 }

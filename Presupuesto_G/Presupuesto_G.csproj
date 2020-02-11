@@ -101,6 +101,12 @@
     <Compile Include="FrmModificarItems.Designer.cs">
       <DependentUpon>FrmModificarItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModificarRecursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificarRecursos.Designer.cs">
+      <DependentUpon>FrmModificarRecursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmOtros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModificarItems.resx">
       <DependentUpon>FrmModificarItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarRecursos.resx">
+      <DependentUpon>FrmModificarRecursos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOtros.resx">
       <DependentUpon>FrmOtros.cs</DependentUpon>

@@ -13,10 +13,18 @@ namespace Presupuesto_G
     public partial class FrmRecursoHumano : Form
     {
         string numero_proceso2;
-        public FrmRecursoHumano(string numero_proceso)
+        string nombre_proyecto2;
+        int id_recurso;
+        string cargo,n_profesional,observacion;
+        int v_oficial, v_ofertado, t_meses;
+
+       
+       
+        public FrmRecursoHumano(string numero_proceso,string nombre_proyecto)
         {
             InitializeComponent();
             numero_proceso2 = numero_proceso;
+            nombre_proyecto2 = nombre_proyecto;
         }
 
         private void btnAsignar_Click(object sender, EventArgs e)
@@ -81,6 +89,10 @@ namespace Presupuesto_G
             btnGuardar.Enabled = false;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
+            txt1.Enabled = false;
+            txt2.Enabled = false;
+            txt3.Enabled = false;
+            txt4.Enabled = false;
         }
 
         //metodo para solo dejar ingresar numeros
@@ -135,12 +147,38 @@ namespace Presupuesto_G
         private void btnMenuItems_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FrmModificarItems(numero_proceso2).Show();
+
+            new FrmModificarItems(numero_proceso2,nombre_proyecto2).Show();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            //string query2="exec "
+
+            if (numero_proceso2 == null)
+            {
+                MessageBox.Show("seleccione un item porfavor");
+            }
+            else
+            {
+                this.Hide();
+                new FrmModificarRecursos(cargo,n_profesional,t_meses,v_oficial,v_ofertado,observacion,numero_proceso2).Show();
+
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                cargo=(string)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+                n_profesional = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                t_meses = (int)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("no hay items seleccionados");
+            }
         }
     }
 }

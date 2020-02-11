@@ -44,7 +44,6 @@ namespace Presupuesto_G
                         string query = "exec listar_nombre '" + txtFiltrar.Text.Trim() + "'";
                         ds = bd.consultar(query);
                         dataGridView1.DataSource = ds.Tables[0];
-
                     }
                     else if (rdbNumeroProceso.Checked == true)
                     {
@@ -57,10 +56,7 @@ namespace Presupuesto_G
                 {
                     MessageBox.Show("no hay conexion con el servidor");
                 }
-            }
-           
-            
-                   
+            }          
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -81,19 +77,21 @@ namespace Presupuesto_G
 
         private void btnVer_Click(object sender, EventArgs e)
         {
-            if (true)
+            if (numero_proceso==null)
             {
-
+                MessageBox.Show("seleccione un proyecto porfavor");
             }
-            this.Hide();
-            new FrmModificarItems(numero_proceso).Show();
-
+            else
+            {
+                this.Hide();
+                new FrmModificarItems(numero_proceso, nombre_proyecto).Show();               
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             string query2;
-            if (numero_proceso!="" )
+            if (numero_proceso!=null )
             {
                 DialogResult respuesta = MessageBox.Show("¿seguro que desea eliminar el proyecto?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (respuesta == DialogResult.Yes)
@@ -122,41 +120,56 @@ namespace Presupuesto_G
             }
             else
             {
-                MessageBox.Show("error, ninguna entidad seleccionada");
+                MessageBox.Show("selecion un proyecto porfavor");
             }
-
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        public void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             try
             {
                 numero_proceso = (string)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
                 nombre_proyecto = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
                 presupuesto_proyecto = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
                 descripcion = (string)dataGridView1.Rows[e.RowIndex].Cells[3].Value;
-
             }
             catch (Exception)
             {
-                MessageBox.Show("error alcapturar dato");
-               
+                MessageBox.Show("error alcapturar dato");        
             }
-            
-
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-           
-            this.Hide();
-            new FrmModificarProyecto(numero_proceso,nombre_proyecto,presupuesto_proyecto,descripcion).Show();
+            if (numero_proceso ==null)
+            {
+                MessageBox.Show("selecion un proyecto porfavor");
 
+            }
+            else
+            {
+                this.Hide();
+                new FrmModificarProyecto(numero_proceso, nombre_proyecto, presupuesto_proyecto, descripcion).Show();
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnAdiccionar_Click(object sender, EventArgs e)
+        {
+            if (numero_proceso == null)
+            {
+                MessageBox.Show("selecion un proyecto porfavor");
+            }
+            else
+            {
+                this.Hide();
+                new FrmAdiccionar().Show();
+            }
         }
     }
 }

@@ -87,7 +87,7 @@ namespace Presupuesto_G
 
         private void btnItem_Click(object sender, EventArgs e)
         {
-            new FrmModificarItems(numero_proceso2).Show();
+            new FrmModificarItems(numero_proceso2,"").Show();
             this.Hide();
         }
 

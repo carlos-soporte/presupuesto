@@ -54,7 +54,7 @@ namespace Presupuesto_G
             }
 
             this.Hide();
-            new FrmModificarItems("").Show();
+            new FrmModificarItems("","").Show();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

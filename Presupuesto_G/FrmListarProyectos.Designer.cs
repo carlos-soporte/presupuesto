@@ -123,7 +123,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1458, 426);
             this.dataGridView1.TabIndex = 22;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnMenu
             // 
@@ -183,6 +182,7 @@
             this.btnAdiccionar.TabIndex = 28;
             this.btnAdiccionar.Text = "Adiciones";
             this.btnAdiccionar.UseVisualStyleBackColor = true;
+            this.btnAdiccionar.Click += new System.EventHandler(this.btnAdiccionar_Click);
             // 
             // FrmListarProyectos
             // 
