@@ -317,7 +317,7 @@
             // lbProyecto
             // 
             this.lbProyecto.AutoSize = true;
-            this.lbProyecto.Location = new System.Drawing.Point(343, 12);
+            this.lbProyecto.Location = new System.Drawing.Point(359, 9);
             this.lbProyecto.Name = "lbProyecto";
             this.lbProyecto.Size = new System.Drawing.Size(212, 29);
             this.lbProyecto.TabIndex = 13;

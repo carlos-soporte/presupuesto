@@ -12,8 +12,10 @@ namespace Presupuesto_G
 {
     public partial class FrmModificarRecursos : Form
     {
-        string cargo2,n_profesional2,observacion2,numero_proceso2,nombre_proyecto2;
-        int t_meses2, v_oficial2, v_ofertado2;
+
+        string nombre_proyecto2,numero_proceso2;
+        int id_recurso2;
+        
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -22,20 +24,26 @@ namespace Presupuesto_G
             new FrmRecursoHumano(numero_proceso2,nombre_proyecto2).Show();
         }
 
-        public FrmModificarRecursos(string cargo,string n_profesional,int t_meses,int v_oficial,int v_ofertado,string observacion,string numero_proceso)
+        public FrmModificarRecursos(string cargo,string n_profesional,int t_meses,int v_oficial,int v_ofertado,string observacion,string numero_proceso,string nombre_proyecto,int id_recurso)
         {
             InitializeComponent();
-            cargo2 = cargo;
-            n_profesional2 = n_profesional;
-            t_meses2 = t_meses;
-            v_oficial2 = v_oficial;
-            v_ofertado2 = v_ofertado;
+            txtCargo.Text = cargo;
+            txtNProfesional.Text = n_profesional;
+            txtTmeses.Text = t_meses.ToString();
+            txtVoficial.Text = v_oficial.ToString();
+            txtVofertado.Text = v_ofertado.ToString();
+            txtObservaciones.Text=observacion;
+            nombre_proyecto2 = nombre_proyecto;
             numero_proceso2 = numero_proceso;
+            id_recurso2 = id_recurso;
+           
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string query2 = "exec modificar_recurso '" + txtCargo.Text + "','" + txtNProfesional.Text + "'," + txtTmeses.Text + "," + txtVoficial.Text + "," + txtVofertado.Text + ",'" + txtObservaciones.Text + "','" + numero_proceso2 + "'";
+
+            string query2 = "exec modificar_recurso '" + txtCargo.Text + "','" + txtNProfesional.Text + "'," + txtTmeses.Text + "," + txtVoficial.Text + "," + txtVofertado.Text + ",'" + txtObservaciones.Text + "','" + numero_proceso2 + "',"+id_recurso2;
             try
             {
                 bd.consultar(query2);
@@ -48,6 +56,16 @@ namespace Presupuesto_G
 
                 MessageBox.Show("no hay conexion con el servidor");
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtCargo.Text = "";
+            txtNProfesional.Text = "";
+            txtTmeses.Text = "";
+            txtVoficial.Text = "";
+            txtVofertado.Text = "";
+            txtObservaciones.Text = "";
         }
 
         private void FrmModificarRecursos_Load(object sender, EventArgs e)

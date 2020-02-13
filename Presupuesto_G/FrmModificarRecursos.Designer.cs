@@ -64,6 +64,7 @@
             this.btnLimpiar.TabIndex = 1;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCancelar
             // 
@@ -133,42 +134,42 @@
             // 
             this.txtCargo.Location = new System.Drawing.Point(283, 140);
             this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(100, 34);
+            this.txtCargo.Size = new System.Drawing.Size(287, 34);
             this.txtCargo.TabIndex = 9;
             // 
             // txtNProfesional
             // 
             this.txtNProfesional.Location = new System.Drawing.Point(283, 180);
             this.txtNProfesional.Name = "txtNProfesional";
-            this.txtNProfesional.Size = new System.Drawing.Size(100, 34);
+            this.txtNProfesional.Size = new System.Drawing.Size(287, 34);
             this.txtNProfesional.TabIndex = 10;
             // 
             // txtTmeses
             // 
             this.txtTmeses.Location = new System.Drawing.Point(283, 220);
             this.txtTmeses.Name = "txtTmeses";
-            this.txtTmeses.Size = new System.Drawing.Size(100, 34);
+            this.txtTmeses.Size = new System.Drawing.Size(287, 34);
             this.txtTmeses.TabIndex = 11;
             // 
             // txtVoficial
             // 
             this.txtVoficial.Location = new System.Drawing.Point(283, 259);
             this.txtVoficial.Name = "txtVoficial";
-            this.txtVoficial.Size = new System.Drawing.Size(100, 34);
+            this.txtVoficial.Size = new System.Drawing.Size(287, 34);
             this.txtVoficial.TabIndex = 12;
             // 
             // txtVofertado
             // 
             this.txtVofertado.Location = new System.Drawing.Point(283, 303);
             this.txtVofertado.Name = "txtVofertado";
-            this.txtVofertado.Size = new System.Drawing.Size(100, 34);
+            this.txtVofertado.Size = new System.Drawing.Size(287, 34);
             this.txtVofertado.TabIndex = 13;
             // 
             // txtObservaciones
             // 
             this.txtObservaciones.Location = new System.Drawing.Point(283, 343);
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(100, 34);
+            this.txtObservaciones.Size = new System.Drawing.Size(287, 34);
             this.txtObservaciones.TabIndex = 14;
             // 
             // FrmModificarRecursos

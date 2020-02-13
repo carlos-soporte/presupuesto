@@ -136,7 +136,7 @@ namespace Presupuesto_G
             }
             catch (Exception)
             {
-                MessageBox.Show("error alcapturar dato");        
+                MessageBox.Show("Ningun proyecto seleccionado");        
             }
         }
 

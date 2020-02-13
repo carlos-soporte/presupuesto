@@ -161,7 +161,7 @@ namespace Presupuesto_G
             else
             {
                 this.Hide();
-                new FrmModificarRecursos(cargo,n_profesional,t_meses,v_oficial,v_ofertado,observacion,numero_proceso2).Show();
+                new FrmModificarRecursos(cargo,n_profesional,t_meses,v_oficial,v_ofertado,observacion,numero_proceso2,nombre_proyecto2,id_recurso).Show();
 
             }
         }
@@ -170,9 +170,13 @@ namespace Presupuesto_G
         {
             try
             {
-                cargo=(string)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-                n_profesional = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
-                t_meses = (int)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
+                id_recurso = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                cargo=(string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                n_profesional = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
+                t_meses = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+                v_oficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+                v_ofertado= Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
+                observacion=(string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
             }
             catch (Exception)
             {
