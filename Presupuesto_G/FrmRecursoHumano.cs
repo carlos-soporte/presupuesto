@@ -34,7 +34,9 @@ namespace Presupuesto_G
                 MessageBox.Show("favor llenar los campos");
                 return;
             }
-  
+
+            
+            
                 txtCargo.Enabled = true;
                 txtNombreProfesional.Enabled = true;
                 txtTiempoM.Enabled = true;
@@ -46,6 +48,18 @@ namespace Presupuesto_G
 
             if (btnAsignar.Text == "Asignar")
             {
+                string query2="EXEC asignar_recurso '"+lbRecursoHumano.Text+"',"+txtPtoOficial.Text+",'"+numero_proceso2+"'";
+                try
+                {
+                    bd.consultar(query2);
+                    MessageBox.Show("datos guardados correctamente");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("no hay conexion con elservidor");
+                }
+                
                 btnAsignar.Text = "Cambiar";
                 txtPtoOficial.Enabled = false;
                 return;
@@ -60,9 +74,21 @@ namespace Presupuesto_G
 
             if (btnAsignar.Text == "Guardar")
             {
+                string query3 = "EXEC modificar_asignar_recurso '"+lbRecursoHumano.Text+"'," + txtPtoOficial.Text + ",'"+numero_proceso2+"'";
+                try
+                {
+                    bd.consultar(query3);
+                    MessageBox.Show("datos actualizados correctamente");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("no hay conexion con el servidor");
+                }
+                
                 txtPtoOficial.Enabled = false;
                 btnAsignar.Text = "Cambiar";
-                txtPtoOficial.Text = txtPtoOficial.Text;
+              
                 return;
             }
         }
@@ -73,26 +99,44 @@ namespace Presupuesto_G
             string query="exec listar_recurso '"+numero_proceso2+"'";
             ds = bd.consultar(query);
             return ds;
+          
+            
+        }
 
+        public DataSet llenarpto()
+        {
+            DataSet st;
+            string query4 = "EXEC listar_asignar_recurso " + txtPtoOficial.Text + "";
+            st = bd.consultar(query4);
+            return st;
         }
 
         private void FrmRecursoHumano_Load(object sender, EventArgs e)
         {
-            //metodo para mostrar los datos
-            dataGridView1.DataSource = llenarGv().Tables[0];
-            //bloquea los datos al iniciar el programa
-            txtCargo.Enabled = false;
-            txtNombreProfesional.Enabled = false;
-            txtTiempoM.Enabled = false;
-            txtVofertado.Enabled = false;
-            txtVoficial.Enabled = false;
-            btnGuardar.Enabled = false;
-            btnModificar.Enabled = false;
-            btnEliminar.Enabled = false;
-            txt1.Enabled = false;
-            txt2.Enabled = false;
-            txt3.Enabled = false;
-            txt4.Enabled = false;
+
+            if (txtPtoOficial.Text == null)
+            {
+                //metodo para mostrar los datos
+                dataGridView1.DataSource = llenarGv().Tables[0];
+                //bloquea los datos al iniciar el programa
+                txtCargo.Enabled = false;
+                txtNombreProfesional.Enabled = false;
+                txtTiempoM.Enabled = false;
+                txtVofertado.Enabled = false;
+                txtVoficial.Enabled = false;
+                btnGuardar.Enabled = false;
+                btnModificar.Enabled = false;
+                btnEliminar.Enabled = false;
+                txt1.Enabled = false;
+                txt2.Enabled = false;
+                txt3.Enabled = false;
+                txt4.Enabled = false;
+            }
+            else
+            {
+                txtPtoOficial.Text = llenarpto().ToString();
+            }
+           
         }
 
         //metodo para solo dejar ingresar numeros
@@ -138,6 +182,11 @@ namespace Presupuesto_G
 
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnMenu_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -168,21 +217,29 @@ namespace Presupuesto_G
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (numero_proceso2 == null)
             {
-                id_recurso = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                cargo=(string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
-                n_profesional = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
-                t_meses = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
-                v_oficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
-                v_ofertado= Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
-                observacion=(string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
-            }
-            catch (Exception)
-            {
-
                 MessageBox.Show("no hay items seleccionados");
             }
+            else
+            {
+                try
+                {
+                    id_recurso = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                    cargo = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                    n_profesional = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
+                    t_meses = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+                    v_oficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+                    v_ofertado = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
+                    observacion = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("no conexion con elservidor");
+                }
+            }
+            
         }
     }
 }

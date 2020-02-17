@@ -16,5 +16,17 @@ namespace Presupuesto_G
         {
             InitializeComponent();
         }
+
+        private void btncancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new FrmListarProyectos().Show();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtTiempo.Text = "";
+            txtValor.Text = "";
+        }
     }
 }

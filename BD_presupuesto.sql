@@ -76,6 +76,53 @@ valor FLOAT NOT NULL,
 numero_proceso VARCHAR(25) NOT NULL)
 GO
 
+--CREAMOS UNA TABLA QUE CONTENDRA EL VALOR ASIGNADO PARA CADA  ITEM.
+CREATE TABLE asignar
+(
+nombre VARCHAR(25) NOT NULL,
+valor FLOAT NOT NULL,
+numero_proceso VARCHAR(25) NOT NULL
+)
+GO
+--ASIGNAMOS LA CLAVE PRIMARIA
+ALTER TABLE asignar
+ADD PRIMARY KEY(nombre)
+GO
+--CREAMO LA RELACION ENTRE LAS TABLAS
+
+ALTER TABLE asignar
+ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso)ON DELETE CASCADE
+GO
+
+-- CREAMOS PROCEDIMIENTO ALMACENADO PARA ALMACENAR ITEMS DE RECURSO
+CREATE PROCEDURE asignar_recurso
+(
+@nombre VARCHAR(25),
+@valor FLOAT,
+@numero_proceso VARCHAR(25)
+)
+AS
+INSERT INTO asignar(nombre,valor,numero_proceso) VALUES(@nombre,@valor,@numero_proceso)
+GO
+
+--CREAMOS PROCEDIMIENTO ALMACENADO PARA LISTAR PTO OFFICIAL DE RECURSO
+CREATE PROCEDURE listar_asignar_recurso
+(
+@valor FLOAT
+)
+AS
+SELECT nombre,valor,numero_proceso FROM asignar WHERE numero_proceso like '%'+@valor+'%'
+GO
+--CREAMOS PROCEDIMIENTO ALMACENADO PARA MODIFICAR PTO DE RECURSO
+CREATE PROCEDURE modificar_asignar_recurso
+(
+@nombre VARCHAR(25),
+@valor FLOAT,
+@numero_proceso VARCHAR(25)
+)
+AS
+UPDATE asignar SET nombre=@nombre,valor=@valor WHERE numero_proceso=@numero_proceso
+GO
 -------------CREAMOS LAS RELACIONES ENTRE TABLAS CORRESPONDIENTES----------------------------------------------
 
 
@@ -98,6 +145,7 @@ GO
 ALTER TABLE otros
 ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso) ON DELETE CASCADE
 GO
+
 
 
 
@@ -211,8 +259,9 @@ CREATE PROCEDURE modificar_recurso
 AS
 UPDATE recursos_humanos SET Cargo=@cargo,N_Profesional=@profesional,Tiempo_meses=@meses,V_Oficial=@valor_oficial,V_Ofertado=@valor_ofertado,Observaciones=@observacion WHERE numero_proceso=@numero_proceso	AND id_recurso=@id_recurso				
 GO
-select * from recursos_humanos
 
 
-
+select * from asignar
 EXEC crear_proyecto '40001','caracterizacion','100','perragata'
+INSERT INTO usuarios (usuario,contraseña) VALUES ('duban',1234)
+

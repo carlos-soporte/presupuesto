@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRecursoHumano));
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbRecursoHumano = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtVofertado = new System.Windows.Forms.TextBox();
@@ -72,6 +72,7 @@
             this.btnEliminar.TabIndex = 26;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -83,16 +84,16 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // label4
+            // lbRecursoHumano
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label4.Location = new System.Drawing.Point(521, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(245, 29);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "RECURSO HUMANO";
+            this.lbRecursoHumano.AutoSize = true;
+            this.lbRecursoHumano.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRecursoHumano.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lbRecursoHumano.Location = new System.Drawing.Point(521, 9);
+            this.lbRecursoHumano.Name = "lbRecursoHumano";
+            this.lbRecursoHumano.Size = new System.Drawing.Size(245, 29);
+            this.lbRecursoHumano.TabIndex = 24;
+            this.lbRecursoHumano.Text = "RECURSO HUMANO";
             // 
             // dataGridView1
             // 
@@ -104,6 +105,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 367);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1326, 256);
@@ -377,7 +379,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbRecursoHumano);
             this.Controls.Add(this.btnAsignar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPtoOficial);
@@ -402,7 +404,7 @@
 
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbRecursoHumano;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtVofertado;
