@@ -183,5 +183,47 @@
   <ItemGroup>
     <None Include="Resources\Logo_png-04.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ima_login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_png-10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Intento usuario 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LLAVE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Intento usuario 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ENTRAR 5.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LIMPIAR.1.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login1.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login3.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login41.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LIMPIAR3.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_png-091.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_png-11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_png-101.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
