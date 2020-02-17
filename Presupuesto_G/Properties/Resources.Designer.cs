@@ -63,9 +63,39 @@ namespace Presupuesto_G.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap login4 {
+            get {
+                object obj = ResourceManager.GetObject("login4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_png_04 {
             get {
                 object obj = ResourceManager.GetObject("Logo_png-04", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_png_09 {
+            get {
+                object obj = ResourceManager.GetObject("Logo_png-09", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usuario3 {
+            get {
+                object obj = ResourceManager.GetObject("usuario3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
