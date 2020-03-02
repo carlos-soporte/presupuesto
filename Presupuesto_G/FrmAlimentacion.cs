@@ -14,6 +14,10 @@ namespace Presupuesto_G
     {
         string numero_proceso2;
         int id_alimento;
+        int cantidad;
+        int CantidadRestante;
+        int CantidadEntregada;
+
         public FrmAlimentacion(string numero_proceso)
         {
             numero_proceso2 = numero_proceso;
@@ -25,6 +29,8 @@ namespace Presupuesto_G
             DataSet ds;
             string query = "exec listar_alimentos '"+numero_proceso2+"'";
             ds = bd.consultar(query);
+            ds.Tables[0].Rows.Count.ToString();
+            
             return ds;
         }
 
@@ -84,6 +90,12 @@ namespace Presupuesto_G
         private void FrmAlimentacion_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = llenarGv().Tables[0];
+            txtC_restante.Text = "0";
+            if (txtCantidad.TextLength == 0)
+            {
+                txtC_entrega.Enabled = false;
+                txtC_restante.Enabled = false;
+            }
         }
 
         private void btnItem_Click(object sender, EventArgs e)
@@ -158,6 +170,38 @@ namespace Presupuesto_G
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
+            }
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCantidad.TextLength==0)
+            {
+                txtC_entrega.Enabled = false;
+            }
+            else
+            {
+                txtC_entrega.Enabled = true;
+                
+            }
+        }
+
+        private void txtC_entrega_TextChanged(object sender, EventArgs e)
+        {
+            
+            if (txtC_entrega.TextLength == 0)
+            {
+                
+            }
+            else
+            {
+
+                //cantidad = Convert.ToInt32(txtC_entrega.Text);
+                //CantidadEntregada = Convert.ToInt32(txtC_restante.Text);
+                if (Convert.ToInt32(txtC_entrega.Text) > Convert.ToInt32(txtCantidad.Text))
+                {
+                    MessageBox.Show("Ha excedido la cantidad", MessageBoxIcon.Information.ToString());
+                }
             }
         }
     }

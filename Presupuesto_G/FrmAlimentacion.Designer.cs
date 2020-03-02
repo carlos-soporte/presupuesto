@@ -96,6 +96,7 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(80, 29);
             this.txtCantidad.TabIndex = 3;
+            this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label3
@@ -141,7 +142,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(157, 24);
             this.label4.TabIndex = 13;
-            this.label4.Text = "ALIMENTACIÒN";
+            this.label4.Text = "ALIMENTACION";
             // 
             // button1
             // 
@@ -307,12 +308,14 @@
             this.txtC_entrega.Name = "txtC_entrega";
             this.txtC_entrega.Size = new System.Drawing.Size(80, 29);
             this.txtC_entrega.TabIndex = 32;
+            this.txtC_entrega.TextChanged += new System.EventHandler(this.txtC_entrega_TextChanged);
             this.txtC_entrega.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtC_entrega_KeyPress);
             // 
             // txtC_restante
             // 
             this.txtC_restante.Location = new System.Drawing.Point(960, 160);
             this.txtC_restante.Name = "txtC_restante";
+            this.txtC_restante.ReadOnly = true;
             this.txtC_restante.Size = new System.Drawing.Size(80, 29);
             this.txtC_restante.TabIndex = 33;
             this.txtC_restante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtC_restante_KeyPress);
