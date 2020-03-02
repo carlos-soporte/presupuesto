@@ -17,7 +17,7 @@ namespace Presupuesto_G
         int id_recurso;
         string cargo,n_profesional,observacion;
         int v_oficial, v_ofertado, t_meses;
-
+        int a, b;
        
        
         public FrmRecursoHumano(string numero_proceso,string nombre_proyecto)
@@ -42,13 +42,15 @@ namespace Presupuesto_G
                 txtTiempoM.Enabled = true;
                 txtVofertado.Enabled = true;
                 txtVoficial.Enabled = true;
+                txtObservaciones.Enabled = true;
                 btnGuardar.Enabled = true;
                 btnModificar.Enabled = true;
                 btnEliminar.Enabled = true;
 
+
             if (btnAsignar.Text == "Asignar")
             {
-                string query2="EXEC asignar_recurso '"+lbRecursoHumano.Text+"',"+txtPtoOficial.Text+",'"+numero_proceso2+"'";
+                string query2="EXEC asignar_pto '"+lbRecursoHumano.Text+"',"+txtPtoOficial.Text+",'"+numero_proceso2+"'";
                 try
                 {
                     bd.consultar(query2);
@@ -74,7 +76,7 @@ namespace Presupuesto_G
 
             if (btnAsignar.Text == "Guardar")
             {
-                string query3 = "EXEC modificar_asignar_recurso '"+lbRecursoHumano.Text+"'," + txtPtoOficial.Text + ",'"+numero_proceso2+"'";
+                string query3 = "EXEC modificar_pto '"+lbRecursoHumano.Text+"'," + txtPtoOficial.Text + ",'"+numero_proceso2+"'";
                 try
                 {
                     bd.consultar(query3);
@@ -98,26 +100,32 @@ namespace Presupuesto_G
             DataSet ds;
             string query="exec listar_recurso '"+numero_proceso2+"'";
             ds = bd.consultar(query);
-            return ds;
-          
-            
+            ds.Tables[0].Rows[1][1].ToString();
+            dataGridView1.Rows[1].Cells[1].Value = ds;
+            return ds;  
         }
 
-        public DataSet llenarpto()
-        {
-            DataSet st;
-            string query4 = "EXEC listar_asignar_recurso " + txtPtoOficial.Text + "";
-            st = bd.consultar(query4);
-            return st;
-        }
+       
 
         private void FrmRecursoHumano_Load(object sender, EventArgs e)
         {
-
-            if (txtPtoOficial.Text == null)
+            DataSet st;
+            string query4 = "EXEC listar_pto '" + lbRecursoHumano.Text + "','"+numero_proceso2+"'";
+            st = bd.consultar(query4);
+            string validacion;
+            try
             {
-                //metodo para mostrar los datos
-                dataGridView1.DataSource = llenarGv().Tables[0];
+                 validacion = st.Tables[0].Rows[0][0].ToString();
+            }
+            catch (Exception)
+            {
+
+                validacion = "";
+            }
+            if (validacion == "")
+            {
+                
+                
                 //bloquea los datos al iniciar el programa
                 txtCargo.Enabled = false;
                 txtNombreProfesional.Enabled = false;
@@ -127,15 +135,25 @@ namespace Presupuesto_G
                 btnGuardar.Enabled = false;
                 btnModificar.Enabled = false;
                 btnEliminar.Enabled = false;
+                txtObservaciones.Enabled = false;
                 txt1.Enabled = false;
                 txt2.Enabled = false;
                 txt3.Enabled = false;
                 txt4.Enabled = false;
+
             }
             else
             {
-                txtPtoOficial.Text = llenarpto().ToString();
+                btnAsignar.Text = "Cambiar";
+                txtPtoOficial.Enabled = false;
+                //metodo para mostrar los datos
+                dataGridView1.DataSource = llenarGv().Tables[0];
+                txtPtoOficial.Text= st.Tables[0].Rows[0][0].ToString();
+               
             }
+           
+           
+           
            
         }
 
@@ -147,9 +165,7 @@ namespace Presupuesto_G
                 MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
-            }
-
-            
+            } 
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -158,7 +174,17 @@ namespace Presupuesto_G
             if (txtCargo.Text == "" || txtNombreProfesional.Text == "" || txtPtoOficial.Text == "" || txtVofertado.Text == "" || txtTiempoM.Text == "" || txtVoficial.Text == ""|| txtObservaciones.Text=="")
             {
                 MessageBox.Show("campos vacios,favor ingresarlos");
+                return;
             }
+            a = Convert.ToInt32(txtVofertado.Text);
+            b = Convert.ToInt32(txtVoficial.Text);
+            if (b < a)
+            {
+                MessageBox.Show("el valor ofertado no puede ser mayor al valor oficial");
+                return;
+
+            }
+
             string query = "exec agregar_recurso '" + txtCargo.Text + "','" + txtNombreProfesional.Text + "'," + txtTiempoM.Text + "," + txtVoficial.Text + "," + txtVofertado.Text + ",'" + txtObservaciones.Text + "','" + numero_proceso2 + "'";
             try
             {
@@ -171,15 +197,13 @@ namespace Presupuesto_G
                 txtVoficial.Text = "";
                 
                 bd.consultar(query);
-                dataGridView1.DataSource = llenarGv().Tables[0];
+                dataGridView1.DataSource = llenarGv().Tables[];
             }
             catch (Exception)
             {
 
                 MessageBox.Show("no hay conexion con el servidor");
             } 
-
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -211,7 +235,6 @@ namespace Presupuesto_G
             {
                 this.Hide();
                 new FrmModificarRecursos(cargo,n_profesional,t_meses,v_oficial,v_ofertado,observacion,numero_proceso2,nombre_proyecto2,id_recurso).Show();
-
             }
         }
 
@@ -223,20 +246,20 @@ namespace Presupuesto_G
             }
             else
             {
+                id_recurso = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                cargo = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                n_profesional = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
+                t_meses = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+                v_oficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+                v_ofertado = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
+                observacion = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
                 try
                 {
-                    id_recurso = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                    cargo = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
-                    n_profesional = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
-                    t_meses = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
-                    v_oficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
-                    v_ofertado = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
-                    observacion = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
+                   
                 }
                 catch (Exception)
                 {
-
-                    MessageBox.Show("no conexion con elservidor");
+                    MessageBox.Show("no conexion con el servidor");
                 }
             }
             

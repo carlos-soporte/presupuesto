@@ -63,6 +63,16 @@ namespace Presupuesto_G.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap candado_p2 {
+            get {
+                object obj = ResourceManager.GetObject("candado p2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ENTRAR_5 {
             get {
                 object obj = ResourceManager.GetObject("ENTRAR 5", resourceCulture);

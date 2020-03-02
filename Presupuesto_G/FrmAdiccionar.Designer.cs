@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdiccionar));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTiempo = new System.Windows.Forms.TextBox();
             this.txtValor = new System.Windows.Forms.TextBox();
@@ -38,34 +38,34 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lb
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.lb.AutoSize = true;
+            this.lb.Location = new System.Drawing.Point(45, 54);
+            this.lb.Name = "lb";
+            this.lb.Size = new System.Drawing.Size(72, 29);
+            this.lb.TabIndex = 0;
+            this.lb.Text = "Valor";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(45, 153);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 29);
+            this.label2.Size = new System.Drawing.Size(99, 29);
             this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.label2.Text = "Tiempo";
             // 
             // txtTiempo
             // 
-            this.txtTiempo.Location = new System.Drawing.Point(209, 54);
+            this.txtTiempo.Location = new System.Drawing.Point(203, 150);
             this.txtTiempo.Name = "txtTiempo";
             this.txtTiempo.Size = new System.Drawing.Size(100, 34);
             this.txtTiempo.TabIndex = 2;
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(209, 148);
+            this.txtValor.Location = new System.Drawing.Point(203, 54);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(100, 34);
             this.txtValor.TabIndex = 3;
@@ -110,7 +110,7 @@
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.txtTiempo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lb);
             this.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -125,7 +125,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTiempo;
         private System.Windows.Forms.TextBox txtValor;

@@ -225,5 +225,8 @@
   <ItemGroup>
     <None Include="Resources\Logo_png-101.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candado p2.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

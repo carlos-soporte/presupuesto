@@ -121,8 +121,14 @@
   <data name="ENTRAR 5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ENTRAR 5.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo_png-09" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo_png-09.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Logo_png-11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo_png-11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo_png-101" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo_png-101.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="login4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login4.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="login41" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login41.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,17 +136,14 @@
   <data name="Ima_login1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ima_login1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Intento usuario 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Intento usuario 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Logo_png-10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo_png-10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LLAVE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LLAVE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="login3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login3.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo_png-11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo_png-11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo_png-04" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo_png-04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,22 +157,22 @@
   <data name="usuario3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuario3.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo_png-10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo_png-10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Logo_png-09" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo_png-09.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LIMPIAR3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LIMPIAR3.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="login4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\login4.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="login1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login1.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Intento usuario 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Intento usuario 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LIMPIAR.1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LIMPIAR.1.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="login1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\login1.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo_png-101" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo_png-101.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="candado p2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\candado p2.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
