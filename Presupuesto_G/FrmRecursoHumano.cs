@@ -197,7 +197,7 @@ namespace Presupuesto_G
                 txtVoficial.Text = "";
                 
                 bd.consultar(query);
-                dataGridView1.DataSource = llenarGv().Tables[];
+                dataGridView1.DataSource = llenarGv().Tables[0];
             }
             catch (Exception)
             {

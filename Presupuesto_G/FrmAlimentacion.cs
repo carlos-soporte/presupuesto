@@ -14,9 +14,7 @@ namespace Presupuesto_G
     {
         string numero_proceso2;
         int id_alimento;
-        int cantidad;
-        int CantidadRestante;
-        int CantidadEntregada;
+        int Restante;
 
         public FrmAlimentacion(string numero_proceso)
         {
@@ -29,7 +27,7 @@ namespace Presupuesto_G
             DataSet ds;
             string query = "exec listar_alimentos '"+numero_proceso2+"'";
             ds = bd.consultar(query);
-            ds.Tables[0].Rows.Count.ToString();
+            
             
             return ds;
         }
@@ -70,7 +68,42 @@ namespace Presupuesto_G
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //if(txtItem.Text=="" )
+            if(txtItem.Text=="" || txtCantidad.Text=="" || txtV_oficial.Text=="" || txtV_ofertado.Text=="" || txtC_entrega.Text == "")
+            {
+                MessageBox.Show("campos sin diligenciar.", "Campos vacìos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (Convert.ToInt32(txtCantidad.Text) == 0)
+            {
+                MessageBox.Show("La Cantidad debe ser mayor a Cero", "Cantidad Errnea", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (Convert.ToInt32(txtV_oficial.Text)==0)
+            {
+                MessageBox.Show("El valor oficial debe ser mayor a Cero", "Valor Oficial Erroneo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (Convert.ToInt32(txtV_ofertado.Text) == 0)
+            {
+                MessageBox.Show("El valor Ofertado debe ser mayor a Cero", "Valor Ofertado Erroneo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (Convert.ToInt32(txtC_entrega.Text) > Convert.ToInt32(txtCantidad.Text))
+            {
+                MessageBox.Show("La Cantidad Entregada no puede ser mayor a la Cantidad Total.", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            if(Convert.ToInt32(txtC_entrega.Text)+Convert.ToInt32(txtC_restante.Text)!= Convert.ToInt32(txtCantidad.Text))
+            {
+                MessageBox.Show("La sumatoria de cantidades no coincide, corrijalo por favor.", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string query = " exec agregar_alimento '" + txtItem.Text + "'," + txtCantidad.Text + "," + txtV_oficial.Text + "," +
                            txtV_ofertado.Text + "," + txtC_entrega.Text + "," + txtC_restante.Text + ",'" + numero_proceso2 + "'";
             
@@ -91,7 +124,11 @@ namespace Presupuesto_G
         {
             dataGridView1.DataSource = llenarGv().Tables[0];
             txtC_restante.Text = "0";
-            if (txtCantidad.TextLength == 0)
+            txtCantidad.Text = "0";
+            txtC_entrega.Text = "0";
+            txtV_ofertado.Text = "0";
+            txtV_oficial.Text = "0";
+            if (txtCantidad.TextLength == 0 || txtCantidad.Text=="0")
             {
                 txtC_entrega.Enabled = false;
                 txtC_restante.Enabled = false;
@@ -175,34 +212,72 @@ namespace Presupuesto_G
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
         {
-            if (txtCantidad.TextLength==0)
+            if (txtCantidad.TextLength==0 && txtCantidad.Text=="")
             {
                 txtC_entrega.Enabled = false;
+                txtC_entrega.Text = "0";
+                txtC_restante.Text = "0";
+                
             }
             else
             {
                 txtC_entrega.Enabled = true;
+
+                
                 
             }
+
+            
         }
 
         private void txtC_entrega_TextChanged(object sender, EventArgs e)
         {
             
-            if (txtC_entrega.TextLength == 0)
+
+            if (txtCantidad.Text == "")
             {
-                
+
             }
             else
             {
 
-                //cantidad = Convert.ToInt32(txtC_entrega.Text);
-                //CantidadEntregada = Convert.ToInt32(txtC_restante.Text);
-                if (Convert.ToInt32(txtC_entrega.Text) > Convert.ToInt32(txtCantidad.Text))
+                if (txtC_entrega.TextLength == 0)
                 {
-                    MessageBox.Show("Ha excedido la cantidad", MessageBoxIcon.Information.ToString());
+
+                }
+                else
+                {
+                    if (Convert.ToInt32(txtC_entrega.Text) > Convert.ToInt32(txtCantidad.Text))
+                    {
+                        MessageBox.Show("Ha excedido la cantidad", "¡Cuidado!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtC_entrega.Text = "0";
+                        txtC_restante.Text = "0";
+                    }
+
+                    Restante = Convert.ToInt32(txtCantidad.Text) - Convert.ToInt32(txtC_entrega.Text);
+                    txtC_restante.Text = Restante.ToString();
+
                 }
             }
+            
+        }
+
+        private void txtV_ofertado_TextChanged(object sender, EventArgs e)
+        {
+            if (txtV_oficial.Text=="")
+            {
+
+            }
+            else
+            {
+                if (Convert.ToInt32(txtV_ofertado.Text) > Convert.ToInt32(txtPtoOficial.Text))
+                {
+                    MessageBox.Show("Ha excedido el Valor Oficial de este Item", "¡Cuidado!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtV_ofertado.Text = "0";
+
+                }
+            }
+            
         }
     }
 }

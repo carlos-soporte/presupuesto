@@ -126,7 +126,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(27, 224);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1013, 286);
             this.dataGridView1.TabIndex = 12;
@@ -202,6 +202,7 @@
             this.txtV_ofertado.Name = "txtV_ofertado";
             this.txtV_ofertado.Size = new System.Drawing.Size(164, 29);
             this.txtV_ofertado.TabIndex = 20;
+            this.txtV_ofertado.TextChanged += new System.EventHandler(this.txtV_ofertado_TextChanged);
             this.txtV_ofertado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtV_ofertado_KeyPress);
             // 
             // label7
@@ -318,7 +319,6 @@
             this.txtC_restante.ReadOnly = true;
             this.txtC_restante.Size = new System.Drawing.Size(80, 29);
             this.txtC_restante.TabIndex = 33;
-            this.txtC_restante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtC_restante_KeyPress);
             // 
             // label14
             // 
