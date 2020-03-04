@@ -13,8 +13,10 @@ namespace Presupuesto_G
     public partial class FrmAlimentacion : Form
     {
         string numero_proceso2;
-        int id_alimento;
         int Restante;
+        int id_alimento,cantidad,CantidadEntregada,CantidadRestante;
+        string item;
+        double ValorOficial, ValorOfertado;
 
         public FrmAlimentacion(string numero_proceso)
         {
@@ -34,32 +36,86 @@ namespace Presupuesto_G
 
         private void btnAsignar_Click(object sender, EventArgs e)
         {
-            if (txtPtoOficial.Text == "")
+            
+            if (txtPresupuestoTotalOficial.Text == "")
             {
-                MessageBox.Show("favor llenar los campos");
+                MessageBox.Show("Rellene el presupuesto, por favor","¡Alto!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (Convert.ToInt32(txtPresupuestoTotalOficial.Text) <= 0)
+            {
+                MessageBox.Show("Este campo no pueder ser menor o igual a cero, por favor cambie el dato", "¡Alto!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (btnAsignar.Text == "Asignar")
             {
-                btnAsignar.Text = "Cambiar";
-                txtPtoOficial.Enabled = false;
+
+                string query = "exec asignar_pto '" + lblTipoItem.Text + "'," + txtPresupuestoTotalOficial.Text + ",'" + numero_proceso2 + "'";
+
+                try
+                {
+                    bd.consultar(query);
+                    txtPresupuestoTotalOficial.ReadOnly = true;
+                    btnAsignar.Text = "Cambiar";
+                    MessageBox.Show("Presupuesto General para ALIMENTACIÒN ASIGNADO", "Presupuesto general Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dataGridView1.DataSource = llenarGv().Tables[0];
+
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Se ha perdido la conexiòn con el servidor, intentelo de nuevo", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 return;
+                
             }
 
             if (btnAsignar.Text == "Cambiar")
             {
+                
                 btnAsignar.Text = "Guardar";
-                txtPtoOficial.Enabled = true;
+                txtPresupuestoTotalOficial.ReadOnly = false;
+                txtItem.Enabled = false;
+                txtCantidad.Enabled = false;
+                txtV_oficial.Enabled = false;
+                txtV_ofertado.Enabled = false;
+                txtC_entrega.Enabled = false;
+                btnGuardar.Enabled = false;
+                btnActualizar.Enabled = false;
+                btnEliminar.Enabled = false;
                 return;
+                
             }
 
             if (btnAsignar.Text == "Guardar")
             {
-                txtPtoOficial.Enabled = false;
-                btnAsignar.Text = "Cambiar";
-                txtPtoOficial.Text = txtPtoOficial.Text;
+                string query = "exec modificar_pto '" + lblTipoItem.Text + "'," + txtPresupuestoTotalOficial.Text + "','" + numero_proceso2 + "'";
+                try
+                {
+                    bd.consultar(query);
+                    txtPresupuestoTotalOficial.ReadOnly = true;
+                    btnAsignar.Text = "Cambiar";
+                    MessageBox.Show("Presupuesto General para ALIMENTACIÒN actualizado.", "Presupuesto general Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtItem.Enabled = true;
+                    txtCantidad.Enabled = true;
+                    txtV_oficial.Enabled = true;
+                    txtV_ofertado.Enabled = true;
+                    txtC_entrega.Enabled = true;
+                    btnGuardar.Enabled = true;
+                    btnActualizar.Enabled = true;
+                    btnEliminar.Enabled = true;
+
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Se ha perdido la conexiòn con el servidor, intentelo de nuevo", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
                 return;
+                
             }
 
             
@@ -112,6 +168,13 @@ namespace Presupuesto_G
                 bd.consultar(query);
                 MessageBox.Show("items guardados con exito");
                 dataGridView1.DataSource = llenarGv().Tables[0];
+
+                txtItem.Text = "";
+                txtCantidad.Text = "0";
+                txtV_oficial.Text = "0";
+                txtV_ofertado.Text = "0";
+                txtC_entrega.Text = "0";
+                txtC_restante.Text = "0";
             }
             catch (Exception)
             {
@@ -122,7 +185,40 @@ namespace Presupuesto_G
 
         private void FrmAlimentacion_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = llenarGv().Tables[0];
+            DataSet dataSet;
+            string query = "exec listar_pto '"+lblTipoItem.Text+"','"+numero_proceso2+"'";
+            bool validadorTotalPresupuesto;
+
+            try
+            {
+                dataSet = bd.consultar(query);
+                txtPresupuestoTotalOficial.Text = dataSet.Tables[0].Rows[0][0].ToString();
+                txtPresupuestoTotalOficial.Enabled = true;
+                btnAsignar.Text = "Cambiar";
+                dataGridView1.DataSource = llenarGv().Tables[0];
+                validadorTotalPresupuesto = true;
+            }
+            catch (Exception)
+            {
+                validadorTotalPresupuesto = false;
+            }
+
+            if (validadorTotalPresupuesto == false)
+            {
+                txtItem.Enabled = false;
+                txtCantidad.Enabled = false;
+                txtV_oficial.Enabled = false;
+                txtV_ofertado.Enabled = false;
+                txtC_entrega.Enabled = false;
+                txtC_restante.Enabled = false;
+                btnGuardar.Enabled = false;
+                btnActualizar.Enabled = false;
+                btnEliminar.Enabled = false;
+            }
+            else
+            {
+                txtPresupuestoTotalOficial.ReadOnly = true;
+            }
             txtC_restante.Text = "0";
             txtCantidad.Text = "0";
             txtC_entrega.Text = "0";
@@ -152,11 +248,21 @@ namespace Presupuesto_G
             
             try
             {
-                id_alimento = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+                id_alimento = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                item = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                cantidad = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
+                ValorOficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+                ValorOfertado = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+                CantidadEntregada = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
+                CantidadRestante = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
+
+                btnActualizar.Enabled = true;
+                btnEliminar.Enabled = true;
+
             }
             catch (Exception)
             {
-
+                MessageBox.Show("No hay ninguna fila vàlida seleccionada.", "Seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -270,11 +376,120 @@ namespace Presupuesto_G
             }
             else
             {
-                if (Convert.ToInt32(txtV_ofertado.Text) > Convert.ToInt32(txtPtoOficial.Text))
+                if (txtV_ofertado.TextLength==0)
                 {
-                    MessageBox.Show("Ha excedido el Valor Oficial de este Item", "¡Cuidado!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtV_ofertado.Text = "0";
 
+                }
+                else
+                {
+                    if (Convert.ToInt32(txtV_ofertado.Text) > Convert.ToInt32(txtV_oficial.Text))
+                    {
+                        MessageBox.Show("El valor Ofertado no puede ser mayor al oficial", "¡Cuidado!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtV_ofertado.Text = "0";
+                    }
+                }
+            }
+            
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            btnAsignar.Enabled = false;
+            btnActualizar.Enabled = false;
+            DialogResult respuesta = MessageBox.Show("¿Seguro que desea eliminar este Item?", "Eliminar" + txtItem.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (respuesta == DialogResult.Yes)
+            {
+                string query = "exec EliminarAlimento " + id_alimento + ",'" + numero_proceso2 + "'";
+                try
+                {
+                    bd.consultar(query);
+                    MessageBox.Show("Item eliminado satisfactoriamente", "¿En hora buena!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnAsignar.Enabled = true;
+                    btnActualizar.Enabled = true;
+                    btnActualizar.Enabled = false;
+                    btnEliminar.Enabled = false;
+                    dataGridView1.DataSource = llenarGv().Tables[0];
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Se ha perdido la conexiòn con el servidor, intentelo de nuevo", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                btnAsignar.Enabled = true;
+                btnEliminar.Enabled = false;
+            }
+            
+        }
+
+        private void txtV_oficial_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPresupuestoTotalOficial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtPresupuestoTotalOficial_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            
+            if (id_alimento > 0 && btnActualizar.Text=="Actualizar")
+            {
+                txtItem.Text = item;
+                txtCantidad.Text = cantidad.ToString();
+                txtV_oficial.Text = ValorOficial.ToString();
+                txtV_ofertado.Text = ValorOfertado.ToString();
+                txtC_entrega.Text = CantidadEntregada.ToString();
+                txtC_restante.Text = CantidadRestante.ToString();
+
+                btnEliminar.Enabled = false;
+                btnGuardar.Enabled = false;
+                btnAsignar.Enabled = false;
+                btnActualizar.Text = "Confirmar";
+                return;
+            }
+
+            if(btnActualizar.Text == "Confirmar")
+            {
+                string query = "exec ActualizarAlimento " + id_alimento + ",'" + txtItem.Text + "'," +
+                    txtCantidad.Text + "," + txtV_oficial.Text + "," + txtV_ofertado.Text + "," + txtC_entrega.Text +
+                    "," + txtC_restante.Text + ",'" + numero_proceso2 + "'";
+
+                try
+                {
+                    bd.consultar(query);
+                    MessageBox.Show("Item actualizado correctamente", "¡En hora buena!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnActualizar.Enabled = false;
+                    btnActualizar.Text = "Actualizar";
+                    btnGuardar.Enabled = true;
+                    btnAsignar.Enabled = true;
+                    txtItem.Text = "";
+                    txtCantidad.Text = "0";
+                    txtV_oficial.Text = "0";
+                    txtV_ofertado.Text = "0";
+                    txtC_entrega.Text = "0";
+                    txtC_restante.Text = "0";
+
+                    dataGridView1.DataSource = llenarGv().Tables[0];
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Se ha perdido la conexiòn con el servidor, intentelo de nuevo", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             

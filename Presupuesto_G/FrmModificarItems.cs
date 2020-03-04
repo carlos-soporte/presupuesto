@@ -14,7 +14,7 @@ namespace Presupuesto_G
     {
         string numero_proceso2;
         string nombre_proyecto2;
-        string txtPtoOficial;
+
         public FrmModificarItems(string numero_proceso,string nombre_proyecto)
         {
             numero_proceso2 = numero_proceso;

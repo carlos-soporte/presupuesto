@@ -272,10 +272,29 @@ GO
 CREATE PROCEDURE listar_alimentos
 @numero_proceso VARCHAR(25)
 AS
-SELECT item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,numero_proceso FROM alimentacion WHERE numero_proceso=@numero_proceso
+SELECT id_alimento,item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,numero_proceso FROM alimentacion WHERE numero_proceso=@numero_proceso
 GO
 
+--Procedimiento almacenado para actualizar los alimentos
+CREATE PROCEDURE ActualizarAlimento
+@id_alimento INT,
+@item VARCHAR(25),
+@cantidad INT,
+@valor_oficial FLOAT,
+@valor_ofertado FLOAT,
+@C_Entregada INT,
+@C_Restante INT,
+@numero_proceso VARCHAR(25)
+AS
+UPDATE alimentacion SET item=@item,cantidad=@cantidad,valor_oficial=@valor_oficial,valor_ofertado=@valor_ofertado,C_Entregada=C_Entregada,C_Restante=@C_Restante WHERE numero_proceso=@numero_proceso AND id_alimento=@id_alimento
+GO
 
+--Procedimiento almacenado para eliminar los items de alimentos.
+CREATE PROCEDURE EliminarAlimento
+@id_alimento INT,
+@numero_proceso VARCHAR(25)
+AS
+DELETE FROM alimentacion WHERE id_alimento=@id_alimento AND numero_proceso=@numero_proceso
 
 
 

@@ -36,11 +36,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtV_oficial = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lblTipoItem = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtPtoOficial = new System.Windows.Forms.TextBox();
+            this.txtPresupuestoTotalOficial = new System.Windows.Forms.TextBox();
             this.btnAsignar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtV_ofertado = new System.Windows.Forms.TextBox();
@@ -132,35 +132,39 @@
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // label4
+            // lblTipoItem
             // 
-            this.label4.AutoSize = true;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(506, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 24);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "ALIMENTACION";
+            this.lblTipoItem.AutoSize = true;
+            this.lblTipoItem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTipoItem.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoItem.ForeColor = System.Drawing.Color.Red;
+            this.lblTipoItem.Location = new System.Drawing.Point(506, 23);
+            this.lblTipoItem.Name = "lblTipoItem";
+            this.lblTipoItem.Size = new System.Drawing.Size(157, 24);
+            this.lblTipoItem.TabIndex = 13;
+            this.lblTipoItem.Text = "ALIMENTACION";
             // 
-            // button1
+            // btnActualizar
             // 
-            this.button1.Location = new System.Drawing.Point(1055, 224);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 44);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnActualizar.Enabled = false;
+            this.btnActualizar.Location = new System.Drawing.Point(1055, 224);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(126, 44);
+            this.btnActualizar.TabIndex = 14;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // button2
+            // btnEliminar
             // 
-            this.button2.Location = new System.Drawing.Point(1055, 274);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 44);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Location = new System.Drawing.Point(1055, 274);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(126, 44);
+            this.btnEliminar.TabIndex = 15;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label5
             // 
@@ -170,12 +174,13 @@
             this.label5.Size = new System.Drawing.Size(0, 22);
             this.label5.TabIndex = 16;
             // 
-            // txtPtoOficial
+            // txtPresupuestoTotalOficial
             // 
-            this.txtPtoOficial.Location = new System.Drawing.Point(221, 66);
-            this.txtPtoOficial.Name = "txtPtoOficial";
-            this.txtPtoOficial.Size = new System.Drawing.Size(172, 29);
-            this.txtPtoOficial.TabIndex = 17;
+            this.txtPresupuestoTotalOficial.Location = new System.Drawing.Point(221, 66);
+            this.txtPresupuestoTotalOficial.Name = "txtPresupuestoTotalOficial";
+            this.txtPresupuestoTotalOficial.Size = new System.Drawing.Size(172, 29);
+            this.txtPresupuestoTotalOficial.TabIndex = 17;
+            this.txtPresupuestoTotalOficial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPresupuestoTotalOficial_KeyPress);
             // 
             // btnAsignar
             // 
@@ -398,11 +403,11 @@
             this.Controls.Add(this.txtV_ofertado);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnAsignar);
-            this.Controls.Add(this.txtPtoOficial);
+            this.Controls.Add(this.txtPresupuestoTotalOficial);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.lblTipoItem);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtV_oficial);
             this.Controls.Add(this.label3);
@@ -433,11 +438,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtV_oficial;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblTipoItem;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtPtoOficial;
+        private System.Windows.Forms.TextBox txtPresupuestoTotalOficial;
         private System.Windows.Forms.Button btnAsignar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtV_ofertado;
