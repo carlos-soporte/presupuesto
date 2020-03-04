@@ -58,7 +58,7 @@
             this.txt4 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txt1 = new System.Windows.Forms.TextBox();
+            this.txtTotalP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -341,14 +341,14 @@
             this.label11.TabIndex = 42;
             this.label11.Text = "Total ganancias";
             // 
-            // txt1
+            // txtTotalP
             // 
-            this.txt1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txt1.Location = new System.Drawing.Point(340, 650);
-            this.txt1.Name = "txt1";
-            this.txt1.ReadOnly = true;
-            this.txt1.Size = new System.Drawing.Size(172, 35);
-            this.txt1.TabIndex = 41;
+            this.txtTotalP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.txtTotalP.Location = new System.Drawing.Point(340, 650);
+            this.txtTotalP.Name = "txtTotalP";
+            this.txtTotalP.ReadOnly = true;
+            this.txtTotalP.Size = new System.Drawing.Size(172, 35);
+            this.txtTotalP.TabIndex = 41;
             // 
             // label2
             // 
@@ -371,7 +371,7 @@
             this.Controls.Add(this.txt4);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.txt1);
+            this.Controls.Add(this.txtTotalP);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnMenuItems);
             this.Controls.Add(this.btnMenu);
@@ -431,7 +431,7 @@
         private System.Windows.Forms.TextBox txt4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txt1;
+        private System.Windows.Forms.TextBox txtTotalP;
         private System.Windows.Forms.Label label2;
     }
 }

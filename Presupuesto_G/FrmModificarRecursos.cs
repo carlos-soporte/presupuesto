@@ -42,6 +42,14 @@ namespace Presupuesto_G
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            int a, b;
+            a = Convert.ToInt32(txtVoficial.Text);
+            b = Convert.ToInt32(txtVofertado.Text);
+            if (a < b) 
+            {
+                MessageBox.Show("el valor oficial no puede ser menor al valor ofertado");
+                return;
+            }
 
             string query2 = "exec modificar_recurso '" + txtCargo.Text + "','" + txtNProfesional.Text + "'," + txtTmeses.Text + "," + txtVoficial.Text + "," + txtVofertado.Text + ",'" + txtObservaciones.Text + "','" + numero_proceso2 + "',"+id_recurso2;
             try

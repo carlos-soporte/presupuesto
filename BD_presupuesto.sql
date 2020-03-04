@@ -34,6 +34,20 @@ ALTER TABLE proyectos
 ADD PRIMARY KEY(numero_proceso)
 GO
 
+--CREAMOS UNA TABLA QUE CONTENDRÀ TODO LO RELACIONADO CON RECURSOS HUMANOS.
+CREATE TABLE recursos_humanos
+(
+id_recurso INT IDENTITY,
+Cargo VARCHAR(30) NOT NULL,
+N_Profesional VARCHAR(40) NOT NULL,
+Tiempo_meses INT NOT NULL,
+V_Oficial FLOAT NOT NULL,
+V_Ofertado FLOAT NOT NULL,
+Observaciones VARCHAR(100) NOT NULL,
+numero_proceso VARCHAR(25) NOT NULL
+)
+GO
+
 --CREAMOS UNA TABLA QUE CONTENDRÀ TODOS LOS ITEMS RELACIONADOS CON LA ALIMENTACIÒN.
 CREATE TABLE alimentacion
 (id_alimento INT IDENTITY,
@@ -43,18 +57,6 @@ valor_oficial FLOAT,
 valor_ofertado FLOAT,
 C_Entregada INT,
 C_Restante INT,
-numero_proceso VARCHAR(25) NOT NULL)
-GO
-
---CREAMOS UNA TABLA QUE CONTENDRÀ TODO LO RELACIONADO CON RECURSOS HUMANOS.
-CREATE TABLE recursos_humanos
-(id_recurso INT IDENTITY,
-Cargo VARCHAR(30) NOT NULL,
-N_Profesional VARCHAR(40) NOT NULL,
-Tiempo_meses INT NOT NULL,
-V_Oficial FLOAT NOT NULL,
-V_Ofertado FLOAT NOT NULL,
-Observaciones VARCHAR(100) NOT NULL,
 numero_proceso VARCHAR(25) NOT NULL)
 GO
 
@@ -84,45 +86,14 @@ valor FLOAT NOT NULL,
 numero_proceso VARCHAR(25) NOT NULL
 )
 GO
---ASIGNAMOS LA CLAVE PRIMARIA
-ALTER TABLE asignar
-ADD PRIMARY KEY(nombre)
-GO
+
 --CREAMO LA RELACION ENTRE LAS TABLAS
 
 ALTER TABLE asignar
 ADD FOREIGN KEY(numero_proceso) REFERENCES proyectos(numero_proceso)ON DELETE CASCADE
 GO
 
--- CREAMOS PROCEDIMIENTO ALMACENADO PARA ALMACENAR ITEMS DE RECURSO
-CREATE PROCEDURE asignar_recurso
-(
-@nombre VARCHAR(25),
-@valor FLOAT,
-@numero_proceso VARCHAR(25)
-)
-AS
-INSERT INTO asignar(nombre,valor,numero_proceso) VALUES(@nombre,@valor,@numero_proceso)
-GO
 
---CREAMOS PROCEDIMIENTO ALMACENADO PARA LISTAR PTO OFFICIAL DE RECURSO
-CREATE PROCEDURE listar_asignar_recurso
-(
-@valor FLOAT
-)
-AS
-SELECT nombre,valor,numero_proceso FROM asignar WHERE numero_proceso like '%'+@valor+'%'
-GO
---CREAMOS PROCEDIMIENTO ALMACENADO PARA MODIFICAR PTO DE RECURSO
-CREATE PROCEDURE modificar_asignar_recurso
-(
-@nombre VARCHAR(25),
-@valor FLOAT,
-@numero_proceso VARCHAR(25)
-)
-AS
-UPDATE asignar SET nombre=@nombre,valor=@valor WHERE numero_proceso=@numero_proceso
-GO
 -------------CREAMOS LAS RELACIONES ENTRE TABLAS CORRESPONDIENTES----------------------------------------------
 
 
@@ -208,6 +179,82 @@ AS
 UPDATE proyectos SET nombre=@nombre,presupuesto=@presupuesto,descripcion=@descripcion WHERE numero_proceso=@numero_proceso
 GO
 
+-- CREAMOS PROCEDIMIENTO ALMACENADO PARA ALMACENAR ITEMS DE RECURSO
+CREATE PROCEDURE asignar_pto
+(
+@nombre VARCHAR(25),
+@valor FLOAT,
+@numero_proceso VARCHAR(25)
+)
+AS
+INSERT INTO asignar(nombre,valor,numero_proceso) VALUES(@nombre,@valor,@numero_proceso)
+GO
+
+--CREAMOS PROCEDIMIENTO ALMACENADO PARA LISTAR PTO OFFICIAL DE RECURSO
+CREATE PROCEDURE listar_pto
+(
+@nombre VARCHAR(25),
+@numero_proceso VARCHAR(25)
+)
+AS
+SELECT valor FROM asignar WHERE numero_proceso=@numero_proceso and  nombre=@nombre
+GO
+
+--CREAMOS PROCEDIMIENTO ALMACENADO PARA MODIFICAR PTO DE RECURSO
+CREATE PROCEDURE modificar_pto
+(
+@nombre VARCHAR(25),
+@valor FLOAT,
+@numero_proceso VARCHAR(25)
+)
+AS
+UPDATE asignar SET nombre=@nombre,valor=@valor WHERE numero_proceso=@numero_proceso
+GO
+
+--procedimiento almacenado para agregar items de recurso_humano
+CREATE PROCEDURE agregar_recurso
+
+@cargo varchar(30),
+@profesional VARCHAR(30),
+@meses INT,
+@valor_oficial FLOAT,
+@valor_ofertado FLOAT,
+@observaciones	VARCHAR(100),
+@numero_proceso VARCHAR(25)
+AS
+INSERT INTO recursos_humanos(Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,Observaciones,numero_proceso) VALUES (@cargo,@profesional,@meses,@valor_oficial,@valor_ofertado,@observaciones,@numero_proceso)
+GO
+
+--procedimiento almacenado para listar items de recursos humanos.
+CREATE PROCEDURE listar_recurso
+@numero_proceso VARCHAR(25)
+AS
+SELECT id_recurso,Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,Observaciones,numero_proceso from recursos_humanos WHERE numero_proceso=@numero_proceso
+GO
+
+--procedimiento almacenado para actualizar datos de recurso humano.
+CREATE PROCEDURE modificar_recurso
+@cargo VARCHAR(30),
+@profesional VARCHAR(30),
+@meses INT,
+@valor_oficial FLOAT,
+@valor_ofertado FLOAT,
+@observacion Varchar(100),
+@numero_proceso VARCHAR(25),
+@id_recurso INT
+AS
+UPDATE recursos_humanos SET Cargo=@cargo,N_Profesional=@profesional,Tiempo_meses=@meses,V_Oficial=@valor_oficial,V_Ofertado=@valor_ofertado,Observaciones=@observacion WHERE numero_proceso=@numero_proceso	AND id_recurso=@id_recurso				
+GO
+
+--procedimiento almacenado para eliminar datos de recurso humano.
+
+CREATE PROCEDURE eliminar_recurso
+@id_recurso INT,
+@numero_proceso VARCHAR(25)
+AS
+DELETE FROM recursos_humanos WHERE id_recurso=@id_recurso and numero_proceso=@numero_proceso
+GO
+
 --procedimiento almacenado para agregar items de alimentaciòn.
 CREATE PROCEDURE agregar_alimento
 @item VARCHAR(25),
@@ -228,40 +275,57 @@ AS
 SELECT item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,numero_proceso FROM alimentacion WHERE numero_proceso=@numero_proceso
 GO
 
---procedimiento almacenado para agregar items de recurso_humano
-CREATE PROCEDURE agregar_recurso
-@cargo varchar(30),
-@profesional VARCHAR(30),
-@meses INT,
-@valor_oficial FLOAT,
-@valor_ofertado FLOAT,
-@observaciones	VARCHAR(100),
-@numero_proceso VARCHAR(25)
-AS
-INSERT INTO recursos_humanos(Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,Observaciones,numero_proceso) VALUES (@cargo,@profesional,@meses,@valor_oficial,@valor_ofertado,@observaciones,@numero_proceso)
+
+
+
+
+
+
+
+-----REGISTROS DE PRUEBAS
+
+
+--se insertan usuarios
+EXEC validar_usuario 'duban',1234
 GO
---procedimiento almacenado para listar items de recursos humanos.
-CREATE PROCEDURE listar_recurso
-@numero_proceso VARCHAR(25)
-AS
-SELECT Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,Observaciones,numero_proceso from recursos_humanos WHERE numero_proceso=@numero_proceso
+EXEC validar_usuario 'carlos',1234
 GO
---procedimiento almacenado para actualizar datos de recurso humano.
-CREATE PROCEDURE modificar_recurso
-@cargo VARCHAR(30),
-@profesional VARCHAR(30),
-@meses INT,
-@valor_oficial FLOAT,
-@valor_ofertado FLOAT,
-@observacion Varchar(100),
-@numero_proceso VARCHAR(25),
-@id_recurso INT
-AS
-UPDATE recursos_humanos SET Cargo=@cargo,N_Profesional=@profesional,Tiempo_meses=@meses,V_Oficial=@valor_oficial,V_Ofertado=@valor_ofertado,Observaciones=@observacion WHERE numero_proceso=@numero_proceso	AND id_recurso=@id_recurso				
+
+-- se crean  proyectos
+
+EXEC crear_proyecto '4','caracterizacion','1','perragata'
+EXEC crear_proyecto '41','perra','10','perrogata'
+EXEC crear_proyecto '401','jabali','100','oso hormiguero'
+EXEC crear_proyecto '4001','snake','1000','pez foca'
+EXEC crear_proyecto '40001','spider','10000','iguana'
+GO
+
+truncate table proyectos
+-- items de recurso humano
+EXEC agregar_recurso 'sistemas','culo',1,5,4,'hola bb','41'
+EXEC agregar_recurso 'ciencias','mosca',2,50,20,'hola bb','41'
+EXEC agregar_recurso 'sociales','hormiga',3,500,200,'hola bb','41'
+EXEC agregar_recurso 'ingles','luna',4,5000,2000,'hola bb','41'
+EXEC agregar_recurso 'calculo','paja',5,50000,20000,'hola bb','41'
+GO
+
+-- items de alimentacion
+
+EXEC agregar_alimento'tuflor',1,11,5.5,100,8,'4'
+EXEC agregar_alimento 'pera',10,22,11,200,4,'4'
+EXEC agregar_alimento 'sol',101,33,16.5,300,2,'4'
+EXEC agregar_alimento 'estrella',44,22,400,2000,1,'4'
+EXEC agregar_alimento'planeta',90,45,500,15,7,'4'
 GO
 
 
-select * from asignar
-EXEC crear_proyecto '40001','caracterizacion','100','perragata'
-INSERT INTO usuarios (usuario,contraseña) VALUES ('duban',1234)
+select * from proyectos
 
+exec asignar_pto 'RECURSO HUMANO',5,'40001'
+
+select V_Ofertado from recursos_humanos
+group by V_Ofertado
+select * from recursos_humanos
+sum(V_Ofertado) 
+
+exec modificar_recurso 'perico','carlos',12,5000,1000,'30 febrero pago','40001',2

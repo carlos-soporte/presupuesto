@@ -61,7 +61,13 @@ namespace Presupuesto_G
 
                     MessageBox.Show("no hay conexion con elservidor");
                 }
-                
+                int c = Convert.ToInt32(txtPtoOficial.Text);
+                if (c < 1) 
+                {
+
+                    MessageBox.Show("el presupuesto oficial no puede ser 0");
+                    return;
+                }
                 btnAsignar.Text = "Cambiar";
                 txtPtoOficial.Enabled = false;
                 return;
@@ -98,15 +104,10 @@ namespace Presupuesto_G
         public DataSet llenarGv()
         {
             DataSet ds;
-            string query="exec listar_recurso '"+numero_proceso2+"'";
+            string query = "exec listar_recurso '" + numero_proceso2 + "'";
             ds = bd.consultar(query);
-            ds.Tables[0].Rows[1][1].ToString();
-            dataGridView1.Rows[1].Cells[1].Value = ds;
-            return ds;  
+            return ds;
         }
-
-       
-
         private void FrmRecursoHumano_Load(object sender, EventArgs e)
         {
             DataSet st;
@@ -136,7 +137,7 @@ namespace Presupuesto_G
                 btnModificar.Enabled = false;
                 btnEliminar.Enabled = false;
                 txtObservaciones.Enabled = false;
-                txt1.Enabled = false;
+                txtTotalP.Enabled = false;
                 txt2.Enabled = false;
                 txt3.Enabled = false;
                 txt4.Enabled = false;
@@ -144,9 +145,13 @@ namespace Presupuesto_G
             }
             else
             {
+
                 btnAsignar.Text = "Cambiar";
                 txtPtoOficial.Enabled = false;
+                
                 //metodo para mostrar los datos
+               
+
                 dataGridView1.DataSource = llenarGv().Tables[0];
                 txtPtoOficial.Text= st.Tables[0].Rows[0][0].ToString();
                
@@ -178,6 +183,22 @@ namespace Presupuesto_G
             }
             a = Convert.ToInt32(txtVofertado.Text);
             b = Convert.ToInt32(txtVoficial.Text);
+            int c = Convert.ToInt32(txtTiempoM.Text);
+            if (c == 0)
+            {
+                MessageBox.Show("el tiempo en  meses no puede ser 0");
+                return;
+            }
+            if (a < 1) 
+            {
+                MessageBox.Show("el valor ofertado no puede ser 0");
+                return;
+            }
+            if (b < 1)
+            {
+                MessageBox.Show("el valor oficial no puede ser 0");
+                return;
+            }
             if (b < a)
             {
                 MessageBox.Show("el valor ofertado no puede ser mayor al valor oficial");
@@ -197,7 +218,7 @@ namespace Presupuesto_G
                 txtVoficial.Text = "";
                 
                 bd.consultar(query);
-                dataGridView1.DataSource = llenarGv().Tables[];
+                dataGridView1.DataSource = llenarGv().Tables[0];
             }
             catch (Exception)
             {
@@ -208,7 +229,43 @@ namespace Presupuesto_G
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            string query5;
+            if (id_recurso>0 && numero_proceso2!=null)
+            {
+                DialogResult respuesta = MessageBox.Show("¿seguro que desea eliminar el proyecto?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (respuesta == DialogResult.Yes)
+                {
+                    query5 = "exec eliminar_recurso " + id_recurso + ",'"+numero_proceso2+"'";
+                    try
+                    {
+                        bd.consultar(query5);
+                        MessageBox.Show("datos borrados correctamente");
+                        dataGridView1.DataSource = llenarGv().Tables[0];
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("no hay conexion con el servidor");
 
+                    }
+
+                }
+                else if (respuesta == DialogResult.No)
+                {
+
+                }
+                else if (respuesta == DialogResult.Cancel)
+                {
+                
+                
+                }
+                  
+
+            }
+            else 
+            {
+                MessageBox.Show("no hay datos seleccionados");
+            }
+           
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -240,28 +297,23 @@ namespace Presupuesto_G
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (numero_proceso2 == null)
-            {
-                MessageBox.Show("no hay items seleccionados");
-            }
-            else
-            {
-                id_recurso = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                cargo = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
-                n_profesional = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
-                t_meses = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
-                v_oficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
-                v_ofertado = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
-                observacion = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
+           
+          
                 try
                 {
-                   
+                    id_recurso = Convert.ToInt32((dataGridView1.Rows[e.RowIndex].Cells[0].Value));
+                    cargo = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                    n_profesional = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
+                    t_meses = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+                    v_oficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+                    v_ofertado = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
+                    observacion = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("no conexion con el servidor");
+                    MessageBox.Show("no hay items seleccionados");
                 }
-            }
+            
             
         }
     }
