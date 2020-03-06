@@ -197,6 +197,17 @@ namespace Presupuesto_G
                 btnAsignar.Text = "Cambiar";
                 dataGridView1.DataSource = llenarGv().Tables[0];
                 validadorTotalPresupuesto = true;
+                dataGridView1.Columns[0].HeaderText = "ID";
+                dataGridView1.Columns[1].HeaderText = "Item";
+                dataGridView1.Columns[2].HeaderText = "Cantidad";
+                dataGridView1.Columns[3].HeaderText = "Valor Oficial";
+                dataGridView1.Columns[4].HeaderText = "Valor Ofertado";
+                dataGridView1.Columns[5].HeaderText = "Valor Total Oficial";
+                dataGridView1.Columns[6].HeaderText = "Valor Total Ofertado";
+                dataGridView1.Columns[7].HeaderText = "Cantidad Entregada";
+                dataGridView1.Columns[8].HeaderText = "Cantidad Restante";
+                dataGridView1.Columns[9].HeaderText = "Numero de proceso";
+                
             }
             catch (Exception)
             {
@@ -229,6 +240,8 @@ namespace Presupuesto_G
                 txtC_entrega.Enabled = false;
                 txtC_restante.Enabled = false;
             }
+
+            
         }
 
         private void btnItem_Click(object sender, EventArgs e)
@@ -262,7 +275,9 @@ namespace Presupuesto_G
             }
             catch (Exception)
             {
-                MessageBox.Show("No hay ninguna fila vàlida seleccionada.", "Seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("No hay ninguna fila vàlida seleccionada.", "Seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnEliminar.Enabled = false;
+                btnActualizar.Enabled = false;
             }
         }
 
@@ -424,6 +439,26 @@ namespace Presupuesto_G
             
         }
 
+        private void btnGuardar_MouseDown(object sender, MouseEventArgs e)
+        {
+            btnGuardar.BackColor = Color.Lime;
+        }
+
+        private void btnActualizar_MouseDown(object sender, MouseEventArgs e)
+        {
+            btnActualizar.BackColor = Color.Lime;
+        }
+
+        private void btnEliminar_MouseDown(object sender, MouseEventArgs e)
+        {
+            btnEliminar.BackColor = Color.Lime;
+        }
+
+        private void btnAsignar_MouseDown(object sender, MouseEventArgs e)
+        {
+            btnAsignar.BackColor = Color.Lime;
+        }
+
         private void txtV_oficial_TextChanged(object sender, EventArgs e)
         {
 
@@ -465,6 +500,42 @@ namespace Presupuesto_G
 
             if(btnActualizar.Text == "Confirmar")
             {
+                if (txtItem.Text == "" || txtCantidad.Text == "" || txtV_oficial.Text == "" || txtV_ofertado.Text == "" || txtC_entrega.Text == "")
+                {
+                    MessageBox.Show("campos sin diligenciar.", "Campos vacìos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (Convert.ToInt32(txtCantidad.Text) == 0)
+                {
+                    MessageBox.Show("La Cantidad debe ser mayor a Cero", "Cantidad Errnea", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (Convert.ToInt32(txtV_oficial.Text) == 0)
+                {
+                    MessageBox.Show("El valor oficial debe ser mayor a Cero", "Valor Oficial Erroneo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (Convert.ToInt32(txtV_ofertado.Text) == 0)
+                {
+                    MessageBox.Show("El valor Ofertado debe ser mayor a Cero", "Valor Ofertado Erroneo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (Convert.ToInt32(txtC_entrega.Text) > Convert.ToInt32(txtCantidad.Text))
+                {
+                    MessageBox.Show("La Cantidad Entregada no puede ser mayor a la Cantidad Total.", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
+                if (Convert.ToInt32(txtC_entrega.Text) + Convert.ToInt32(txtC_restante.Text) != Convert.ToInt32(txtCantidad.Text))
+                {
+                    MessageBox.Show("La sumatoria de cantidades no coincide, corrijalo por favor.", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 string query = "exec ActualizarAlimento " + id_alimento + ",'" + txtItem.Text + "'," +
                     txtCantidad.Text + "," + txtV_oficial.Text + "," + txtV_ofertado.Text + "," + txtC_entrega.Text +
                     "," + txtC_restante.Text + ",'" + numero_proceso2 + "'";

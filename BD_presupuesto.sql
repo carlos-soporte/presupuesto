@@ -53,10 +53,12 @@ CREATE TABLE alimentacion
 (id_alimento INT IDENTITY,
 item VARCHAR(25) NOT NULL,
 cantidad INT NOT NULL,
-valor_oficial FLOAT,
-valor_ofertado FLOAT,
-C_Entregada INT,
-C_Restante INT,
+valor_oficial FLOAT NOT NULL,
+valor_ofertado FLOAT NOT NULL,
+ValorOficialTotal FLOAT NOT NULL,
+ValorOfertadoTotal FLOAT NOT NULL,
+C_Entregada INT NOT NULL,
+C_Restante INT NOT NULL,
 numero_proceso VARCHAR(25) NOT NULL)
 GO
 
@@ -265,14 +267,14 @@ CREATE PROCEDURE agregar_alimento
 @C_Restante INT,
 @numero_proceso VARCHAR(25)
 AS
-INSERT INTO alimentacion(item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,numero_proceso) VALUES (@item,@cantidad,@valor_oficial,@valor_ofertado,@C_Entregada,@C_Restante,@numero_proceso)
+INSERT INTO alimentacion(item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,ValorOficialTotal,ValorOfertadoTotal,numero_proceso) VALUES (@item,@cantidad,@valor_oficial,@valor_ofertado,@C_Entregada,@C_Restante,@cantidad*@valor_oficial,@cantidad*@valor_ofertado,@numero_proceso)
 GO
 
 --Procedimiento almacenado para mostrar alimentos
 CREATE PROCEDURE listar_alimentos
 @numero_proceso VARCHAR(25)
 AS
-SELECT id_alimento,item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,numero_proceso FROM alimentacion WHERE numero_proceso=@numero_proceso
+SELECT id_alimento,item,cantidad,valor_oficial,valor_ofertado,ValorOficialTotal,ValorOfertadoTotal,C_Entregada,C_Restante,numero_proceso FROM alimentacion WHERE numero_proceso=@numero_proceso
 GO
 
 --Procedimiento almacenado para actualizar los alimentos
@@ -286,7 +288,7 @@ CREATE PROCEDURE ActualizarAlimento
 @C_Restante INT,
 @numero_proceso VARCHAR(25)
 AS
-UPDATE alimentacion SET item=@item,cantidad=@cantidad,valor_oficial=@valor_oficial,valor_ofertado=@valor_ofertado,C_Entregada=C_Entregada,C_Restante=@C_Restante WHERE numero_proceso=@numero_proceso AND id_alimento=@id_alimento
+UPDATE alimentacion SET item=@item,cantidad=@cantidad,valor_oficial=@valor_oficial,valor_ofertado=@valor_ofertado,ValorOficialTotal=@cantidad*@valor_oficial,ValorOfertadoTotal=@cantidad*valor_ofertado,C_Entregada=@C_Entregada,C_Restante=@C_Restante WHERE numero_proceso=@numero_proceso AND id_alimento=@id_alimento
 GO
 
 --Procedimiento almacenado para eliminar los items de alimentos.
@@ -295,7 +297,7 @@ CREATE PROCEDURE EliminarAlimento
 @numero_proceso VARCHAR(25)
 AS
 DELETE FROM alimentacion WHERE id_alimento=@id_alimento AND numero_proceso=@numero_proceso
-
+GO
 
 
 
@@ -305,7 +307,7 @@ DELETE FROM alimentacion WHERE id_alimento=@id_alimento AND numero_proceso=@nume
 
 
 --se insertan usuarios
-EXEC validar_usuario 'duban',1234
+EXEC validar_usuario'duban',1234
 GO
 EXEC validar_usuario 'carlos',1234
 GO
@@ -319,7 +321,6 @@ EXEC crear_proyecto '4001','snake','1000','pez foca'
 EXEC crear_proyecto '40001','spider','10000','iguana'
 GO
 
-truncate table proyectos
 -- items de recurso humano
 EXEC agregar_recurso 'sistemas','culo',1,5,4,'hola bb','41'
 EXEC agregar_recurso 'ciencias','mosca',2,50,20,'hola bb','41'
@@ -338,13 +339,3 @@ EXEC agregar_alimento'planeta',90,45,500,15,7,'4'
 GO
 
 
-select * from proyectos
-
-exec asignar_pto 'RECURSO HUMANO',5,'40001'
-
-select V_Ofertado from recursos_humanos
-group by V_Ofertado
-select * from recursos_humanos
-sum(V_Ofertado) 
-
-exec modificar_recurso 'perico','carlos',12,5000,1000,'30 febrero pago','40001',2
