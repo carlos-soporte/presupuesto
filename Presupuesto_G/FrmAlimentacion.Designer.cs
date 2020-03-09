@@ -123,7 +123,7 @@
             // dataGridView1
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DodgerBlue;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -133,9 +133,9 @@
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -145,7 +145,7 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
@@ -175,7 +175,7 @@
             this.lblTipoItem.AutoSize = true;
             this.lblTipoItem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTipoItem.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoItem.ForeColor = System.Drawing.Color.Red;
+            this.lblTipoItem.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblTipoItem.Location = new System.Drawing.Point(506, 23);
             this.lblTipoItem.Name = "lblTipoItem";
             this.lblTipoItem.Size = new System.Drawing.Size(157, 24);
@@ -188,8 +188,8 @@
             this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnActualizar.Enabled = false;
             this.btnActualizar.FlatAppearance.BorderSize = 0;
-            this.btnActualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnActualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Location = new System.Drawing.Point(1055, 224);
             this.btnActualizar.Name = "btnActualizar";
@@ -205,8 +205,8 @@
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.Enabled = false;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Location = new System.Drawing.Point(1055, 274);
             this.btnEliminar.Name = "btnEliminar";
@@ -238,8 +238,8 @@
             this.btnAsignar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAsignar.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
             this.btnAsignar.FlatAppearance.BorderSize = 0;
-            this.btnAsignar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
-            this.btnAsignar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnAsignar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btnAsignar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAsignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsignar.Location = new System.Drawing.Point(408, 60);
             this.btnAsignar.Name = "btnAsignar";
@@ -304,7 +304,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.textBox3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.textBox3.Location = new System.Drawing.Point(295, 534);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
@@ -331,7 +331,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.textBox4.BackColor = System.Drawing.Color.LightSkyBlue;
             this.textBox4.Location = new System.Drawing.Point(697, 585);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
@@ -340,7 +340,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.textBox5.BackColor = System.Drawing.Color.LightSkyBlue;
             this.textBox5.Location = new System.Drawing.Point(697, 534);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
@@ -358,7 +358,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.textBox6.BackColor = System.Drawing.Color.LightSkyBlue;
             this.textBox6.Location = new System.Drawing.Point(295, 588);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
@@ -405,8 +405,8 @@
             this.btnGuardar.BackColor = System.Drawing.Color.DarkGray;
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
-            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Location = new System.Drawing.Point(1055, 151);
             this.btnGuardar.Name = "btnGuardar";
@@ -421,8 +421,8 @@
             this.btnMenu.BackColor = System.Drawing.Color.DarkGray;
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
-            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenu.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.Location = new System.Drawing.Point(1, -1);
@@ -438,8 +438,8 @@
             this.btnItem.BackColor = System.Drawing.Color.DarkGray;
             this.btnItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnItem.FlatAppearance.BorderSize = 0;
-            this.btnItem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
-            this.btnItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnItem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btnItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnItem.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnItem.Location = new System.Drawing.Point(130, -1);
