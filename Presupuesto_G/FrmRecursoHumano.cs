@@ -153,6 +153,16 @@ namespace Presupuesto_G
                
 
                 dataGridView1.DataSource = llenarGv().Tables[0];
+                dataGridView1.Columns[1].HeaderText = "Nombre Profesional";
+                dataGridView1.Columns[2].HeaderText = "Tiempo en meses";
+                dataGridView1.Columns[3].HeaderText = "Valor Oficial";
+                dataGridView1.Columns[4].HeaderText = "Valor Ofertado";
+                dataGridView1.Columns[5].HeaderText = "Valor Oficial Total";
+                dataGridView1.Columns[6].HeaderText = "Valor Ofertado Total";
+                dataGridView1.Columns[7].HeaderText = "Descripcion";
+                dataGridView1.Columns[8].HeaderText = "ID";
+                dataGridView1.Columns[9].HeaderText = "Numero de proceso";
+                
                 txtPtoOficial.Text= st.Tables[0].Rows[0][0].ToString();
                
             }
@@ -284,14 +294,15 @@ namespace Presupuesto_G
         private void btnModificar_Click(object sender, EventArgs e)
         {
 
-            if (numero_proceso2 == null)
+            if (id_recurso>0 && numero_proceso2 != null)
             {
-                MessageBox.Show("seleccione un item porfavor");
+                this.Hide();
+                new FrmModificarRecursos(cargo, n_profesional, t_meses, v_oficial, v_ofertado, observacion, numero_proceso2, nombre_proyecto2, id_recurso).Show();
+               
             }
             else
             {
-                this.Hide();
-                new FrmModificarRecursos(cargo,n_profesional,t_meses,v_oficial,v_ofertado,observacion,numero_proceso2,nombre_proyecto2,id_recurso).Show();
+                MessageBox.Show("seleccione un item porfavor");
             }
         }
 
@@ -301,13 +312,14 @@ namespace Presupuesto_G
           
                 try
                 {
-                    id_recurso = Convert.ToInt32((dataGridView1.Rows[e.RowIndex].Cells[0].Value));
-                    cargo = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
-                    n_profesional = (string)dataGridView1.Rows[e.RowIndex].Cells[2].Value;
-                    t_meses = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
-                    v_oficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
-                    v_ofertado = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
-                    observacion = (string)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
+                
+                    id_recurso = Convert.ToInt32((dataGridView1.Rows[e.RowIndex].Cells[8].Value));
+                    cargo = (string)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+                    n_profesional = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                    t_meses = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
+                    v_oficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+                    v_ofertado = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+                    observacion = (string)dataGridView1.Rows[e.RowIndex].Cells[7].Value;
                 }
                 catch (Exception)
                 {
