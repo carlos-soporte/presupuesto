@@ -44,9 +44,13 @@ Tiempo_meses INT NOT NULL,
 V_Oficial FLOAT NOT NULL,
 V_Ofertado FLOAT NOT NULL,
 Observaciones VARCHAR(100) NOT NULL,
-numero_proceso VARCHAR(25) NOT NULL
+numero_proceso VARCHAR(25) NOT NULL,
+ValorOficialTotal FLOAT NOT NULL,
+ValorOfertadoTotal FLOAT NOT NULL,
 )
 GO
+
+
 
 --CREAMOS UNA TABLA QUE CONTENDRÀ TODOS LOS ITEMS RELACIONADOS CON LA ALIMENTACIÒN.
 CREATE TABLE alimentacion
@@ -224,14 +228,15 @@ CREATE PROCEDURE agregar_recurso
 @observaciones	VARCHAR(100),
 @numero_proceso VARCHAR(25)
 AS
-INSERT INTO recursos_humanos(Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,Observaciones,numero_proceso) VALUES (@cargo,@profesional,@meses,@valor_oficial,@valor_ofertado,@observaciones,@numero_proceso)
+INSERT INTO recursos_humanos(Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,Observaciones,numero_proceso,ValorOficialTotal,ValorOfertadoTotal) VALUES (@cargo,@profesional,@meses,@valor_oficial,@valor_ofertado,@observaciones,@numero_proceso,(@meses*@valor_oficial),(@meses*@valor_ofertado))
 GO
+
 
 --procedimiento almacenado para listar items de recursos humanos.
 CREATE PROCEDURE listar_recurso
 @numero_proceso VARCHAR(25)
 AS
-SELECT id_recurso,Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,Observaciones,numero_proceso from recursos_humanos WHERE numero_proceso=@numero_proceso
+SELECT Cargo,N_Profesional,Tiempo_meses,V_Oficial,V_Ofertado,ValorOficialTotal,ValorOfertadoTotal,Observaciones,id_recurso,numero_proceso from recursos_humanos WHERE numero_proceso=@numero_proceso
 GO
 
 --procedimiento almacenado para actualizar datos de recurso humano.
@@ -328,6 +333,8 @@ EXEC agregar_recurso 'sociales','hormiga',3,500,200,'hola bb','41'
 EXEC agregar_recurso 'ingles','luna',4,5000,2000,'hola bb','41'
 EXEC agregar_recurso 'calculo','paja',5,50000,20000,'hola bb','41'
 GO
+
+exec listar_recurso '41'
 
 -- items de alimentacion
 
