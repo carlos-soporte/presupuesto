@@ -346,3 +346,8 @@ EXEC agregar_alimento'planeta',90,45,500,15,7,'4'
 GO
 
 
+--consulta para calcular el total de presupuesto ofertado.
+select sum(ValorOfertadoTotal) from alimentacion where numero_proceso='4'
+
+--consulta para calcular total porcentaje ejecutado.
+select convert(FLOAT,sum(C_Entregada)*100)/sum(cantidad) from alimentacion where numero_proceso='4'

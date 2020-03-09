@@ -71,6 +71,7 @@
             // 
             // txtItem
             // 
+            this.txtItem.BackColor = System.Drawing.Color.LightSkyBlue;
             this.txtItem.Location = new System.Drawing.Point(27, 160);
             this.txtItem.Name = "txtItem";
             this.txtItem.Size = new System.Drawing.Size(276, 29);
@@ -96,6 +97,7 @@
             // 
             // txtCantidad
             // 
+            this.txtCantidad.BackColor = System.Drawing.Color.LightSkyBlue;
             this.txtCantidad.Location = new System.Drawing.Point(364, 160);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(80, 29);
@@ -114,6 +116,7 @@
             // 
             // txtV_oficial
             // 
+            this.txtV_oficial.BackColor = System.Drawing.Color.LightSkyBlue;
             this.txtV_oficial.Location = new System.Drawing.Point(469, 160);
             this.txtV_oficial.Name = "txtV_oficial";
             this.txtV_oficial.Size = new System.Drawing.Size(164, 29);
@@ -123,7 +126,9 @@
             // dataGridView1
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -136,7 +141,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -145,8 +150,8 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.EnableHeadersVisualStyles = false;
@@ -226,6 +231,7 @@
             // 
             // txtPresupuestoTotalOficial
             // 
+            this.txtPresupuestoTotalOficial.BackColor = System.Drawing.Color.LightSkyBlue;
             this.txtPresupuestoTotalOficial.Location = new System.Drawing.Point(221, 66);
             this.txtPresupuestoTotalOficial.Name = "txtPresupuestoTotalOficial";
             this.txtPresupuestoTotalOficial.Size = new System.Drawing.Size(172, 29);
@@ -260,6 +266,7 @@
             // 
             // txtV_ofertado
             // 
+            this.txtV_ofertado.BackColor = System.Drawing.Color.LightSkyBlue;
             this.txtV_ofertado.Location = new System.Drawing.Point(653, 160);
             this.txtV_ofertado.Name = "txtV_ofertado";
             this.txtV_ofertado.Size = new System.Drawing.Size(164, 29);
@@ -367,6 +374,7 @@
             // 
             // txtC_entrega
             // 
+            this.txtC_entrega.BackColor = System.Drawing.Color.LightSkyBlue;
             this.txtC_entrega.Location = new System.Drawing.Point(835, 160);
             this.txtC_entrega.Name = "txtC_entrega";
             this.txtC_entrega.Size = new System.Drawing.Size(80, 29);
@@ -376,6 +384,7 @@
             // 
             // txtC_restante
             // 
+            this.txtC_restante.BackColor = System.Drawing.Color.LightSkyBlue;
             this.txtC_restante.Location = new System.Drawing.Point(960, 160);
             this.txtC_restante.Name = "txtC_restante";
             this.txtC_restante.ReadOnly = true;
