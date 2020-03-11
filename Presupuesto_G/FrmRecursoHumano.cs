@@ -145,7 +145,8 @@ namespace Presupuesto_G
             }
             else
             {
-
+                btnModificar.Enabled = false;
+                btnEliminar.Enabled = false;
                 btnAsignar.Text = "Cambiar";
                 txtPtoOficial.Enabled = false;
                 
@@ -271,10 +272,7 @@ namespace Presupuesto_G
                   
 
             }
-            else 
-            {
-                MessageBox.Show("no hay datos seleccionados");
-            }
+           
            
         }
 
@@ -300,10 +298,7 @@ namespace Presupuesto_G
                 new FrmModificarRecursos(cargo, n_profesional, t_meses, v_oficial, v_ofertado, observacion, numero_proceso2, nombre_proyecto2, id_recurso).Show();
                
             }
-            else
-            {
-                MessageBox.Show("seleccione un item porfavor");
-            }
+           
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -320,10 +315,13 @@ namespace Presupuesto_G
                     v_oficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
                     v_ofertado = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
                     observacion = (string)dataGridView1.Rows[e.RowIndex].Cells[7].Value;
-                }
+                btnEliminar.Enabled = true;
+                btnModificar.Enabled = true;
+            }
                 catch (Exception)
                 {
-                    MessageBox.Show("no hay items seleccionados");
+                btnEliminar.Enabled = false;
+                btnModificar.Enabled = false;
                 }
             
             

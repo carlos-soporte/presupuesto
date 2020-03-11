@@ -160,23 +160,36 @@
             // 
             // btnItem
             // 
+            this.btnItem.BackColor = System.Drawing.Color.DarkGray;
+            this.btnItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnItem.FlatAppearance.BorderSize = 0;
+            this.btnItem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnItem.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnItem.Location = new System.Drawing.Point(141, 12);
             this.btnItem.Name = "btnItem";
             this.btnItem.Size = new System.Drawing.Size(126, 35);
             this.btnItem.TabIndex = 41;
             this.btnItem.Text = "Items";
-            this.btnItem.UseVisualStyleBackColor = true;
+            this.btnItem.UseVisualStyleBackColor = false;
             // 
             // btnMenu
             // 
-            this.btnMenu.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.BackColor = System.Drawing.Color.DarkGray;
+            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.Font = new System.Drawing.Font("Arial", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.Location = new System.Drawing.Point(12, 12);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(113, 35);
             this.btnMenu.TabIndex = 40;
             this.btnMenu.Text = "Menù";
-            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.UseVisualStyleBackColor = false;
             // 
             // label15
             // 

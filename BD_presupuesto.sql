@@ -351,3 +351,15 @@ select sum(ValorOfertadoTotal) from alimentacion where numero_proceso='4'
 
 --consulta para calcular total porcentaje ejecutado.
 select convert(FLOAT,sum(C_Entregada)*100)/sum(cantidad) from alimentacion where numero_proceso='4'
+
+--para revisar
+CREATE PROCEDURE operaciones_recursos
+TotalPtoOfertado FLOAT,
+TotalGanancias FLOAT,
+TotalPEjecutado FLOAT,
+TotalPGanancias FLOAT
+AS
+SELECT @TotalPtoOfertado=sum(V_Ofertado),@TotalPEjecutado=convert(FLOAT,sum(C_Entregada)*100)/sum(cantidad) from recurso_humano where numero_proceso='41'
+GO
+
+EXEC operaciones_recursos

@@ -69,22 +69,34 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Location = new System.Drawing.Point(1158, 429);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(126, 44);
             this.btnEliminar.TabIndex = 26;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
+            this.btnModificar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Location = new System.Drawing.Point(1158, 367);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(126, 44);
             this.btnModificar.TabIndex = 25;
             this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // lbRecursoHumano
@@ -141,12 +153,18 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Location = new System.Drawing.Point(640, 109);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(137, 38);
             this.btnGuardar.TabIndex = 22;
             this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtVofertado
@@ -197,12 +215,18 @@
             // 
             // btnAsignar
             // 
+            this.btnAsignar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnAsignar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAsignar.FlatAppearance.BorderSize = 0;
+            this.btnAsignar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAsignar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAsignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsignar.Location = new System.Drawing.Point(461, 119);
             this.btnAsignar.Name = "btnAsignar";
             this.btnAsignar.Size = new System.Drawing.Size(137, 35);
             this.btnAsignar.TabIndex = 31;
             this.btnAsignar.Text = "Asignar";
-            this.btnAsignar.UseVisualStyleBackColor = true;
+            this.btnAsignar.UseVisualStyleBackColor = false;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
             // txtPtoOficial
@@ -297,7 +321,9 @@
             // btnMenu
             // 
             this.btnMenu.BackColor = System.Drawing.Color.DarkGray;
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenu.Location = new System.Drawing.Point(1, 1);
@@ -311,6 +337,7 @@
             // btnMenuItems
             // 
             this.btnMenuItems.BackColor = System.Drawing.Color.DarkGray;
+            this.btnMenuItems.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuItems.FlatAppearance.BorderSize = 0;
             this.btnMenuItems.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnMenuItems.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
