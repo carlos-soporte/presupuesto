@@ -1,6 +1,7 @@
-USE MASTER
+USE master
+GO
 DROP DATABASE Presupuesto
-
+GO
 --CREAMOS LA BASE DE DATOS
 CREATE DATABASE Presupuesto;
 GO
@@ -90,6 +91,17 @@ CREATE TABLE asignar
 nombre VARCHAR(25) NOT NULL,
 valor FLOAT NOT NULL,
 numero_proceso VARCHAR(25) NOT NULL
+)
+GO
+
+--tabla que me mostrará las estadisticas de alimentación.
+CREATE TABLE EstadisticasAlimentacion
+(
+TotalOfertado MONEY NOT NULL,
+Ejecutado MONEY ,
+Ganancia MONEY ,
+PorcentajeGanancia MONEY,
+numero_proceso VARCHAR(25)
 )
 GO
 
@@ -275,12 +287,14 @@ AS
 INSERT INTO alimentacion(item,cantidad,valor_oficial,valor_ofertado,C_Entregada,C_Restante,ValorOficialTotal,ValorOfertadoTotal,numero_proceso) VALUES (@item,@cantidad,@valor_oficial,@valor_ofertado,@C_Entregada,@C_Restante,@cantidad*@valor_oficial,@cantidad*@valor_ofertado,@numero_proceso)
 GO
 
+
 --Procedimiento almacenado para mostrar alimentos
 CREATE PROCEDURE listar_alimentos
 @numero_proceso VARCHAR(25)
 AS
 SELECT id_alimento,item,cantidad,valor_oficial,valor_ofertado,ValorOficialTotal,ValorOfertadoTotal,C_Entregada,C_Restante,numero_proceso FROM alimentacion WHERE numero_proceso=@numero_proceso
 GO
+
 
 --Procedimiento almacenado para actualizar los alimentos
 CREATE PROCEDURE ActualizarAlimento
@@ -293,7 +307,7 @@ CREATE PROCEDURE ActualizarAlimento
 @C_Restante INT,
 @numero_proceso VARCHAR(25)
 AS
-UPDATE alimentacion SET item=@item,cantidad=@cantidad,valor_oficial=@valor_oficial,valor_ofertado=@valor_ofertado,ValorOficialTotal=@cantidad*@valor_oficial,ValorOfertadoTotal=@cantidad*valor_ofertado,C_Entregada=@C_Entregada,C_Restante=@C_Restante WHERE numero_proceso=@numero_proceso AND id_alimento=@id_alimento
+UPDATE alimentacion SET item=@item,cantidad=@cantidad,valor_oficial=@valor_oficial,valor_ofertado=@valor_ofertado,ValorOficialTotal=@cantidad*@valor_oficial,ValorOfertadoTotal=@cantidad*@valor_ofertado,C_Entregada=@C_Entregada,C_Restante=@C_Restante WHERE numero_proceso=@numero_proceso AND id_alimento=@id_alimento
 GO
 
 --Procedimiento almacenado para eliminar los items de alimentos.
@@ -304,7 +318,65 @@ AS
 DELETE FROM alimentacion WHERE id_alimento=@id_alimento AND numero_proceso=@numero_proceso
 GO
 
+--Creamos un procedimiento almacenado para listar las estadisiticas de la alimentación.
+CREATE PROCEDURE SP_ListarEstadisticas
+@numero_proceso VARCHAR(25)
+AS
+BEGIN
+	SELECT * FROM EstadisticasAlimentacion
+END
+GO
 
+--creamos un procedimiento almacenado que se encarga de listarme las estadisticas de alimentación y de actualizarme tales datos.
+CREATE PROCEDURE SP_RetornarAlimentacion
+@numero_proceso VARCHAR(25)
+AS
+BEGIN
+	--declaramos algunas variables para almacenar los campos estadísticos.
+	DECLARE @TotalOfertado MONEY,
+	        @Ejecutado MONEY,
+			@Ganancia MONEY,
+			@PorcentajeGanancia MONEY,
+			@PresupuestoOficialTotal MONEY
+
+	--consulta para calcular el total de presupuesto ofertado.
+	select @TotalOfertado = sum(ValorOfertadoTotal) from alimentacion where numero_proceso=@numero_proceso
+
+	--consulta para calcular total porcentaje ejecutado Y se aproxima a dos cifras.
+	select  @Ejecutado=ROUND(convert(FLOAT,sum(C_Entregada)*100)/sum(cantidad),2,0) from asignar join alimentacion ON asignar.numero_proceso=alimentacion.numero_proceso
+	where alimentacion.numero_proceso=@numero_proceso
+
+	--traemos el dato del presupuesto oficial para la alimentacion
+	select @PresupuestoOficialTotal=valor FROM asignar WHERE nombre='ALIMENTACION' AND numero_proceso=@numero_proceso
+
+	--calculamos la ganancia
+	select @Ganancia=@PresupuestoOficialTotal-@TotalOfertado
+
+	--calculamos el porcentaje de ganancia.
+	select @PorcentajeGanancia=ROUND((@Ganancia/@PresupuestoOficialTotal*100),2,0)
+
+	--insertamos o actualizamos la tabla según sea el caso con los datos correspondientes
+	if((select count(numero_proceso) from EstadisticasAlimentacion WHERE numero_proceso=@numero_proceso)>0)
+	BEGIN
+		UPDATE EstadisticasAlimentacion
+		SET
+			TotalOfertado=@TotalOfertado,
+			Ejecutado=@Ejecutado,
+			Ganancia=@Ganancia,
+			PorcentajeGanancia=@PorcentajeGanancia
+		WHERE numero_proceso=@numero_proceso
+	END
+
+	ELSE
+	BEGIN
+		INSERT INTO EstadisticasAlimentacion(TotalOfertado,Ejecutado,Ganancia,PorcentajeGanancia,numero_proceso) 
+		VALUES (@TotalOfertado,@Ejecutado,@Ganancia,@PorcentajeGanancia,@numero_proceso)
+	END
+	
+	--llamamos el procedimiento almacenado para que nos liste los cambios generados o para mostrar los campos.
+	EXEC SP_ListarEstadisticas @numero_proceso
+END
+GO
 
 
 
@@ -312,9 +384,10 @@ GO
 
 
 --se insertan usuarios
-EXEC validar_usuario'duban',1234
+INSERT INTO usuarios(usuario,contraseña) VALUES ('duban','1234')
 GO
-EXEC validar_usuario 'carlos',1234
+
+INSERT INTO usuarios(usuario,contraseña) VALUES ('carlos','1234')
 GO
 
 -- se crean  proyectos
@@ -334,25 +407,16 @@ EXEC agregar_recurso 'ingles','luna',4,5000,2000,'hola bb','41'
 EXEC agregar_recurso 'calculo','paja',5,50000,20000,'hola bb','41'
 GO
 
-exec listar_recurso '41'
-
 -- items de alimentacion
-
-EXEC agregar_alimento'tuflor',1,11,5.5,100,8,'4'
-EXEC agregar_alimento 'pera',10,22,11,200,4,'4'
-EXEC agregar_alimento 'sol',101,33,16.5,300,2,'4'
-EXEC agregar_alimento 'estrella',44,22,400,2000,1,'4'
-EXEC agregar_alimento'planeta',90,45,500,15,7,'4'
+EXEC agregar_alimento 'tuflor',50,1200,800,40,10,'4'
+EXEC agregar_alimento 'pera',100,500,400,50,50,'4'
+EXEC agregar_alimento 'sol',20,1100,1000,0,20,'4'
+EXEC agregar_alimento 'estrella',5,5000,4500,4,1,'4'
+EXEC agregar_alimento 'planeta',90,600,500,60,30,'4'
 GO
 
 
---consulta para calcular el total de presupuesto ofertado.
-select sum(ValorOfertadoTotal) from alimentacion where numero_proceso='4'
-
---consulta para calcular total porcentaje ejecutado.
-select convert(FLOAT,sum(C_Entregada)*100)/sum(cantidad) from alimentacion where numero_proceso='4'
-
---para revisar
+exec SP_RetornarAlimentacion '4'
 CREATE PROCEDURE operaciones_recursos
 TotalPtoOfertado FLOAT,
 TotalGanancias FLOAT,
@@ -361,5 +425,6 @@ TotalPGanancias FLOAT
 AS
 SELECT @TotalPtoOfertado=sum(V_Ofertado),@TotalPEjecutado=convert(FLOAT,sum(C_Entregada)*100)/sum(cantidad) from recurso_humano where numero_proceso='41'
 GO
+
 
 EXEC operaciones_recursos

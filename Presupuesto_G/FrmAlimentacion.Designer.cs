@@ -52,13 +52,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTotalOfertado = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtPorcentajeGanancias = new System.Windows.Forms.TextBox();
+            this.txtGanancias = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtPorcentajeEjecutado = new System.Windows.Forms.TextBox();
             this.txtC_entrega = new System.Windows.Forms.TextBox();
             this.txtC_restante = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -125,6 +125,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
@@ -309,14 +310,14 @@
             this.label10.TabIndex = 24;
             this.label10.Text = "Total Presupuesto Ofertado";
             // 
-            // textBox3
+            // txtTotalOfertado
             // 
-            this.textBox3.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.textBox3.Location = new System.Drawing.Point(295, 534);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(172, 29);
-            this.textBox3.TabIndex = 25;
+            this.txtTotalOfertado.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.txtTotalOfertado.Location = new System.Drawing.Point(295, 534);
+            this.txtTotalOfertado.Name = "txtTotalOfertado";
+            this.txtTotalOfertado.ReadOnly = true;
+            this.txtTotalOfertado.Size = new System.Drawing.Size(172, 29);
+            this.txtTotalOfertado.TabIndex = 25;
             // 
             // label11
             // 
@@ -336,23 +337,23 @@
             this.label12.TabIndex = 27;
             this.label12.Text = "Total % ganancia";
             // 
-            // textBox4
+            // txtPorcentajeGanancias
             // 
-            this.textBox4.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.textBox4.Location = new System.Drawing.Point(697, 585);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(172, 29);
-            this.textBox4.TabIndex = 28;
+            this.txtPorcentajeGanancias.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.txtPorcentajeGanancias.Location = new System.Drawing.Point(697, 585);
+            this.txtPorcentajeGanancias.Name = "txtPorcentajeGanancias";
+            this.txtPorcentajeGanancias.ReadOnly = true;
+            this.txtPorcentajeGanancias.Size = new System.Drawing.Size(172, 29);
+            this.txtPorcentajeGanancias.TabIndex = 28;
             // 
-            // textBox5
+            // txtGanancias
             // 
-            this.textBox5.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.textBox5.Location = new System.Drawing.Point(697, 534);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(172, 29);
-            this.textBox5.TabIndex = 29;
+            this.txtGanancias.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.txtGanancias.Location = new System.Drawing.Point(697, 534);
+            this.txtGanancias.Name = "txtGanancias";
+            this.txtGanancias.ReadOnly = true;
+            this.txtGanancias.Size = new System.Drawing.Size(172, 29);
+            this.txtGanancias.TabIndex = 29;
             // 
             // label13
             // 
@@ -363,14 +364,14 @@
             this.label13.TabIndex = 30;
             this.label13.Text = "Total % ejecutado";
             // 
-            // textBox6
+            // txtPorcentajeEjecutado
             // 
-            this.textBox6.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.textBox6.Location = new System.Drawing.Point(295, 588);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(172, 29);
-            this.textBox6.TabIndex = 31;
+            this.txtPorcentajeEjecutado.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.txtPorcentajeEjecutado.Location = new System.Drawing.Point(295, 588);
+            this.txtPorcentajeEjecutado.Name = "txtPorcentajeEjecutado";
+            this.txtPorcentajeEjecutado.ReadOnly = true;
+            this.txtPorcentajeEjecutado.Size = new System.Drawing.Size(172, 29);
+            this.txtPorcentajeEjecutado.TabIndex = 31;
             // 
             // txtC_entrega
             // 
@@ -473,13 +474,13 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtC_restante);
             this.Controls.Add(this.txtC_entrega);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtPorcentajeEjecutado);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtGanancias);
+            this.Controls.Add(this.txtPorcentajeGanancias);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtTotalOfertado);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -534,13 +535,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTotalOfertado;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtPorcentajeGanancias;
+        private System.Windows.Forms.TextBox txtGanancias;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtPorcentajeEjecutado;
         private System.Windows.Forms.TextBox txtC_entrega;
         private System.Windows.Forms.TextBox txtC_restante;
         private System.Windows.Forms.Label label14;

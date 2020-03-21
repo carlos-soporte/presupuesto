@@ -12,7 +12,11 @@ namespace Presupuesto_G
     {
        public static DataSet consultar(String query)
         {
-            SqlConnection connection = new SqlConnection("server=192.168.1.181; database=Presupuesto ; user id=duban_adm; password=3ps1-sqlbd.*");
+            //si estamos en casa, usar esta:
+            SqlConnection connection = new SqlConnection("server=.; database=Presupuesto ; integrated security=true");
+
+            //si estamos en la empresa, usar esta:
+            //SqlConnection connection = new SqlConnection("server=192.168.1.181; database=Presupuesto ; user id=duban_adm; password=3ps1-sqlbd.*");
             DataSet ds = new DataSet();
             try
             {              

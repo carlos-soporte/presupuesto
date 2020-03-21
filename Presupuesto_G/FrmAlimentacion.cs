@@ -169,6 +169,8 @@ namespace Presupuesto_G
                 MessageBox.Show("items guardados con exito");
                 dataGridView1.DataSource = llenarGv().Tables[0];
 
+                RellenarEstadisticas();
+
                 txtItem.Text = "";
                 txtCantidad.Text = "0";
                 txtV_oficial.Text = "0";
@@ -207,6 +209,8 @@ namespace Presupuesto_G
                 dataGridView1.Columns[7].HeaderText = "Cantidad Entregada";
                 dataGridView1.Columns[8].HeaderText = "Cantidad Restante";
                 dataGridView1.Columns[9].HeaderText = "Numero de proceso";
+
+                RellenarEstadisticas();
                 
             }
             catch (Exception)
@@ -262,12 +266,12 @@ namespace Presupuesto_G
             try
             {
                 id_alimento = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                item = (string)dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                item = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 cantidad = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
-                ValorOficial = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
-                ValorOfertado = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
-                CantidadEntregada = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
-                CantidadRestante = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
+                ValorOficial = Convert.ToDouble(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+                ValorOfertado = Convert.ToDouble(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
+                CantidadEntregada = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value);
+                CantidadRestante = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value);
 
                 btnActualizar.Enabled = true;
                 btnEliminar.Enabled = true;
@@ -424,6 +428,7 @@ namespace Presupuesto_G
                     btnActualizar.Enabled = false;
                     btnEliminar.Enabled = false;
                     dataGridView1.DataSource = llenarGv().Tables[0];
+                    RellenarEstadisticas();
 
                 }
                 catch (Exception)
@@ -556,6 +561,7 @@ namespace Presupuesto_G
                     txtC_restante.Text = "0";
 
                     dataGridView1.DataSource = llenarGv().Tables[0];
+                    RellenarEstadisticas();
                 }
                 catch (Exception)
                 {
@@ -564,6 +570,18 @@ namespace Presupuesto_G
                 }
             }
             
+        }
+
+        public void RellenarEstadisticas()
+        {
+            var ds = new DataSet();
+            string query = "EXEC SP_RetornarAlimentacion '" + numero_proceso2 + "'";
+            ds = bd.consultar(query);
+
+            txtTotalOfertado.Text = "$ "+ds.Tables[0].Rows[0][0].ToString();
+            txtPorcentajeEjecutado.Text= ds.Tables[0].Rows[0][1].ToString()+" %";
+            txtGanancias.Text= "$ " + ds.Tables[0].Rows[0][2].ToString();
+            txtPorcentajeGanancias.Text= ds.Tables[0].Rows[0][3].ToString() + " %";
         }
     }
 }
