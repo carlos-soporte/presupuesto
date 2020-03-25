@@ -91,7 +91,7 @@ namespace Presupuesto_G
 
             if (btnAsignar.Text == "Guardar")
             {
-                string query = "exec modificar_pto '" + lblTipoItem.Text + "'," + txtPresupuestoTotalOficial.Text + "','" + numero_proceso2 + "'";
+                string query = "exec modificar_pto '" + lblTipoItem.Text + "'," + txtPresupuestoTotalOficial.Text + ",'" + numero_proceso2 + "'";
                 try
                 {
                     bd.consultar(query);

@@ -49,7 +49,7 @@ namespace Presupuesto_G
         private void btnOtros_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new FrmOtros().Show();
+            new FrmOtros(numero_proceso2).Show();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
